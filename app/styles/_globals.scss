@@ -1,0 +1,79 @@
+@font-face {
+  font-family: "Neutral";
+  src: url("/fonts/neutral/NeutralSans-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Neutral";
+  src: url("/fonts/neutral/NeutralSans-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Neutral";
+  src: url("/fonts/neutral/NeutralSans-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@media screen and (min-width: 1200px) {
+  br {
+    &.large {
+      display: block;
+    }
+    &.medium {
+      display: none;
+    }
+    &.small {
+      display: none;
+    }
+  }
+}
+
+@media screen and (min-width: 1025px) and (max-width: 1199px) {
+  br {
+    &.large {
+      display: block;
+    }
+    &.medium {
+      display: none;
+    }
+    &.small {
+      display: none;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  br {
+    &.large {
+      display: none;
+    }
+    &.medium {
+      display: block;
+    }
+    &.small {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  br {
+    &.large {
+      display: none;
+    }
+    &.medium {
+      display: none;
+    }
+    &.small {
+      display: block;
+    }
+  }
+}

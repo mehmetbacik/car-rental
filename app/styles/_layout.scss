@@ -1,0 +1,7 @@
+.container {
+  @include container;
+}
+
+body {
+  font-family: $font-family-base;
+}
