@@ -1,0 +1,66 @@
+.hero-ads {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-unit * 8;
+  margin: $spacing-unit * 8 0;
+}
+
+.ad-card {
+  padding: $spacing-unit * 8;
+  border-radius: 10px;
+  color: $color-white;
+  background-size: cover;
+
+  &--blue {
+    background-color: $information-500;
+  }
+  &--light {
+    background-color: $primary-neutral-palette-500;
+  }
+
+  h2 {
+    max-width: 250px;
+    font-size: $font-size-base * 2;
+    margin-bottom: $spacing-unit * 4;
+  }
+  p {
+    max-width: 250px;
+    margin-bottom: $spacing-unit * 6;
+  }
+}
+
+.booking-wrapper {
+  display: flex;
+  align-items: center;
+  gap: $spacing-unit * 4;
+  margin-bottom: $spacing-unit * 8;
+  position: relative;
+
+  .switch-btn {
+    background: $primary-neutral-palette-500;
+    color: $color-white;
+    border: none;
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba($primary-neutral-palette-500, 0.3);
+    cursor: pointer;
+    z-index: 2;
+  }
+}
+
+.car-section {
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: $spacing-unit * 6;
+    color: $secondary-300;
+    font-weight: 600;
+  }
+}
+
+.car-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: $spacing-unit * 8;
+}

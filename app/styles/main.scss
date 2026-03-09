@@ -4,5 +4,14 @@
 @import 'mixin';
 @import 'layout';
 
+//Pages
+@import 'pages/home';
+
 //Layout
 @import 'layout/header';
+
+//Shared
+@import 'shared/bookingCard';
+
+//Cars
+@import 'cars/carCard';

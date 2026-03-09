@@ -6,7 +6,7 @@ import Header from '~/components/layout/Header.vue';
 <template>
   <div class="layout-wrapper">
     <AppGlobalLoader />
-    <Header />
+    <LayoutHeader />
     <main class="main">
       <slot />
     </main>

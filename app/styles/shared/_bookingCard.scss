@@ -1,0 +1,40 @@
+.booking-card {
+  background: $color-white;
+  padding: $spacing-unit * 6;
+  border-radius: 10px;
+  flex: 1;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: $spacing-unit;
+    margin-bottom: $spacing-unit * 4;
+    font-weight: 600;
+  }
+
+  &__inputs {
+    display: flex;
+    gap: $spacing-unit * 6;
+
+    .input-group {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+
+      label {
+        font-weight: 700;
+        font-size: $font-size-base * 0.9;
+        margin-bottom: $spacing-unit;
+      }
+
+      select,
+      input {
+        border: none;
+        background: transparent;
+        color: $secondary-300;
+        font-size: $font-size-base * 0.8;
+        outline: none;
+      }
+    }
+  }
+}
