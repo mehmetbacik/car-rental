@@ -1,0 +1,131 @@
+.car-card {
+  background: $color-white;
+  padding: $spacing-unit * 6;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-unit * 6;
+  transition: $transition-base;
+
+  &:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    .name {
+      font-size: $font-size-base * 1.25;
+      font-weight: 700;
+      color: $secondary-500;
+      margin: 0;
+    }
+
+    .type {
+      font-size: $font-size-base * 0.85;
+      color: $secondary-300;
+      font-weight: 600;
+    }
+
+    .favorite-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: $font-size-base * 1.2;
+      transition: transform 0.2s;
+
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+  }
+
+  &__image-wrapper {
+    position: relative;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: $spacing-unit * 4 0;
+
+    .car-image {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      z-index: 2;
+    }
+
+    .image-shadow {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 20px;
+      background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0),
+        rgba(0, 0, 0, 0.05)
+      );
+      filter: blur(10px);
+    }
+  }
+
+  &__specs {
+    display: flex;
+    justify-content: space-between;
+
+    .spec-item {
+      display: flex;
+      align-items: center;
+      gap: $spacing-unit;
+      color: $secondary-300;
+      font-size: $font-size-base * 0.85;
+      font-weight: 500;
+    }
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+
+    .price-box {
+      .current-price {
+        .value {
+          font-size: $font-size-base * 1.25;
+          font-weight: 700;
+          color: $secondary-500;
+        }
+        .unit {
+          font-size: $font-size-base * 0.85;
+          color: $secondary-300;
+        }
+      }
+      .old-price {
+        display: block;
+        text-decoration: line-through;
+        color: $secondary-300;
+        font-size: $font-size-base * 0.85;
+        margin-top: $spacing-unit;
+      }
+    }
+
+    .btn-rent {
+      background: $primary-neutral-palette-700;
+      color: $color-white;
+      padding-block: $spacing-unit * 3;
+      padding-inline: $spacing-unit * 5;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: $font-size-base * 0.9;
+      transition: opacity 0.2s;
+
+      &:hover {
+        opacity: 0.9;
+      }
+    }
+  }
+}

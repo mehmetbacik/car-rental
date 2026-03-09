@@ -37,6 +37,9 @@
   position: relative;
 
   .switch-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background: $primary-neutral-palette-500;
     color: $color-white;
     border: none;
