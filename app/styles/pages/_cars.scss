@@ -1,0 +1,23 @@
+.category-layout {
+  display: flex;
+  gap: $spacing-unit * 8;
+  padding-top: $spacing-unit * 8;
+}
+
+.main-content {
+  flex: 1;
+}
+
+.pagination-wrapper {
+  margin: $spacing-unit * 16 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-unit * 4;
+
+  .car-count {
+    color: $secondary-300;
+    font-weight: 600;
+    font-size: $font-size-base * 0.9;
+  }
+}
