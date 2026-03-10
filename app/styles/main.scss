@@ -7,6 +7,7 @@
 //Pages
 @import 'pages/home';
 @import 'pages/cars';
+@import 'pages/dashboard';
 
 //Layout
 @import 'layout/header';
@@ -17,3 +18,6 @@
 //Cars
 @import 'cars/carCard';
 @import 'cars/filterSidebar';
+
+//Admin
+@import 'admin/admin';

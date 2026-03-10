@@ -1,0 +1,25 @@
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: $spacing-unit * 8;
+}
+
+.card {
+  background: $color-white;
+  padding: $spacing-unit * 6;
+  border-radius: 10px;
+
+  h3 {
+    margin-bottom: $spacing-unit * 6;
+  }
+}
+
+.mock-map {
+  height: 200px;
+  background: $information-100;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: $spacing-unit * 6;
+}
