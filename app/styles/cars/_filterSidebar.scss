@@ -1,0 +1,39 @@
+.filter-sidebar {
+  background: $color-white;
+  padding: $spacing-unit * 8;
+  width: 250px;
+  min-height: 100vh;
+
+  .filter-group {
+    margin-bottom: $spacing-unit * 10;
+
+    &__title {
+      font-size: $font-size-base * 0.75;
+      color: $secondary-300;
+      letter-spacing: 0.1em;
+      margin-bottom: $spacing-unit * 6;
+    }
+
+    .filter-item {
+      display: flex;
+      align-items: center;
+      gap: $spacing-unit * 3;
+      margin-bottom: $spacing-unit * 4;
+
+      label {
+        font-weight: 600;
+        color: $secondary-400;
+        cursor: pointer;
+        span {
+          color: $secondary-300;
+          font-weight: 400;
+        }
+      }
+    }
+  }
+
+  .price-range {
+    width: 100%;
+    accent-color: $primary-neutral-palette-700;
+  }
+}
