@@ -1,0 +1,30 @@
+.donut-chart-mock {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 20px solid $primary-neutral-palette-700;
+  border-left-color: $success-700;
+  border-bottom-color: $error-700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  .center-text {
+    text-align: center;
+  }
+}
+.chart-legend {
+  margin-top: $spacing-unit * 8;
+  list-style: none;
+  li {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: $spacing-unit * 2;
+    color: $secondary-300;
+    em {
+      font-style: normal;
+      color: $secondary-400;
+      font-weight: 600;
+    }
+  }
+}
