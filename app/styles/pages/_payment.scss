@@ -1,0 +1,45 @@
+.payment-grid {
+  display: grid;
+  grid-template-columns: 2fr 1.2fr;
+  gap: $spacing-unit * 8;
+  margin-top: $spacing-unit * 8;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin-bottom: $spacing-unit * 4;
+  label {
+    font-weight: 600;
+    margin-bottom: $spacing-unit * 2;
+  }
+  input {
+    padding: $spacing-unit * 4;
+    background: $secondary-300;
+    border: none;
+    border-radius: 10px;
+  }
+}
+
+.payment-summary {
+  .summary-car {
+    display: flex;
+    gap: $spacing-unit * 4;
+    align-items: center;
+    img {
+      width: 100px;
+      background: $primary-neutral-palette-700;
+      border-radius: 10px;
+      padding: 10px;
+    }
+  }
+  .summary-prices {
+    margin: $spacing-unit * 6 0;
+    .row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: $spacing-unit * 2;
+    }
+  }
+}
