@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import type { Car } from "../../types/car";
-import carsData from "@/data/cars.json";
+import { carsData } from "@/data/carsData";
 
 definePageMeta({
   layout: "admin",

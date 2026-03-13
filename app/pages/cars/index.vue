@@ -1,5 +1,8 @@
 <script setup lang="ts">
-import carsData from "@/data/cars.json";
+import { ref } from "vue";
+import { carsData } from "@/data/carsData";
+
+const cars = ref(carsData);
 
 const displayCount = ref(4);
 const allCars = ref([...carsData, ...carsData, ...carsData]);
@@ -12,7 +15,6 @@ const showMore = () => {
 };
 
 const SwitchIconPath = "/icons/switch.svg";
-
 </script>
 
 <template>
@@ -30,7 +32,7 @@ const SwitchIconPath = "/icons/switch.svg";
         </section>
 
         <div class="car-grid">
-          <CarsCarCard v-for="car in displayedCars" :key="car.id" :car="car" />
+          <CarsCarCard v-for="car in cars" :key="car.id" :car="car" />
         </div>
 
         <div v-if="displayCount < allCars.length" class="pagination-wrapper">

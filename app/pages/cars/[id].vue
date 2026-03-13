@@ -1,11 +1,25 @@
 <script setup lang="ts">
-import carsData from "@/data/cars.json";
+import { ref, computed, watch } from "vue";
+import { useRoute } from "vue-router";
+import { carsData } from "@/data/carsData";
+import type { carType } from "@/types/cars";
+
 const route = useRoute();
-const car = computed(
-  () => carsData.find((c) => c.id === route.params.id) || carsData[0],
-);
+
+const car = computed<carType>(() => {
+  const foundCar = carsData.find((c) => c.id === route.params.id);
+  return (foundCar || carsData[0]) as carType;
+});
 
 const mainImage = ref(car.value.image);
+
+watch(
+  () => car.value.id,
+  () => {
+    mainImage.value = car.value.image;
+  },
+);
+
 const reviews = [
   {
     id: 1,
@@ -27,22 +41,25 @@ const reviews = [
 </script>
 
 <template>
-  <div class="car-detail container">
+  <div v-if="car" class="car-detail container">
     <div class="detail-grid">
       <div class="detail-visuals">
         <div class="main-card ad-card--blue">
-          <h2>Sports car with the best design and acceleration</h2>
+          <h2>{{ car.name }} with the best design and acceleration</h2>
           <p>
-            Safety and comfort while driving a futuristic and elegant sports car
+            Safety and comfort while driving a futuristic and elegant
+            {{ car.type }} car
           </p>
-          <img :src="mainImage" alt="Main Car" class="main-img" />
+          <img :src="mainImage" :alt="car.name" class="main-img" />
         </div>
+
         <div class="thumbnails">
           <div
             v-for="i in 3"
             :key="i"
             @click="mainImage = car.image"
             class="thumb"
+            :class="{ active: mainImage === car.image }"
           >
             <img :src="car.image" alt="Thumbnail" />
           </div>
@@ -51,53 +68,77 @@ const reviews = [
 
       <div class="detail-info-card card">
         <div class="info-header">
-          <h2>{{ car.name }}</h2>
+          <div class="title-row">
+            <h2>{{ car.name }}</h2>
+          </div>
           <div class="rating">⭐⭐⭐⭐⭐ <span>440+ Review</span></div>
         </div>
+
         <p class="description">
-          NISMO has become the embodiment of Nissan's outstanding performance,
+          {{ car.name }} has become the embodiment of outstanding performance,
           inspired by the most unforgiving proving ground, the race track.
         </p>
+
         <div class="specs-grid">
           <div class="spec-item">
-            <span>Type Car</span> <strong>{{ car.type }}</strong>
+            <span class="label">Type Car</span>
+            <span class="value">{{ car.type }}</span>
           </div>
           <div class="spec-item">
-            <span>Capacity</span> <strong>{{ car.capacity }}</strong>
+            <span class="label">Capacity</span>
+            <span class="value">{{ car.capacity }}</span>
           </div>
           <div class="spec-item">
-            <span>Steering</span> <strong>{{ car.transmission }}</strong>
+            <span class="label">Steering</span>
+            <span class="value">{{ car.transmission }}</span>
           </div>
           <div class="spec-item">
-            <span>Gasoline</span> <strong>{{ car.fuelCapacity }}</strong>
+            <span class="label">Gasoline</span>
+            <span class="value">{{ car.fuelCapacity }}</span>
           </div>
         </div>
+
         <div class="detail-footer">
           <div class="price">
-            <strong>${{ car.pricePerDay }}.00/</strong> days
+            <span class="amount">${{ car.pricePerDay }}.00/</span>
+            <span class="unit">days</span>
+            <p v-if="car.discountPrice" class="discount">
+              ${{ car.discountPrice }}.00
+            </p>
           </div>
-          <NuxtLink :to="`/payment?id=${car.id}`" class="btn btn--primary"
-            >Rent Now</NuxtLink
-          >
+          <NuxtLink :to="`/payment?id=${car.id}`" class="btn btn--primary">
+            Rent Now
+          </NuxtLink>
         </div>
       </div>
     </div>
 
     <section class="reviews card">
-      <h3>
-        Reviews <span class="badge">{{ reviews.length }}</span>
-      </h3>
+      <div class="reviews-header">
+        <h3>Reviews</h3>
+        <span class="badge">{{ reviews.length }}</span>
+      </div>
+
       <div v-for="rev in reviews" :key="rev.id" class="review-item">
         <div class="review-user">
-          <img src="https://ui-avatars.com/api/?name=User" alt="Avatar" />
+          <img
+            :src="`https://ui-avatars.com/api/?name=${rev.user}&background=random`"
+            alt="Avatar"
+          />
           <div class="user-info">
             <h4>{{ rev.user }}</h4>
             <p>{{ rev.role }}</p>
           </div>
-          <div class="review-date">{{ rev.date }}</div>
+          <div class="review-date-rating">
+            <span class="date">{{ rev.date }}</span>
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+          </div>
         </div>
         <p class="review-text">{{ rev.comment }}</p>
       </div>
+
+      <button class="show-all-btn">Show All ↓</button>
     </section>
   </div>
+  <div v-else class="container">Araba yükleniyor...</div>
 </template>

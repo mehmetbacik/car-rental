@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Car } from "../../types/car";
+import type { carType } from "../../types/cars";
 
 const HeartLikeIconPath = "/icons/heart-like.svg";
 const HeartDisslikeIconPath = "/icons/heart-dislike.svg";
@@ -8,7 +8,7 @@ const TransmissionIconPath = "/icons/transmission.svg";
 const PeopleIconPath = "/icons/people.svg";
 
 const props = defineProps<{
-  car: Car;
+  car: carType;
 }>();
 
 const isFavorite = ref(props.car.isFavorite);

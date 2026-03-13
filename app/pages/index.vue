@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import carsData from '@/data/cars.json'
+import { ref } from 'vue'
+import { carsData } from '@/data/carsData'
+
 const cars = ref(carsData)
 
 const SwitchIconPath = "/icons/switch.svg";
-
 </script>
 
 <template>
@@ -35,7 +36,11 @@ const SwitchIconPath = "/icons/switch.svg";
         <NuxtLink to="/cars">View All</NuxtLink>
       </div>
       <div class="car-grid">
-        <CarsCarCard v-for="car in cars" :key="car.id" :car="car" />
+        <CarsCarCard 
+          v-for="car in cars" 
+          :key="car.id" 
+          :car="car" 
+        />
       </div>
     </section>
   </div>
