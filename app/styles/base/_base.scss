@@ -1,0 +1,24 @@
+:root {
+  // Light Mode (Default)
+  --bg-color: #F6F7F9;
+  --card-bg: #FFFFFF;
+  --text-main: #1A202C;
+  --text-muted: #90A3BF;
+  --border-color: rgba(195, 212, 248, 0.4);
+  --primary-color: #3563E9;
+}
+
+.dark-mode {
+  // Dark Mode
+  --bg-color: #040815;
+  --card-bg: #131313;
+  --text-main: #FFFFFF;
+  --text-muted: #7C7C7C;
+  --border-color: #2D2D2D;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
