@@ -82,3 +82,24 @@
     &:hover { filter: grayscale(0); border-color: $information-700; }
   }
 }
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: $spacing-unit * 4;
+  
+  .view-all {
+    color: $primary-neutral-palette-500;
+    font-size: $font-size-base * 0.85;
+    font-weight: 600;
+    text-decoration: none;
+  }
+}
+.mini-item {
+  display: flex;
+  justify-content: space-between;
+  padding: $spacing-unit * 3 0;
+  border-bottom: 1px solid $information-100;
+  font-size: $font-size-base * 0.9;
+}

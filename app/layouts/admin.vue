@@ -12,6 +12,7 @@ const LightIconPath = "/icons/light.svg";
         <div class="sidebar-group">
           <p class="sidebar-label">MAIN MENU</p>
           <NuxtLink to="/dashboard" class="nav-link active">Dashboard</NuxtLink>
+          <NuxtLink to="/dashboard/inventory" class="nav-link">Car Inventory</NuxtLink>
           <NuxtLink to="/dashboard/cars" class="nav-link">Car Rent</NuxtLink>
           <NuxtLink to="/dashboard/insight" class="nav-link">Insight</NuxtLink>
           <NuxtLink to="/dashboard/reimburse" class="nav-link">
