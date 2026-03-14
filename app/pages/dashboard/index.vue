@@ -2,8 +2,9 @@
 import { carsData } from "@/data/carsData";
 
 definePageMeta({
-  layout: "admin",
-});
+  layout: 'admin',
+  middleware: 'auth'
+})
 
 const cars = ref<any[]>(carsData);
 
