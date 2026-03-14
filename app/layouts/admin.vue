@@ -1,5 +1,13 @@
 <script setup lang="ts">
 const uiStore = useUIStore();
+const authStore = useAuthStore();
+
+const handleLogout = async () => {
+  const confirmLogout = confirm('Are you sure you want to log out?')
+  if (confirmLogout) {
+    await authStore.logout()
+  }
+}
 
 const DarkIconPath = "/icons/dark.svg";
 const LightIconPath = "/icons/light.svg";
@@ -48,7 +56,7 @@ const LightIconPath = "/icons/light.svg";
       </div>
 
       <div class="sidebar-footer">
-        <button class="nav-link logout">Log Out</button>
+        <button class="nav-link logout" @click="handleLogout">Log Out</button>
       </div>
     </aside>
 
