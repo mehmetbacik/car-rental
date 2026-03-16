@@ -1,19 +1,21 @@
-export default defineNuxtRouteMiddleware((to) => {
-  const authStore = useAuthStore()
+import { dashboardNavItems } from "@/data/navigationData";
 
-  if (!authStore.isAuthenticated && to.path !== '/login') {
-    return navigateTo('/login')
+export default defineNuxtRouteMiddleware((to) => {
+  const authStore = useAuthStore();
+
+  if (!authStore.isAuthenticated && to.path !== "/login") {
+    return navigateTo("/login");
   }
 
-  const userRole = authStore.user?.role
+  if (to.path.startsWith("/dashboard")) {
+    const userRole = authStore.user?.role;
 
-  if (to.path.startsWith('/dashboard') && !to.path.startsWith('/dashboard/my-rentals')) {
-    if (userRole !== 'admin') {
-      return navigateTo('/dashboard/my-rentals')
+    const targetNav = dashboardNavItems.find((item) => item.link === to.path);
+
+    if (targetNav && !targetNav.roles.includes(userRole as any)) {
+      return userRole === "admin"
+        ? navigateTo("/dashboard")
+        : navigateTo("/dashboard/my-rentals");
     }
   }
-
-  if (to.path === '/dashboard/my-rentals' && userRole === 'admin') {
-    return navigateTo('/dashboard')
-  }
-})
+});

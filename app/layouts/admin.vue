@@ -1,13 +1,22 @@
 <script setup lang="ts">
+import { dashboardNavItems } from "@/data/navigationData";
+
 const uiStore = useUIStore();
 const authStore = useAuthStore();
 
+const filteredMenu = computed(() => {
+  const userRole = authStore.user?.role;
+  if (!userRole) return [];
+
+  return dashboardNavItems.filter((item) => item.roles.includes(userRole));
+});
+
 const handleLogout = async () => {
-  const confirmLogout = confirm('Are you sure you want to log out?')
+  const confirmLogout = confirm("Are you sure you want to log out?");
   if (confirmLogout) {
-    await authStore.logout()
+    await authStore.logout();
   }
-}
+};
 
 const DarkIconPath = "/icons/dark.svg";
 const LightIconPath = "/icons/light.svg";
@@ -19,16 +28,15 @@ const LightIconPath = "/icons/light.svg";
       <div class="sidebar-top">
         <div class="sidebar-group">
           <p class="sidebar-label">MAIN MENU</p>
-          <NuxtLink to="/dashboard" class="nav-link active">Dashboard</NuxtLink>
-          <NuxtLink to="/dashboard/inventory" class="nav-link">Car Inventory</NuxtLink>
-          <NuxtLink to="/dashboard/cars" class="nav-link">Car Rent</NuxtLink>
-          <NuxtLink to="/dashboard/insight" class="nav-link">Insight</NuxtLink>
-          <NuxtLink to="/dashboard/reimburse" class="nav-link">
-            Reimburse
-          </NuxtLink>
-          <NuxtLink to="/dashboard/inbox" class="nav-link">Inbox</NuxtLink>
-          <NuxtLink to="/dashboard/calendar" class="nav-link">
-            Calendar
+          <NuxtLink
+            v-for="item in filteredMenu"
+            :key="item.id"
+            :to="item.link"
+            class="nav-link"
+            active-class="active"
+          >
+            <span class="icon">{{ item.icon }}</span>
+            <span class="label">{{ item.label }}</span>
           </NuxtLink>
         </div>
 
