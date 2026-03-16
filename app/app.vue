@@ -1,15 +1,6 @@
 <script setup lang="ts">
-const authStore = useAuthStore()
-
-onMounted(() => {
-  if (process.client) {
-    const savedUser = localStorage.getItem('user')
-    if (savedUser) {
-      authStore.user = JSON.parse(savedUser)
-      authStore.isAuthenticated = true
-    }
-  }
-})
+const authStore = useAuthStore();
+onMounted(() => authStore.initAuth());
 </script>
 
 <template>
