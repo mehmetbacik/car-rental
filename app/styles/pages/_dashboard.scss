@@ -64,9 +64,18 @@
   font-size: $font-size-base * 0.75;
   font-weight: 600;
 
-  &.status--rented { background: $secondary-700; color: $error-600; }
-  &.status--available { background: $secondary-700; color: $success-600; }
-  &.status--maintenance { background: $secondary-700; color: $warning-600; }
+  &.status--rented {
+    background: $secondary-700;
+    color: $error-600;
+  }
+  &.status--available {
+    background: $secondary-700;
+    color: $success-600;
+  }
+  &.status--maintenance {
+    background: $secondary-700;
+    color: $warning-600;
+  }
 }
 
 .actions {
@@ -79,7 +88,10 @@
     cursor: pointer;
     padding: 4px;
     filter: grayscale(1);
-    &:hover { filter: grayscale(0); border-color: $information-700; }
+    &:hover {
+      filter: grayscale(0);
+      border-color: $information-700;
+    }
   }
 }
 
@@ -88,7 +100,7 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: $spacing-unit * 4;
-  
+
   .view-all {
     color: $primary-neutral-palette-500;
     font-size: $font-size-base * 0.85;
@@ -102,4 +114,64 @@
   padding: $spacing-unit * 3 0;
   border-bottom: 1px solid $information-100;
   font-size: $font-size-base * 0.9;
+}
+
+.rentals-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: $spacing-unit * 8;
+}
+
+.rental-card {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  overflow: hidden;
+
+  .car-preview {
+    background: $primary-neutral-palette-500;
+    padding: $spacing-unit * 8;
+    position: relative;
+    img {
+      width: 100%;
+      filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));
+    }
+    .status-badge {
+      position: absolute;
+      top: $spacing-unit * 4;
+      right: $spacing-unit * 4;
+      padding-block: $spacing-unit * 2;
+      padding-inline: $spacing-unit * 4;
+      border-radius: 20px;
+      background: $color-white;
+      color: $primary-neutral-palette-900;
+      font-weight: 700;
+      font-size: $font-size-base * 0.75;
+    }
+  }
+
+  .rental-details {
+    padding: $spacing-unit * 6;
+    h3 {
+      margin-bottom: $spacing-unit * 4;
+      color: $secondary-300;
+    }
+    .info-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: $spacing-unit * 2;
+      color: $secondary-300;
+    }
+    .total {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: $spacing-unit * 4;
+      .price {
+        font-size: $spacing-unit * 5;
+        font-weight: 700;
+        color: $primary-neutral-palette-500;
+      }
+    }
+  }
 }
