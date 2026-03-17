@@ -1,6 +1,8 @@
 <script setup lang="ts">
 const authStore = useAuthStore();
-onMounted(() => authStore.initAuth());
+if (process.client) {
+  authStore.initAuth();
+}
 </script>
 
 <template>

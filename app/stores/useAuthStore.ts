@@ -38,16 +38,18 @@ export const useAuthStore = defineStore("auth", () => {
   const initAuth = () => {
     if (process.client) {
       const data = localStorage.getItem("auth_data");
+      if (!data) return;
 
-      if (data) {
-        const { user: savedUser, expiry } = JSON.parse(data);
-
-        if (Date.now() < expiry) {
-          user.value = savedUser;
+      try {
+        const parsed = JSON.parse(data);
+        if (Date.now() < parsed.expiry) {
+          user.value = parsed.user;
           isAuthenticated.value = true;
         } else {
           logout();
         }
+      } catch (e) {
+        localStorage.removeItem("auth_data");
       }
     }
   };

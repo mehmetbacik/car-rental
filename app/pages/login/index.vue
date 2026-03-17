@@ -4,12 +4,17 @@ const password = ref("");
 const error = ref("");
 const authStore = useAuthStore();
 
-const handleLogin = () => {
+const handleLogin = async () => {
   const result = authStore.login({ email: email.value, pass: password.value });
+  
   if (result.success) {
-    result.role === "admin" ? navigateTo("/dashboard") : navigateTo("/");
+    if (result.role === "admin") {
+      await navigateTo("/dashboard");
+    } else {
+      await navigateTo("/dashboard/my-rentals");
+    }
   } else {
-    error.value = result.message || "";
+    error.value = result.message || "Invalid credentials";
   }
 };
 </script>
