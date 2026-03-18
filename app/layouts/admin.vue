@@ -3,12 +3,19 @@ import { dashboardNavItems } from "@/data/navigationData";
 
 const uiStore = useUIStore();
 const authStore = useAuthStore();
+const route = useRoute();
 
 const filteredMenu = computed(() => {
   const userRole = authStore.user?.role;
   if (!userRole) return [];
 
   return dashboardNavItems.filter((item) => item.roles.includes(userRole));
+});
+
+const isAuthorized = computed(() => {
+  const targetNav = dashboardNavItems.find((item) => item.link === route.path);
+  if (!targetNav) return true;
+  return targetNav.roles.includes(authStore.user?.role as any);
 });
 
 const handleLogout = async () => {
@@ -69,7 +76,12 @@ const LightIconPath = "/icons/light.svg";
     </aside>
 
     <main class="admin-main">
-      <slot />
+      <template v-if="isAuthorized">
+        <slot />
+      </template>
+      <div v-else class="loading-overlay">
+        <p>Loading...</p>
+      </div>
     </main>
   </div>
 </template>

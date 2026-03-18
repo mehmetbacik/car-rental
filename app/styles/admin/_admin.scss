@@ -47,3 +47,11 @@
   flex: 1;
   padding: $spacing-unit * 8;
 }
+
+.loading-overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: $secondary-300;
+}

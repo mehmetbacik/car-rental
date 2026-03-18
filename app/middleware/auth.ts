@@ -4,13 +4,12 @@ export default defineNuxtRouteMiddleware((to) => {
   if (process.server) return;
 
   const authStore = useAuthStore();
-
   if (!authStore.isAuthenticated) {
     authStore.initAuth();
   }
 
   if (!authStore.isAuthenticated && to.path !== "/login") {
-    return navigateTo("/login");
+    return navigateTo("/login", { replace: true });
   }
 
   if (to.path.startsWith("/dashboard")) {
@@ -18,9 +17,9 @@ export default defineNuxtRouteMiddleware((to) => {
     const targetNav = dashboardNavItems.find((item) => item.link === to.path);
 
     if (targetNav && !targetNav.roles.includes(userRole as any)) {
-      return userRole === "admin"
-        ? navigateTo("/dashboard")
-        : navigateTo("/dashboard/my-rentals");
+      const redirectPath =
+        userRole === "admin" ? "/dashboard" : "/dashboard/my-rentals";
+      return navigateTo(redirectPath, { replace: true });
     }
   }
 });
