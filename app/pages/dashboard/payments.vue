@@ -10,6 +10,7 @@ interface CreditCard {
   cardNumber: string;
   expiryDate: string;
   cardHolder: string;
+  cvv: string;
   type: "visa" | "mastercard";
   isDefault: boolean;
 }
@@ -19,8 +20,9 @@ const cards = ref<CreditCard[]>([
     id: "1",
     bankName: "Global Bank",
     cardNumber: "**** **** **** 4321",
-    expiryDate: "12/26",
+    expiryDate: "2026-12",
     cardHolder: "Jane Doe",
+    cvv: "123",
     type: "visa",
     isDefault: true,
   },
@@ -28,21 +30,35 @@ const cards = ref<CreditCard[]>([
     id: "2",
     bankName: "Digital Wallet",
     cardNumber: "**** **** **** 8899",
-    expiryDate: "08/25",
+    expiryDate: "2025-08",
     cardHolder: "Jane Doe",
+    cvv: "234",
     type: "mastercard",
     isDefault: false,
   },
 ]);
 
 const isModalOpen = ref(false);
+const errorMsg = ref("");
 const newCard = ref({
   bankName: "",
   cardNumber: "",
   expiryDate: "",
   cardHolder: "",
+  cvv: "",
   type: "visa" as "visa" | "mastercard",
 });
+
+const validateName = (event: any) => {
+  newCard.value.cardHolder = event.target.value.replace(
+    /[^a-zA-ZğüşıöçĞÜŞİÖÇ ]/g,
+    "",
+  );
+};
+
+const validateNumber = (field: "cardNumber" | "cvv", event: any) => {
+  newCard.value[field] = event.target.value.replace(/\D/g, "");
+};
 
 const setDefault = (id: string) => {
   cards.value.forEach((card) => (card.isDefault = card.id === id));
@@ -54,27 +70,43 @@ const deleteCard = (id: string) => {
   }
 };
 
-const addNewCard = () => {
-  const lastFour = newCard.value.cardNumber.replace(/\s/g, "").slice(-4);
-  const maskedNumber = `**** **** **** ${lastFour || "0000"}`;
-
-  const cardToAdd: CreditCard = {
-    id: Date.now().toString(),
-    ...newCard.value,
-    cardNumber: maskedNumber,
-    isDefault: cards.value.length === 0,
-  };
-
-  cards.value.push(cardToAdd);
-
+const closeModal = () => {
   isModalOpen.value = false;
+  errorMsg.value = "";
   newCard.value = {
     bankName: "",
     cardNumber: "",
     expiryDate: "",
     cardHolder: "",
+    cvv: "",
     type: "visa",
   };
+};
+
+const addNewCard = () => {
+  const hasEmptyField = Object.values(newCard.value).some(
+    (val) => !val || val.trim() === "",
+  );
+
+  if (hasEmptyField) {
+    errorMsg.value = "All fields are required!";
+    return;
+  }
+
+  if (newCard.value.cardNumber.length < 16) {
+    errorMsg.value = "Card number must be 16 digits.";
+    return;
+  }
+
+  const lastFour = newCard.value.cardNumber.slice(-4);
+  cards.value.push({
+    id: Date.now().toString(),
+    ...newCard.value,
+    cardNumber: `**** **** **** ${lastFour}`,
+    isDefault: cards.value.length === 0,
+  });
+
+  closeModal();
 };
 </script>
 
@@ -101,9 +133,7 @@ const addNewCard = () => {
           <span class="chip"></span>
           <span class="card-type">{{ card.type.toUpperCase() }}</span>
         </div>
-
         <div class="card-number">{{ card.cardNumber }}</div>
-
         <div class="card-footer">
           <div class="holder">
             <span>Card Holder</span>
@@ -114,7 +144,6 @@ const addNewCard = () => {
             <p>{{ card.expiryDate }}</p>
           </div>
         </div>
-
         <div class="actions">
           <button
             v-if="!card.isDefault"
@@ -132,50 +161,56 @@ const addNewCard = () => {
     </div>
 
     <Transition name="fade">
-      <div
-        v-if="isModalOpen"
-        class="modal-overlay"
-        @click.self="isModalOpen = false"
-      >
+      <div v-if="isModalOpen" class="modal-overlay" @click.self="closeModal">
         <div class="modal-content card">
           <div class="modal-header">
             <h3>Add New Payment Method</h3>
-            <button class="close-btn" @click="isModalOpen = false">
-              &times;
-            </button>
+            <button @click="closeModal" class="close-icon">&times;</button>
           </div>
 
           <form @submit.prevent="addNewCard">
             <div class="form-grid">
+              <p v-if="errorMsg" class="error-banner">{{ errorMsg }}</p>
+
               <div class="input-group">
                 <label>Card Holder</label>
                 <input
                   v-model="newCard.cardHolder"
                   type="text"
+                  @input="validateName"
                   placeholder="John Doe"
-                  required
                 />
               </div>
+
               <div class="input-group">
                 <label>Card Number</label>
                 <input
                   v-model="newCard.cardNumber"
                   type="text"
                   maxlength="16"
-                  placeholder="1234 5678 9012 3456"
-                  required
+                  @input="validateNumber('cardNumber', $event)"
+                  placeholder="16-digit number"
                 />
               </div>
+
               <div class="input-row">
                 <div class="input-group">
                   <label>Expiration Date</label>
+                  <input v-model="newCard.expiryDate" type="month" />
+                </div>
+                <div class="input-group">
+                  <label>CVV</label>
                   <input
-                    v-model="newCard.expiryDate"
+                    v-model="newCard.cvv"
                     type="text"
-                    placeholder="MM/YY"
-                    required
+                    maxlength="3"
+                    @input="validateNumber('cvv', $event)"
+                    placeholder="123"
                   />
                 </div>
+              </div>
+
+              <div class="input-row">
                 <div class="input-group">
                   <label>Card Type</label>
                   <select v-model="newCard.type">
@@ -183,24 +218,19 @@ const addNewCard = () => {
                     <option value="mastercard">Mastercard</option>
                   </select>
                 </div>
-              </div>
-              <div class="input-group">
-                <label>Bank Name</label>
-                <input
-                  v-model="newCard.bankName"
-                  type="text"
-                  placeholder="Global Bank"
-                  required
-                />
+                <div class="input-group">
+                  <label>Bank Name</label>
+                  <input
+                    v-model="newCard.bankName"
+                    type="text"
+                    placeholder="Global Bank"
+                  />
+                </div>
               </div>
             </div>
 
             <div class="modal-actions">
-              <button
-                type="button"
-                @click="isModalOpen = false"
-                class="btn-cancel"
-              >
+              <button type="button" @click="closeModal" class="btn-cancel">
                 Cancel
               </button>
               <button type="submit" class="btn btn--primary">Save Card</button>

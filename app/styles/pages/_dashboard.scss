@@ -390,3 +390,29 @@
 .fade-leave-to {
   opacity: 0;
 }
+
+.error-banner {
+  background: rgba($error-500, 0.1);
+  color: $error-500;
+  padding: 0.8rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  
+  .close-icon {
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: var(--text-muted);
+    cursor: pointer;
+    line-height: 1;
+  }
+}
