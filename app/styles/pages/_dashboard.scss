@@ -199,7 +199,11 @@
   }
 
   .payment-card {
-    background: linear-gradient(135deg, $information-600 0%, $information-800 100%);
+    background: linear-gradient(
+      135deg,
+      $information-600 0%,
+      $information-800 100%
+    );
     border-radius: 15px;
     padding: $spacing-unit * 6;
     color: $color-white;
@@ -288,4 +292,101 @@
       }
     }
   }
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  backdrop-filter: blur(5px);
+}
+
+.modal-content {
+  width: 90%;
+  max-width: 500px;
+  background: $information-200;
+  padding: $spacing-unit * 8;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: $spacing-unit * 8;
+    h3 {
+      margin: 0;
+      color: $color-black;
+    }
+    .close-btn {
+      background: none;
+      border: none;
+      font-size: $spacing-unit * 6;
+      color: $color-black;
+      cursor: pointer;
+    }
+  }
+}
+
+.form-grid {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-unit * 6;
+  margin-bottom: $spacing-unit * 8;
+}
+
+.input-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-unit * 4;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-unit;
+  label {
+    font-size: $font-size-base * 0.85;
+    font-weight: 600;
+    color: $color-black;
+  }
+  input,
+  select {
+    padding: $spacing-unit * 3;
+    border-radius: 10px;
+    border: 1px solid $color-black;
+    background: $information-200;
+    color: $color-black;
+    &:focus {
+      border-color: $secondary-400;
+      outline: none;
+    }
+  }
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: $spacing-unit * 6;
+  align-items: center;
+  .btn-cancel {
+    background: none;
+    border: none;
+    color: $color-black;
+    cursor: pointer;
+    font-weight: 600;
+  }
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
