@@ -28,3 +28,47 @@
     }
   }
 }
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: $spacing-unit * 4;
+  padding: $spacing-unit * 4;
+
+  .stat-card {
+    background: var(--card-bg);
+    padding: $spacing-unit * 5;
+    border-radius: 10px;
+    min-height: 350px;
+    display: flex;
+    flex-direction: column;
+
+    &.wide {
+      grid-column: span 2;
+    }
+
+    .card-header {
+      margin-bottom: $spacing-unit * 4;
+      h3 {
+        font-size: $font-size-base * 1.2;
+        color: $color-black;
+        margin-bottom: $spacing-unit;
+      }
+      p {
+        font-size: $font-size-base * 0.8;
+        color: $secondary-400;
+      }
+    }
+
+    .chart-box {
+      flex: 1;
+      position: relative;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .stat-card.wide {
+    grid-column: span 1;
+  }
+}
