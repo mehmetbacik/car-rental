@@ -175,3 +175,117 @@
     }
   }
 }
+
+.payments-page {
+  .header-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: $spacing-unit * 9;
+    h2 {
+      color: $color-black;
+      margin-bottom: $spacing-unit;
+    }
+    p {
+      color: $secondary-300;
+      font-size: $font-size-base * 0.9;
+    }
+  }
+
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: $spacing-unit * 8;
+  }
+
+  .payment-card {
+    background: linear-gradient(135deg, $information-600 0%, $information-800 100%);
+    border-radius: 15px;
+    padding: $spacing-unit * 6;
+    color: $color-white;
+    position: relative;
+    box-shadow: 0 10px 20px rgba(53, 99, 233, 0.2);
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+    &.default-border {
+      border: 2px solid $information-400;
+    }
+
+    .card-chip-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: $spacing-unit * 8;
+      .chip {
+        width: 40px;
+        height: 30px;
+        background: $warning-500;
+        border-radius: 5px;
+        opacity: 0.8;
+      }
+      .card-type {
+        font-weight: 900;
+        font-style: italic;
+        font-size: $font-size-base * 1.2;
+      }
+    }
+
+    .card-number {
+      font-size: $font-size-base * 1.4;
+      letter-spacing: 2px;
+      margin-bottom: $spacing-unit * 8;
+    }
+
+    .card-footer {
+      display: flex;
+      gap: $spacing-unit * 12;
+      span {
+        font-size: $font-size-base * 0.7;
+        opacity: 0.7;
+        display: block;
+        margin-bottom: $spacing-unit;
+      }
+      p {
+        font-weight: 600;
+        font-size: $font-size-base * 0.9;
+      }
+    }
+
+    .actions {
+      margin-top: $spacing-unit * 6;
+      padding-top: $spacing-unit * 4;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .btn-text {
+        background: none;
+        border: none;
+        color: $color-white;
+        cursor: pointer;
+        font-size: $font-size-base * 0.8;
+        font-weight: 600;
+        text-decoration: underline;
+      }
+      .btn-delete {
+        background: rgba(255, 0, 0, 0.2);
+        border: none;
+        color: $error-400;
+        padding-block: $spacing-unit;
+        padding-inline: $spacing-unit * 2;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: $font-size-base * 0.75;
+      }
+      .default-badge {
+        font-size: $font-size-base * 0.8;
+        font-weight: 700;
+        color: $success-500;
+      }
+    }
+  }
+}
