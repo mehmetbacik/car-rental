@@ -1,0 +1,102 @@
+.top-rentals-card {
+  background: $color-white;
+  padding: $spacing-unit * 4;
+  border-radius: 10px;
+  margin-top: $spacing-unit * 4;
+
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: $spacing-unit * 4;
+
+    h3 {
+      font-size: $font-size-base * 1.2;
+      color: $color-black;
+    }
+    .view-all {
+      font-size: $font-size-base * 0.8;
+      color: $information-700;
+      font-weight: 600;
+      text-decoration: none;
+    }
+  }
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+.rentals-table {
+  width: 100%;
+  border-collapse: collapse;
+
+  th {
+    text-align: left;
+    padding: $spacing-unit * 4;
+    color: $secondary-300;
+    font-size: $font-size-base * 0.8;
+    font-weight: 500;
+    border-bottom: 1px solid $secondary-300;
+  }
+
+  td {
+    padding-block: $spacing-unit * 4;
+    padding-inline: $spacing-unit * 4;
+    border-bottom: 1px solid $secondary-300;
+    vertical-align: middle;
+  }
+
+  .car-info {
+    display: flex;
+    align-items: center;
+    gap: $spacing-unit * 4;
+
+    .car-thumb {
+      width: 50px;
+      height: 35px;
+      object-fit: contain;
+      background: $secondary-300;
+      border-radius: 4px;
+    }
+
+    .car-details {
+      display: flex;
+      flex-direction: column;
+      .name {
+        font-weight: 700;
+        color: $secondary-300;
+        font-size: $font-size-base * 0.9;
+      }
+      .id {
+        font-size: $font-size-base * 0.7;
+        color: $secondary-300;
+      }
+    }
+  }
+
+  .type-badge {
+    background: rgba(53, 99, 233, 0.1);
+    color: $information-700;
+    padding-block: $spacing-unit;
+    padding-inline: $spacing-unit * 4;
+    border-radius: 20px;
+    font-size: $font-size-base * 0.75;
+    font-weight: 600;
+  }
+
+  .date {
+    color: $secondary-300;
+    font-size: $font-size-base * 0.85;
+  }
+  .price {
+    font-weight: 700;
+    color: $color-black;
+    font-size: $font-size-base * 0.95;
+  }
+}
+
+
+tr:hover td {
+  background: rgba(144, 163, 191, 0.05);
+}
