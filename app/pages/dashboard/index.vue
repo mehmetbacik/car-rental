@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import { carsData } from "@/data/carsData";
+import TopRentalsTable from "~/components/dashboard/TopRentalsTable.vue";
 
 definePageMeta({
-  layout: 'admin',
-  middleware: 'auth'
-})
+  layout: "admin",
+  middleware: "auth",
+});
 
 const cars = ref<any[]>(carsData);
 
@@ -58,10 +59,10 @@ const topCars = computed(() => cars.value.slice(0, 5));
             </div>
           </div>
         </div>
-        <div class="recent-transactions card">
-          <h3>Recent Transaction</h3>
-        </div>
       </div>
+    </div>
+    <div class="recent-transactions card">
+      <TopRentalsTable />
     </div>
   </div>
 </template>
