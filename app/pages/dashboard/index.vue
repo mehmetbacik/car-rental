@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { carsData } from "@/data/carsData";
+import QuickStats from "~/components/dashboard/QuickStats.vue";
 import TopRentalsTable from "~/components/dashboard/TopRentalsTable.vue";
 
 definePageMeta({
@@ -14,6 +15,9 @@ const topCars = computed(() => cars.value.slice(0, 5));
 
 <template>
   <div class="dashboard-content">
+    <div class="quick-stats card">
+      <QuickStats />
+    </div>
     <div class="dashboard-grid">
       <div class="details-rental card">
         <h3>Details Rental</h3>
