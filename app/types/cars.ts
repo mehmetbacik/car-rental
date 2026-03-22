@@ -9,4 +9,5 @@ export interface carType {
   pricePerDay: number;
   discountPrice?: number;
   isFavorite: boolean;
+  status?: string;
 }

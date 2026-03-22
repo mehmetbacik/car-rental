@@ -11,6 +11,7 @@ export const carsData: carType[] = [
     capacity: "2 People",
     pricePerDay: 99,
     isFavorite: true,
+    status: "Available",
   },
   {
     id: "2",
@@ -23,5 +24,19 @@ export const carsData: carType[] = [
     pricePerDay: 80,
     discountPrice: 100,
     isFavorite: false,
+    status: "Rented",
+  },
+  {
+    id: "3",
+    name: "Nissan GT - R",
+    type: "Sport",
+    image: "/images/car/car-nissangtr.png",
+    fuelCapacity: "80L",
+    transmission: "Manual",
+    capacity: "2 People",
+    pricePerDay: 80,
+    discountPrice: 100,
+    isFavorite: false,
+    status: "Maintenance",
   },
 ];
