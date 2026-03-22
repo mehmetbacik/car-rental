@@ -57,6 +57,17 @@
   }
 }
 
+.car-cell {
+  display: flex;
+  align-items: center;
+  gap: $spacing-unit * 4;
+  .car-thumb {
+    width: 50px;
+    height: auto;
+    object-fit: contain;
+  }
+}
+
 .status-badge {
   padding-block: $spacing-unit * 2;
   padding-inline: $spacing-unit * 4;
@@ -406,7 +417,7 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1.5rem;
-  
+
   .close-icon {
     background: none;
     border: none;
