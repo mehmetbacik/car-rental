@@ -1,6 +1,33 @@
 <script setup lang="ts">
-import { Line, Bar, Doughnut } from "vue-chartjs";
-import { useInventoryStore } from "@/stores/useInventory";
+import { Line, Bar, Doughnut } from 'vue-chartjs'
+import { useInventoryStore } from '@/stores/useInventory'
+
+import { 
+  Chart as ChartJS, 
+  Title, 
+  Tooltip, 
+  Legend, 
+  LineElement, 
+  CategoryScale, 
+  LinearScale, 
+  PointElement, 
+  BarElement, 
+  ArcElement, 
+  Filler 
+} from 'chart.js'
+
+ChartJS.register(
+  Title, 
+  Tooltip, 
+  Legend, 
+  LineElement, 
+  CategoryScale, 
+  LinearScale, 
+  PointElement, 
+  BarElement, 
+  ArcElement, 
+  Filler
+)
 
 definePageMeta({ layout: "admin", middleware: "auth" });
 const inventoryStore = useInventoryStore();
@@ -13,12 +40,11 @@ const revenueData = computed(() => ({
       data: [2100, 1800, 3200, 2500, 4100, 5500, 4800],
       borderColor: "#3563E9",
       backgroundColor: "rgba(53, 99, 233, 0.1)",
-      fill: true,
+      fill: true, 
       tension: 0.4,
     },
   ],
 }));
-
 
 const occupancyData = computed(() => ({
   labels: ["Rented", "Available", "Maintenance"],
@@ -35,7 +61,6 @@ const occupancyData = computed(() => ({
     },
   ],
 }));
-
 
 const categoryRevenue = {
   labels: ["Sport", "SUV", "Sedan", "Luxury"],
