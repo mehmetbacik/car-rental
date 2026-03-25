@@ -516,3 +516,130 @@
     background: $secondary-700;
   }
 }
+
+
+.insight-page {
+  .header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: $spacing-unit * 8;
+  }
+  .date-picker {
+    background: $information-500;
+    padding-block: $spacing-unit * 2;
+    padding-inline: $spacing-unit * 4;
+    border-radius: 8px;
+    font-size: $font-size-base * 0.85;
+    border: 1px solid $secondary-400;
+    cursor: pointer;
+  }
+}
+
+.insight-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $spacing-unit * 8;
+
+  .insight-card {
+    background: var(--card-bg);
+    padding: $spacing-unit * 8;
+    border-radius: 16px;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+
+    &.wide {
+      grid-column: span 2;
+    }
+    h3 {
+      font-size: $font-size-base * 1;
+      color: $secondary-600;
+      margin-bottom: $spacing-unit * 4;
+    }
+    .total {
+      font-size: $font-size-base * 2;
+      font-weight: 800;
+      color: $color-black;
+      margin: $spacing-unit 0;
+    }
+  }
+}
+
+.chart-container {
+  flex: 1;
+  min-height: 200px;
+  &.relative {
+    position: relative;
+  }
+}
+
+.center-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -30%);
+  text-align: center;
+  strong {
+    font-size: $font-size-base * 1.5;
+    display: block;
+    color: $color-black;
+  }
+  span {
+    font-size: $font-size-base * 0.75;
+    color: $color-black;
+  }
+}
+
+.trend {
+  font-size: $font-size-base * 0.85;
+  font-weight: 700;
+  &.positive {
+    color: $success-700;
+  }
+  small {
+    font-weight: 400;
+    color: $color-black;
+  }
+}
+
+.top-cars-list {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-unit * 4;
+  .top-car-item {
+    display: flex;
+    align-items: center;
+    gap: $spacing-unit * 4;
+    img {
+      width: 50px;
+      height: auto;
+      border-radius: 8px;
+    }
+    .details {
+      flex: 1;
+      .name {
+        display: block;
+        font-weight: 600;
+        font-size: $font-size-base * 0.9;
+      }
+      .rentals {
+        font-size: $font-size-base * 0.75;
+        color: $color-black;
+      }
+    }
+    .earning {
+      font-weight: 700;
+      color: $information-600;
+      font-size: $font-size-base * 0.85;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .insight-grid {
+    grid-template-columns: 1fr;
+    .insight-card.wide {
+      grid-column: span 1;
+    }
+  }
+}
