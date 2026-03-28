@@ -19,13 +19,20 @@ export const dashboardNavItems: NavItem[] = [
   },
   {
     id: 3,
+    label: "Car Rent",
+    link: "/dashboard/rentals",
+    icon: "🏎️",
+    roles: ["admin"],
+  },
+  {
+    id: 4,
     label: "Car Inventory",
     link: "/dashboard/inventory",
     icon: "🏎️",
     roles: ["admin"],
   },
   {
-    id: 4,
+    id: 5,
     label: "Insight",
     link: "/dashboard/insight",
     icon: "📊",
@@ -34,21 +41,21 @@ export const dashboardNavItems: NavItem[] = [
 
   //User
   {
-    id: 5,
+    id: 6,
     label: "My Rentals",
     link: "/dashboard/my-rentals",
     icon: "🔑",
     roles: ["user"],
   },
   {
-    id: 6,
+    id: 7,
     label: "Payment Methods",
     link: "/dashboard/payments",
     icon: "💳",
     roles: ["user"],
   },
   {
-    id: 7,
+    id: 8,
     label: "Rent History",
     link: "/dashboard/history",
     icon: "📜",

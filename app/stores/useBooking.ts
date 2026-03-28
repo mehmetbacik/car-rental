@@ -6,7 +6,12 @@ interface Booking {
   customerName: string;
   startDate: string; // YYYY-MM-DD
   endDate: string; // YYYY-MM-DD
-  status: "confirmed" | "pending";
+  email: string;
+  rentDate: string;
+  returnDate: string;
+  totalPrice: number;
+  status: "Completed" | "Active" | "Pending" | "Cancelled";
+  method: string;
 }
 
 export const useBookingStore = defineStore("bookings", {
@@ -18,7 +23,12 @@ export const useBookingStore = defineStore("bookings", {
         customerName: "John Doe",
         startDate: "2026-03-20",
         endDate: "2026-03-24",
-        status: "confirmed",
+        email: 'John@mail.com',
+        rentDate: '2026-03-20', 
+        returnDate: '2026-03-24', 
+        totalPrice: 320,
+        status: 'Completed', 
+        method: 'Credit Card'
       },
       {
         id: "102",
@@ -26,15 +36,25 @@ export const useBookingStore = defineStore("bookings", {
         customerName: "Jane Doe",
         startDate: "2026-03-22",
         endDate: "2026-03-26",
-        status: "confirmed",
+        email: 'Jane@mail.com',
+        rentDate: '2026-03-25', 
+        returnDate: '2026-03-28', 
+        totalPrice: 240,
+        status: 'Active',
+        method: 'PayPal'
       },
       {
         id: "103",
-        carId: "4",
+        carId: "3",
         customerName: "Alex White",
         startDate: "2026-03-21",
         endDate: "2026-03-23",
-        status: "pending",
+        email: 'John@mail.com',
+        rentDate: '2026-03-20', 
+        returnDate: '2026-03-24', 
+        totalPrice: 320,
+        status: 'Completed', 
+        method: 'Credit Card'
       },
     ] as Booking[],
   }),
