@@ -517,7 +517,6 @@
   }
 }
 
-
 .insight-page {
   .header {
     display: flex;
@@ -642,4 +641,114 @@
       grid-column: span 1;
     }
   }
+}
+
+.rent-page {
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: $spacing-unit * 8;
+    .actions {
+      display: flex;
+      gap: $spacing-unit * 4;
+    }
+  }
+}
+
+.search-box input {
+  padding-block: $spacing-unit * 3;
+  padding-inline: $spacing-unit * 4;
+  border-radius: 10px;
+  border: 1px solid $color-black;
+  background: $color-white;
+  color: $color-black;
+  width: 250px;
+}
+
+.filter-select {
+  padding: $spacing-unit * 2;
+  border-radius: 10px;
+  border: 1px solid $color-black;
+  background: $color-white;
+  color: $color-black;
+}
+
+.rentals-table {
+  overflow-x: auto;
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  th {
+    text-align: left;
+    padding: $spacing-unit * 5;
+    color: $secondary-400;
+    font-size: $font-size-base * 0.85;
+    border-bottom: 1px solid $color-black;
+  }
+  td {
+    padding: $spacing-unit * 5;
+    vertical-align: middle;
+    border-bottom: 1px solid $color-black;
+    font-size: $font-size-base * 0.9;
+  }
+}
+
+.order-id {
+  font-weight: 600;
+  color: $color-black;
+}
+
+.car-flex {
+  display: flex;
+  align-items: center;
+  gap: $spacing-unit * 2;
+  .car-thumb {
+    width: 50px;
+    height: auto;
+    object-fit: contain;
+    background: $color-black;
+    border-radius: 6px;
+  }
+}
+
+.customer {
+  display: flex;
+  flex-direction: column;
+  strong {
+    font-size: $font-size-base * 0.9;
+  }
+  span {
+    font-size: $font-size-base * 0.75;
+    color: $secondary-600;
+  }
+}
+
+.status-pill {
+  padding-block: $spacing-unit;
+  padding-inline: $spacing-unit * 3;
+  border-radius: 8px;
+  font-size: $font-size-base * 0.75;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.price {
+  font-weight: 700;
+  color: $information-600;
+}
+
+.btn-more {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: $secondary-600;
+  font-size: $font-size-base * 1.2;
+}
+
+.empty {
+  padding: $spacing-unit * 12;
+  text-align: center;
+  color: $secondary-600;
 }
