@@ -38,24 +38,31 @@ export const dashboardNavItems: NavItem[] = [
     icon: "📊",
     roles: ["admin"],
   },
+    {
+    id: 6,
+    label: "Reimburse",
+    link: "/dashboard/reimburse",
+    icon: "📊",
+    roles: ["admin"],
+  },
 
   //User
   {
-    id: 6,
+    id: 7,
     label: "My Rentals",
     link: "/dashboard/my-rentals",
     icon: "🔑",
     roles: ["user"],
   },
   {
-    id: 7,
+    id: 8,
     label: "Payment Methods",
     link: "/dashboard/payments",
     icon: "💳",
     roles: ["user"],
   },
   {
-    id: 8,
+    id: 9,
     label: "Rent History",
     link: "/dashboard/history",
     icon: "📜",
