@@ -752,3 +752,113 @@
   text-align: center;
   color: $secondary-600;
 }
+
+.reimburse-page {
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: $spacing-unit * 8;
+    .stats-mini {
+      padding-block: $spacing-unit;
+      padding-inline: $spacing-unit * 5;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      strong {
+        font-size: $font-size-base * 1.2;
+        color: $information-700;
+      }
+    }
+  }
+}
+
+.expense-list {
+  padding: $spacing-unit * 4;
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  th {
+    text-align: left;
+    padding: $spacing-unit * 4;
+    color: $secondary-600;
+    font-size: $font-size-base * 0.8;
+    border-bottom: 1px solid $secondary-400;
+  }
+  td {
+    padding-block: $spacing-unit * 5;
+    padding-inline: $spacing-unit * 4;
+    border-bottom: 1px solid $secondary-400;
+    font-size: $font-size-base * 0.9;
+  }
+}
+
+.category-cell {
+  display: flex;
+  align-items: center;
+  gap: $spacing-unit * 4;
+  .icon {
+    font-size: $font-size-base * 1.5;
+  }
+  .info {
+    display: flex;
+    flex-direction: column;
+    span {
+      font-size: $font-size-base * 0.75;
+      color: $secondary-500;
+    }
+  }
+}
+
+.amount {
+  font-weight: 700;
+  color: $color-black;
+}
+.desc {
+  max-width: 250px;
+  color: $secondary-500;
+  font-size: $font-size-base * 0.85;
+}
+
+.status-badge {
+  padding-block: $spacing-unit;
+  padding-inline: $spacing-unit * 2;
+  border-radius: 6px;
+  font-size: $font-size-base * 0.75;
+  font-weight: 700;
+  &.pending {
+    background: $secondary-300;
+    color: $error-400;
+  }
+  &.approved {
+    background: $secondary-300;
+    color: $success-600;
+  }
+  &.rejected {
+    background: $secondary-300;
+    color: $error-600;
+  }
+}
+
+.btn-group {
+  display: flex;
+  gap: $spacing-unit * 3;
+  button {
+    background: $color-white;
+    border: 1px solid $secondary-400;
+    padding-block: $spacing-unit;
+    padding-inline: $spacing-unit;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: $transition-base;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
+.processed-text {
+  font-size: $font-size-base * 0.75;
+  color: $secondary-500;
+  font-style: italic;
+}
