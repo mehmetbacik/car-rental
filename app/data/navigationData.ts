@@ -52,24 +52,31 @@ export const dashboardNavItems: NavItem[] = [
     icon: "📊",
     roles: ["admin"],
   },
+  {
+    id: 8,
+    label: "Calendar",
+    link: "/dashboard/calendar",
+    icon: "📊",
+    roles: ["admin"],
+  },
 
   //User
   {
-    id: 8,
+    id: 9,
     label: "My Rentals",
     link: "/dashboard/my-rentals",
     icon: "🔑",
     roles: ["user"],
   },
   {
-    id: 9,
+    id: 10,
     label: "Payment Methods",
     link: "/dashboard/payments",
     icon: "💳",
     roles: ["user"],
   },
   {
-    id: 10,
+    id: 11,
     label: "Rent History",
     link: "/dashboard/history",
     icon: "📜",
