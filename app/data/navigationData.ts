@@ -59,6 +59,13 @@ export const dashboardNavItems: NavItem[] = [
     icon: "📊",
     roles: ["admin"],
   },
+  {
+    id: 9,
+    label: "Help & Center",
+    link: "/dashboard/help",
+    icon: "📊",
+    roles: ["admin"],
+  },
 
   //User
   {
