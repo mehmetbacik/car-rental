@@ -8,6 +8,26 @@ const SettingsIconPath = "/icons/settings.svg";
 const ProfilePath = "/icons/profile.svg";
 
 const searchQuery = ref("");
+const searchStore = useSearchStore();
+const router = useRouter();
+
+const handleSearchEnter = () => {
+  if (searchStore.searchQuery.trim()) {
+    searchStore.closeDropdown();
+    router.push({
+      path: "/search-results",
+      query: { q: searchStore.searchQuery },
+    });
+  }
+};
+
+const selectCar = (carId: string) => {
+  searchStore.closeDropdown();
+  router.push({
+    path: "/search-results",
+    query: { q: searchStore.searchQuery },
+  });
+};
 </script>
 
 <template>
@@ -18,14 +38,49 @@ const searchQuery = ref("");
       </NuxtLink>
 
       <div class="header__search">
-        <div class="search-input">
-          <span class="icon">
-            <img :src="SearchIconPath" alt="Search" />
-          </span>
-          <input v-model="searchQuery" type="text" placeholder="Search something here" />
-          <span class="icon">
-            <img :src="FilterIconPath" alt="Filter" />
-          </span>
+        <div class="search-input-container">
+          <div class="search-input">
+            <span class="icon">
+              <img :src="SearchIconPath" alt="Search" />
+            </span>
+            <input
+              v-model="searchStore.searchQuery"
+              type="text"
+              placeholder="Search something here"
+              @input="searchStore.isDropdownOpen = true"
+              @keyup.enter="handleSearchEnter"
+            />
+            <span class="icon filter-trigger" @click="handleSearchEnter">
+              <img :src="FilterIconPath" alt="Filter" />
+            </span>
+          </div>
+
+          <transition name="slide-fade">
+            <div
+              v-if="
+                searchStore.isDropdownOpen &&
+                searchStore.filteredResults.length > 0
+              "
+              class="search-dropdown card"
+            >
+              <div
+                v-for="car in searchStore.filteredResults"
+                :key="car.id"
+                class="dropdown-item"
+                @click="selectCar(car.id)"
+              >
+                <img :src="car.image" class="car-thumb" alt="Car Thumbnail" />
+                <div class="car-meta">
+                  <span class="car-name">{{ car.name }}</span>
+                  <span class="car-type">{{ car.type }}</span>
+                </div>
+                <span class="car-price">${{ car.pricePerDay }}</span>
+              </div>
+              <div class="dropdown-footer" @click="handleSearchEnter">
+                Show all results for "{{ searchStore.searchQuery }}"
+              </div>
+            </div>
+          </transition>
         </div>
       </div>
 
