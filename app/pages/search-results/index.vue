@@ -6,17 +6,17 @@ const searchStore = useSearchStore();
 const inventoryStore = useInventoryStore();
 const route = useRoute();
 
+const selectedTypes = ref<string[]>([]);
+const maxPrice = ref(500);
+
 onMounted(() => {
   if (route.query.q) {
-    searchStore.setSearchQuery(route.query.q as string);
+    searchStore.activeSearchTerm = route.query.q as string;
   }
 });
 
-const selectedTypes = ref<string[]>([]);
-const maxPrice = ref(200);
-
 const filteredCars = computed(() => {
-  return searchStore.filteredResults.filter((car) => {
+  return searchStore.pageResults.filter((car) => {
     const matchesPrice = car.pricePerDay <= maxPrice.value;
     const matchesType =
       selectedTypes.value.length === 0 ||
@@ -24,6 +24,12 @@ const filteredCars = computed(() => {
     return matchesPrice && matchesType;
   });
 });
+
+const clearAllFilters = () => {
+  selectedTypes.value = [];
+  maxPrice.value = 500;
+  searchStore.activeSearchTerm = "";
+};
 </script>
 
 <template>
@@ -60,12 +66,23 @@ const filteredCars = computed(() => {
             <span>Max. ${{ maxPrice }}.00</span>
           </div>
         </div>
+
+        <button
+          v-if="selectedTypes.length > 0 || maxPrice < 500"
+          @click="clearAllFilters"
+          class="btn-reset-link"
+        >
+          Reset Filters
+        </button>
       </aside>
 
       <main class="results-main">
         <header class="results-info">
           <h3>
-            Search Results for "{{ route.query.q || searchStore.searchQuery }}"
+            <span v-if="searchStore.activeSearchTerm">
+              Search Results for "{{ searchStore.activeSearchTerm }}"
+            </span>
+            <span v-else>All Available Cars</span>
           </h3>
           <p>{{ filteredCars.length }} cars available</p>
         </header>
@@ -73,16 +90,27 @@ const filteredCars = computed(() => {
         <div v-if="filteredCars.length > 0" class="cars-grid">
           <div v-for="car in filteredCars" :key="car.id" class="car-card card">
             <div class="card-header">
-              <h4>{{ car.name }}</h4>
-              <p>{{ car.type }}</p>
+              <div class="header-main">
+                <h4>{{ car.name }}</h4>
+                <p>{{ car.type }}</p>
+              </div>
+              <button class="btn-wishlist">
+                <img src="/icons/heart.svg" alt="wishlist" />
+              </button>
             </div>
-            <img :src="car.image" :alt="car.name" class="car-image" />
+
+            <div class="image-wrapper">
+              <img :src="car.image" :alt="car.name" class="car-image" />
+            </div>
+
             <div class="card-footer">
               <div class="price">
                 <strong>${{ car.pricePerDay }}.00/</strong>
                 <span>day</span>
               </div>
-              <button class="btn-rent">Rent Now</button>
+              <button class="btn-rent" @click="$router.push(`/cars/${car.id}`)">
+                Rent Now
+              </button>
             </div>
           </div>
         </div>
@@ -91,10 +119,12 @@ const filteredCars = computed(() => {
           <div class="empty-icon">🔍</div>
           <h4>No results found</h4>
           <p>
-            We couldn't find any cars matching your current search or filters.
+            We couldn't find any cars matching "{{
+              searchStore.activeSearchTerm
+            }}" or your selected filters.
           </p>
-          <button @click="searchStore.setSearchQuery('')" class="btn-clear">
-            Clear Filters
+          <button @click="clearAllFilters" class="btn-clear">
+            Clear All Search & Filters
           </button>
         </div>
       </main>
