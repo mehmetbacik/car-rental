@@ -1,4 +1,8 @@
 <script setup lang="ts">
+import { ref, onMounted, onUnmounted, watch } from "vue";
+import { useRoute, useRouter } from "vue-router";
+import { useSearchStore } from "@/stores/useSearch";
+
 const LogoPath = "/images/logo.svg";
 const SearchIconPath = "/icons/search.svg";
 const FilterIconPath = "/icons/filter.svg";
@@ -7,9 +11,35 @@ const NotificationIconPath = "/icons/notification.svg";
 const SettingsIconPath = "/icons/settings.svg";
 const ProfilePath = "/icons/profile.svg";
 
-const searchQuery = ref("");
 const searchStore = useSearchStore();
 const router = useRouter();
+const route = useRoute();
+
+const searchInputContainer = ref<HTMLElement | null>(null);
+
+watch(
+  () => route.fullPath,
+  () => {
+    searchStore.closeDropdown();
+  },
+);
+
+const handleClickOutside = (event: MouseEvent) => {
+  if (
+    searchInputContainer.value &&
+    !searchInputContainer.value.contains(event.target as Node)
+  ) {
+    searchStore.closeDropdown();
+  }
+};
+
+onMounted(() => {
+  document.addEventListener("click", handleClickOutside);
+});
+
+onUnmounted(() => {
+  document.removeEventListener("click", handleClickOutside);
+});
 
 const handleSearchEnter = () => {
   if (searchStore.searchQuery.trim()) {
@@ -38,7 +68,7 @@ const selectCar = (carId: string) => {
       </NuxtLink>
 
       <div class="header__search">
-        <div class="search-input-container">
+        <div class="search-input-container" ref="searchInputContainer">
           <div class="search-input">
             <span class="icon">
               <img :src="SearchIconPath" alt="Search" />
@@ -48,6 +78,9 @@ const selectCar = (carId: string) => {
               type="text"
               placeholder="Search something here"
               @input="searchStore.isDropdownOpen = true"
+              @focus="
+                searchStore.isDropdownOpen = searchStore.searchQuery.length > 0
+              "
               @keyup.enter="handleSearchEnter"
             />
             <span class="icon filter-trigger" @click="handleSearchEnter">
