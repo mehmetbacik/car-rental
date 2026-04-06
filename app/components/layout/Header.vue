@@ -21,6 +21,7 @@ watch(
   () => route.fullPath,
   () => {
     searchStore.closeDropdown();
+    searchStore.searchQuery = "";
   },
 );
 
@@ -41,22 +42,24 @@ onUnmounted(() => {
   document.removeEventListener("click", handleClickOutside);
 });
 
+
 const handleSearchEnter = () => {
   if (searchStore.searchQuery.trim()) {
+    const queryTerm = searchStore.searchQuery;
     searchStore.closeDropdown();
+    searchStore.searchQuery = "";
+
     router.push({
       path: "/search-results",
-      query: { q: searchStore.searchQuery },
+      query: { q: queryTerm },
     });
   }
 };
 
 const selectCar = (carId: string) => {
   searchStore.closeDropdown();
-  router.push({
-    path: "/search-results",
-    query: { q: searchStore.searchQuery },
-  });
+  searchStore.searchQuery = "";
+  router.push(`/cars/${carId}`);
 };
 </script>
 
@@ -77,7 +80,9 @@ const selectCar = (carId: string) => {
               v-model="searchStore.searchQuery"
               type="text"
               placeholder="Search something here"
-              @input="searchStore.isDropdownOpen = true"
+              @input="
+                searchStore.isDropdownOpen = searchStore.searchQuery.length > 0
+              "
               @focus="
                 searchStore.isDropdownOpen = searchStore.searchQuery.length > 0
               "
@@ -120,19 +125,19 @@ const selectCar = (carId: string) => {
       <div class="header__actions">
         <button class="action-btn" title="Favoriler">
           <span class="icon">
-            <img :src="FavoriteIconPath" alt="Favorites" />
+            <img :src="FavoriteIconPath" alt="Favorites"/>
           </span>
           <span class="badge"></span>
         </button>
         <button class="action-btn" title="Notification">
           <span class="icon">
-            <img :src="NotificationIconPath" alt="Notification" />
+            <img :src="NotificationIconPath" alt="Notification"/>
           </span>
           <span class="badge"></span>
         </button>
         <button class="action-btn" title="Settings">
           <span class="icon">
-            <img :src="SettingsIconPath" alt="Settings" />
+            <img :src="SettingsIconPath" alt="Settings"/>
           </span>
         </button>
         <div class="user-profile">
