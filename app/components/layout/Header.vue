@@ -2,6 +2,7 @@
 import { ref, onMounted, onUnmounted, watch } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { useSearchStore } from "@/stores/useSearch";
+import { useInventoryStore } from "@/stores/useInventory";
 
 const LogoPath = "/images/logo.svg";
 const SearchIconPath = "/icons/search.svg";
@@ -12,6 +13,7 @@ const SettingsIconPath = "/icons/settings.svg";
 const ProfilePath = "/icons/profile.svg";
 
 const searchStore = useSearchStore();
+const inventoryStore = useInventoryStore();
 const router = useRouter();
 const route = useRoute();
 
@@ -127,12 +129,14 @@ const selectCar = (carId: string) => {
       </div>
 
       <div class="header__actions">
-        <button class="action-btn" title="Favoriler">
+        <NuxtLink to="/favorites" class="action-btn" title="Favorites">
           <span class="icon">
             <img :src="FavoriteIconPath" alt="Favorites" />
           </span>
-          <span class="badge"></span>
-        </button>
+          <span v-if="inventoryStore.favoriteCars.length > 0" class="badge">
+            {{ inventoryStore.favoriteCars.length }}
+          </span>
+        </NuxtLink>
         <button class="action-btn" title="Notification">
           <span class="icon">
             <img :src="NotificationIconPath" alt="Notification" />

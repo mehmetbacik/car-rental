@@ -26,6 +26,7 @@ export const useInventoryStore = defineStore("inventory", {
         .sort((a, b) => b.pricePerDay - a.pricePerDay)
         .slice(0, 3);
     },
+    favoriteCars: (state) => state.items.filter((car) => car.isFavorite),
   },
 
   actions: {
@@ -43,6 +44,13 @@ export const useInventoryStore = defineStore("inventory", {
 
     deleteCar(id: string) {
       this.items = this.items.filter((item) => item.id !== id);
+    },
+
+    toggleFavorite(carId: string) {
+      const car = this.items.find((i) => i.id === carId);
+      if (car) {
+        car.isFavorite = !car.isFavorite;
+      }
     },
   },
 });
