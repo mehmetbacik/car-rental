@@ -4,6 +4,7 @@ import { useRoute, useRouter } from "vue-router";
 import { useSearchStore } from "@/stores/useSearch";
 import { useInventoryStore } from "@/stores/useInventory";
 import { useNotificationStore } from "@/stores/useNotification";
+import { useSettingsStore } from "@/stores/useSettings";
 
 const LogoPath = "/images/logo.svg";
 const SearchIconPath = "/icons/search.svg";
@@ -16,11 +17,13 @@ const ProfilePath = "/icons/profile.svg";
 const searchStore = useSearchStore();
 const inventoryStore = useInventoryStore();
 const notificationStore = useNotificationStore();
+const settingsStore = useSettingsStore();
 const router = useRouter();
 const route = useRoute();
 
 const searchInputContainer = ref<HTMLElement | null>(null);
 const notificationContainer = ref<HTMLElement | null>(null);
+const settingsContainer = ref<HTMLElement | null>(null);
 
 watch(
   () => route.path,
@@ -50,6 +53,10 @@ const handleClickOutside = (event: MouseEvent) => {
     !notificationContainer.value.contains(target)
   ) {
     notificationStore.isDropdownOpen = false;
+  }
+
+  if (settingsContainer.value && !settingsContainer.value.contains(target)) {
+    settingsStore.isDropdownOpen = false;
   }
 };
 
@@ -201,11 +208,38 @@ const selectCar = (carId: string) => {
             </div>
           </transition>
         </div>
-        <button class="action-btn" title="Settings">
-          <span class="icon">
-            <img :src="SettingsIconPath" alt="Settings" />
-          </span>
-        </button>
+        <div class="settings-wrapper" ref="settingsContainer">
+          <button class="action-btn" @click="settingsStore.toggleDropdown">
+            <span class="icon">
+              <img :src="SettingsIconPath" alt="Settings" />
+            </span>
+          </button>
+
+          <transition name="slide-up">
+            <div
+              v-if="settingsStore.isDropdownOpen"
+              class="settings-dropdown card"
+            >
+              <div class="dropdown-item" @click="settingsStore.toggleDarkMode">
+                <span>{{
+                  settingsStore.darkMode ? "Light Mode" : "Dark Mode"
+                }}</span>
+                <div
+                  class="toggle-switch"
+                  :class="{ active: settingsStore.darkMode }"
+                ></div>
+              </div>
+              <NuxtLink
+                to="/settings"
+                class="dropdown-item"
+                @click="settingsStore.isDropdownOpen = false"
+              >
+                All Settings
+              </NuxtLink>
+              <div class="dropdown-divider"></div>
+            </div>
+          </transition>
+        </div>
         <div class="user-profile">
           <img :src="ProfilePath" alt="Profile" />
         </div>
