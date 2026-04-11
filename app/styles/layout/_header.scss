@@ -346,3 +346,134 @@
     }
   }
 }
+
+.user-profile-wrapper {
+  position: relative;
+  .user-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid $secondary-200;
+    overflow: hidden;
+    cursor: pointer;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+.profile-dropdown {
+  position: absolute;
+  top: 120%;
+  right: 0;
+  width: 220px;
+  background: $color-white;
+  z-index: 1000;
+  padding: $spacing-unit * 3;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+
+  .dropdown-user-info {
+    padding-block: $spacing-unit * 2;
+    padding-inline: $spacing-unit * 3;
+    .name {
+      font-weight: 700;
+      color: $secondary-500;
+    }
+    .role {
+      font-size: $font-size-base * 0.75;
+      color: $secondary-300;
+      margin-top: $spacing-unit;
+    }
+  }
+
+  .dropdown-divider {
+    height: 1px;
+    background: $secondary-100;
+    margin: $spacing-unit * 2 0;
+  }
+
+  .dropdown-item {
+    display: block;
+    padding-block: $spacing-unit * 2.5;
+    padding-inline: $spacing-unit * 3;
+    border-radius: 8px;
+    text-decoration: none;
+    color: $secondary-400;
+    font-size: $spacing-unit * 3.5;
+    font-weight: 500;
+    transition: $transition-base;
+    &:hover {
+      background: $secondary-100;
+      color: $primary-neutral-palette-500;
+    }
+  }
+
+  .logout-btn {
+    width: 100%;
+    text-align: left;
+    padding-block: $spacing-unit * 2.5;
+    padding-inline: $spacing-unit * 3;
+    border: none;
+    background: transparent;
+    color: $error-500;
+    font-weight: 600;
+    cursor: pointer;
+  }
+}
+
+.user-avatar {
+  cursor: pointer;
+  img {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid $secondary-200;
+    &.is-guest {
+      filter: grayscale(100%);
+      opacity: 0.7;
+    }
+  }
+}
+
+.profile-dropdown {
+  .dropdown-guest-info {
+    padding-block: $spacing-unit * 2;
+    padding-inline: $spacing-unit * 3;
+    .title {
+      font-weight: 700;
+      color: $secondary-500;
+    }
+    .subtitle {
+      font-size: $font-size-base * 0.675;
+      color: $secondary-300;
+    }
+  }
+
+  .login-btn {
+    background: $primary-neutral-palette-500;
+    color: $color-white !important;
+    text-align: center;
+    border-radius: 8px;
+    margin-bottom: $spacing-unit * 2;
+    &:hover {
+      background: $primary-neutral-palette-600 !important;
+    }
+  }
+
+  .register-btn {
+    text-align: center;
+    border: 1px solid $secondary-200;
+    border-radius: 8px;
+    &:hover {
+      background: $secondary-100;
+    }
+  }
+
+  .dashboard-link {
+    color: $primary-neutral-palette-500 !important;
+    font-weight: 600;
+  }
+}
