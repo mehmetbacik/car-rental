@@ -6,13 +6,12 @@ const authStore = useAuthStore();
 
 const handleLogin = async () => {
   const result = authStore.login({ email: email.value, pass: password.value });
-  
+
   if (result.success) {
-    if (result.role === "admin") {
-      await navigateTo("/dashboard");
-    } else {
-      await navigateTo("/dashboard/my-rentals");
-    }
+    const dashboardUrl =
+      result.role === "admin" ? "/dashboard" : "/dashboard/my-rentals";
+    window.open(dashboardUrl, "_blank");
+    await navigateTo("/");
   } else {
     error.value = result.message || "Invalid credentials";
   }

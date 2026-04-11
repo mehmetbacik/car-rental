@@ -5,6 +5,8 @@ import { useSearchStore } from "@/stores/useSearch";
 import { useInventoryStore } from "@/stores/useInventory";
 import { useNotificationStore } from "@/stores/useNotification";
 import { useSettingsStore } from "@/stores/useSettings";
+import { useProfileStore } from "@/stores/useProfile";
+import { useAuthStore } from "@/stores/useAuthStore";
 
 const LogoPath = "/images/logo.svg";
 const SearchIconPath = "/icons/search.svg";
@@ -18,12 +20,15 @@ const searchStore = useSearchStore();
 const inventoryStore = useInventoryStore();
 const notificationStore = useNotificationStore();
 const settingsStore = useSettingsStore();
+const profileStore = useProfileStore();
+const authStore = useAuthStore();
 const router = useRouter();
 const route = useRoute();
 
 const searchInputContainer = ref<HTMLElement | null>(null);
 const notificationContainer = ref<HTMLElement | null>(null);
 const settingsContainer = ref<HTMLElement | null>(null);
+const profileContainer = ref<HTMLElement | null>(null);
 
 watch(
   () => route.path,
@@ -31,11 +36,27 @@ watch(
     searchStore.closeDropdown();
     searchStore.searchQuery = "";
     notificationStore.isDropdownOpen = false;
+    settingsStore.isDropdownOpen = false;
+    profileStore.closeDropdown();
   },
 );
 
+const requireAuth = (callback: () => void) => {
+  if (!authStore.isAuthenticated) {
+    router.push("/login");
+  } else {
+    callback();
+  }
+};
+
 const handleInput = () => {
   searchStore.isDropdownOpen = searchStore.searchQuery.length > 0;
+};
+
+const handleLogout = async () => {
+  await authStore.logout();
+  profileStore.closeDropdown();
+  router.push("/");
 };
 
 const handleClickOutside = (event: MouseEvent) => {
@@ -47,16 +68,17 @@ const handleClickOutside = (event: MouseEvent) => {
   ) {
     searchStore.closeDropdown();
   }
-
   if (
     notificationContainer.value &&
     !notificationContainer.value.contains(target)
   ) {
     notificationStore.isDropdownOpen = false;
   }
-
   if (settingsContainer.value && !settingsContainer.value.contains(target)) {
     settingsStore.isDropdownOpen = false;
+  }
+  if (profileContainer.value && !profileContainer.value.contains(target)) {
+    profileStore.closeDropdown();
   }
 };
 
@@ -70,14 +92,9 @@ onUnmounted(() => {
 
 const handleSearchEnter = () => {
   const termToSearch = searchStore.searchQuery.trim();
-
   if (termToSearch) {
     searchStore.executeSearch(termToSearch);
-
-    router.push({
-      path: "/search-results",
-      query: { q: termToSearch },
-    });
+    router.push({ path: "/search-results", query: { q: termToSearch } });
   }
 };
 
@@ -98,9 +115,7 @@ const selectCar = (carId: string) => {
       <div class="header__search">
         <div class="search-input-container" ref="searchInputContainer">
           <div class="search-input">
-            <span class="icon">
-              <img :src="SearchIconPath" alt="Search" />
-            </span>
+            <span class="icon"><img :src="SearchIconPath" alt="Search" /></span>
             <input
               v-model="searchStore.searchQuery"
               type="text"
@@ -137,7 +152,6 @@ const selectCar = (carId: string) => {
                 </div>
                 <span class="car-price">${{ car.pricePerDay }}</span>
               </div>
-
               <div class="dropdown-footer" @click="handleSearchEnter">
                 Show all results for "{{
                   searchStore.searchQuery || searchStore.activeSearchTerm
@@ -149,24 +163,43 @@ const selectCar = (carId: string) => {
       </div>
 
       <div class="header__actions">
-        <NuxtLink to="/favorites" class="action-btn" title="Favorites">
-          <span class="icon">
-            <img :src="FavoriteIconPath" alt="Favorites" />
-          </span>
-          <span v-if="inventoryStore.favoriteCars.length > 0" class="badge">
+        <div
+          class="action-btn"
+          @click="requireAuth(() => router.push('/favorites'))"
+          title="Favorites"
+        >
+          <span class="icon"
+            ><img :src="FavoriteIconPath" alt="Favorites"
+          /></span>
+          <span
+            v-if="
+              authStore.isAuthenticated &&
+              inventoryStore.favoriteCars.length > 0
+            "
+            class="badge"
+          >
             {{ inventoryStore.favoriteCars.length }}
           </span>
-        </NuxtLink>
+        </div>
+
         <div
           class="notification-wrapper"
           ref="notificationContainer"
           title="Notification"
         >
-          <button class="action-btn" @click="notificationStore.toggleDropdown">
-            <span class="icon">
-              <img :src="NotificationIconPath" alt="Notification" />
-            </span>
-            <span v-if="notificationStore.unreadCount > 0" class="badge">
+          <button
+            class="action-btn"
+            @click="requireAuth(() => notificationStore.toggleDropdown())"
+          >
+            <span class="icon"
+              ><img :src="NotificationIconPath" alt="Notification"
+            /></span>
+            <span
+              v-if="
+                authStore.isAuthenticated && notificationStore.unreadCount > 0
+              "
+              class="badge"
+            >
               {{ notificationStore.unreadCount }}
             </span>
           </button>
@@ -181,7 +214,6 @@ const selectCar = (carId: string) => {
                   Mark all read
                 </button>
               </div>
-
               <div class="dropdown-list">
                 <div
                   v-for="item in notificationStore.recentNotifications"
@@ -197,7 +229,6 @@ const selectCar = (carId: string) => {
                   </div>
                 </div>
               </div>
-
               <NuxtLink
                 to="/notifications"
                 class="view-all"
@@ -208,11 +239,12 @@ const selectCar = (carId: string) => {
             </div>
           </transition>
         </div>
+
         <div class="settings-wrapper" ref="settingsContainer">
           <button class="action-btn" @click="settingsStore.toggleDropdown">
-            <span class="icon">
-              <img :src="SettingsIconPath" alt="Settings" />
-            </span>
+            <span class="icon"
+              ><img :src="SettingsIconPath" alt="Settings"
+            /></span>
           </button>
 
           <transition name="slide-up">
@@ -229,19 +261,87 @@ const selectCar = (carId: string) => {
                   :class="{ active: settingsStore.darkMode }"
                 ></div>
               </div>
-              <NuxtLink
-                to="/settings"
+              <div
                 class="dropdown-item"
-                @click="settingsStore.isDropdownOpen = false"
+                @click="
+                  requireAuth(() => {
+                    router.push('/settings');
+                    settingsStore.isDropdownOpen = false;
+                  })
+                "
               >
                 All Settings
-              </NuxtLink>
+              </div>
               <div class="dropdown-divider"></div>
             </div>
           </transition>
         </div>
-        <div class="user-profile">
-          <img :src="ProfilePath" alt="Profile" />
+
+        <div class="user-profile-wrapper" ref="profileContainer">
+          <div class="user-avatar" @click="profileStore.toggleDropdown">
+            <img
+              :src="
+                authStore.isAuthenticated
+                  ? authStore.user?.avatar || ProfilePath
+                  : ProfilePath
+              "
+              :alt="authStore.isAuthenticated ? authStore.user?.name : 'Guest'"
+              :class="{ 'is-guest': !authStore.isAuthenticated }"
+            />
+          </div>
+
+          <transition name="slide-up">
+            <div
+              v-if="profileStore.isDropdownOpen"
+              class="profile-dropdown card"
+            >
+              <template v-if="authStore.isAuthenticated">
+                <div class="dropdown-user-info">
+                  <p class="name">{{ authStore.user?.name }}</p>
+                  <p class="role">{{ authStore.user?.role }}</p>
+                </div>
+                <div class="dropdown-divider"></div>
+                <NuxtLink
+                  to="/profile"
+                  class="dropdown-item"
+                  @click="profileStore.closeDropdown"
+                  >My Profile</NuxtLink
+                >
+                <a
+                  href="/dashboard"
+                  target="_blank"
+                  class="dropdown-item dashboard-link"
+                  @click="profileStore.closeDropdown"
+                >
+                  Dashboard
+                </a>
+                <div class="dropdown-divider"></div>
+                <button class="logout-btn" @click="handleLogout">
+                  Sign Out
+                </button>
+              </template>
+
+              <template v-else>
+                <div class="dropdown-guest-info">
+                  <p class="title">Welcome!</p>
+                  <p class="subtitle">Join us to manage your account.</p>
+                </div>
+                <div class="dropdown-divider"></div>
+                <NuxtLink
+                  to="/login"
+                  class="dropdown-item login-btn"
+                  @click="profileStore.closeDropdown"
+                  >Sign In</NuxtLink
+                >
+                <NuxtLink
+                  to="/register"
+                  class="dropdown-item register-btn"
+                  @click="profileStore.closeDropdown"
+                  >Register</NuxtLink
+                >
+              </template>
+            </div>
+          </transition>
         </div>
       </div>
     </div>
