@@ -1,0 +1,109 @@
+.footer {
+  background-color: $color-white;
+  padding-top: $spacing-unit * 12;
+  padding-bottom: $spacing-unit * 8;
+  border-top: 1px solid rgba(19, 19, 19, 0.05);
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: $spacing-unit * 10;
+    margin-bottom: $spacing-unit * 10;
+  }
+
+  &__brand {
+    max-width: 300px;
+    .logo {
+      display: inline-block;
+      margin-bottom: $spacing-unit * 4;
+      img {
+        height: 32px;
+      }
+    }
+    .description {
+      font-size: $font-size-base * 1;
+      line-height: 1.5;
+      color: $secondary-300;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    gap: $spacing-unit * 10;
+    flex-wrap: wrap;
+
+    @media (max-width: 640px) {
+      width: 100%;
+      justify-content: space-between;
+      gap: $spacing-unit * 8;
+    }
+  }
+
+  .link-group {
+    &__title {
+      font-size: $font-size-base * 1.2;
+      font-weight: 600;
+      color: $secondary-500;
+      margin-bottom: $spacing-unit * 6;
+    }
+
+    &__list {
+      list-style: none;
+      padding: 0;
+      li {
+        margin-bottom: $spacing-unit * 3;
+        a {
+          text-decoration: none;
+          color: $secondary-300;
+          font-size: $font-size-base * 1;
+          transition: $transition-base;
+          &:hover {
+            color: $primary-neutral-palette-500;
+          }
+        }
+      }
+    }
+  }
+
+  &__bottom {
+    border-top: 1px solid rgba(19, 19, 19, 0.05);
+    padding-top: $spacing-unit * 7.5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap-reverse;
+    gap: $spacing-unit * 5;
+
+    .copyright {
+      font-size: $font-size-base * 1;
+      font-weight: 600;
+      color: $secondary-500;
+    }
+
+    .legal-links {
+      display: flex;
+      gap: $spacing-unit * 10;
+      a {
+        text-decoration: none;
+        font-size: $font-size-base * 1;
+        font-weight: 600;
+        color: $secondary-500;
+        transition: $transition-base;
+        &:hover {
+          color: $primary-neutral-palette-500;
+        }
+      }
+    }
+
+    @media (max-width: 640px) {
+      flex-direction: column-reverse;
+      align-items: flex-start;
+      .legal-links {
+        width: 100%;
+        justify-content: space-between;
+        gap: 0;
+      }
+    }
+  }
+}
