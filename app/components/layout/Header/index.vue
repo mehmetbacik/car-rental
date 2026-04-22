@@ -74,9 +74,7 @@ onUnmounted(() => document.removeEventListener("click", handleClickOutside));
       <NuxtLink to="/" class="header__logo">
         <img src="/images/logo.svg" alt="Logo" />
       </NuxtLink>
-
       <HeaderSearch ref="searchRef" />
-
       <div class="header__actions">
         <HeaderFavorites :require-auth="requireAuth" />
         <HeaderNotifications

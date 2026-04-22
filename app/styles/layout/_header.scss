@@ -1,75 +1,111 @@
 .header {
   background: $color-white;
-  padding: $spacing-unit * 6 0;
-  border-bottom: 1px solid rgba($secondary-400, 0.1);
+  padding: $spacing-unit * 10 0;
+  border-bottom: 1px solid $secondary-100;
   position: sticky;
   top: 0;
   z-index: 100;
-
   &__wrapper {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    gap: $spacing-unit * 8;
-  }
-
-  &__search {
-    flex: 1;
-    max-width: 500px;
-    .search-input {
-      display: flex;
-      align-items: center;
-      padding-block: $spacing-unit * 3;
-      padding-inline: $spacing-unit * 5;
-      border: 1px solid rgba($secondary-400, 0.2);
-      border-radius: 70px;
-      gap: $spacing-unit * 4;
-
-      input {
-        border: none;
-        outline: none;
+    gap: $spacing-unit * 16;
+    .header__logo {
+      @media (max-width: $sm-breakpoint) {
+        order: 1;
+        width: 33%;
+      }
+    }
+    .header__search {
+      flex: 1;
+      max-width: 492px;
+      @media (max-width: $sm-breakpoint) {
+        order: 3;
         width: 100%;
-        font-size: $font-size-base * 0.9;
+      }
+      .search-input {
+        display: flex;
+        align-items: center;
+        padding-block: $spacing-unit * 2.6;
+        padding-inline: $spacing-unit * 5;
+        border: 1px solid $secondary-100;
+        border-radius: 70px;
+        gap: $spacing-unit * 4;
+        input {
+          border: none;
+          outline: none;
+          width: 100%;
+          font-size: $font-size-base * 0.9;
+        }
       }
     }
-  }
-
-  &__actions {
-    display: flex;
-    align-items: center;
-    gap: $spacing-unit * 5;
-
-    .action-btn {
-      position: relative;
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      border: 1px solid rgba($secondary-400, 0.1);
-      background: none;
-      cursor: pointer;
+    .header__actions {
       display: flex;
       align-items: center;
-      justify-content: center;
-
-      .badge {
-        position: absolute;
-        top: 2px;
-        right: 2px;
-        width: 10px;
-        height: 10px;
-        background: $error-500;
-        border-radius: 50%;
+      justify-content: flex-end;
+      gap: $spacing-unit * 5;
+      flex: 0.75;
+      @media (max-width: $sm-breakpoint) {
+        order: 2;
+        width: 50%;
+        gap: $spacing-unit * 2.5;
       }
-    }
-
-    .user-profile img {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      object-fit: cover;
+      .action-btn {
+        position: relative;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        border: 1px solid $secondary-100;
+        background: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @media (max-width: $sm-breakpoint) {
+          width: 28px;
+          height: 28px;
+        }
+        .badge {
+          position: absolute;
+          top: 0px;
+          right: 0px;
+          width: 12px;
+          height: 12px;
+          background: $error-500;
+          border-radius: 50%;
+          color: $color-white;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: $font-size-base * 0.5;
+        }
+      }
+      .user-profile-wrapper {
+        position: relative;
+        .user-avatar {
+          width: 44px;
+          height: 44px;
+          border-radius: 50%;
+          border: 1px solid $secondary-200;
+          overflow: hidden;
+          cursor: pointer;
+          @media (max-width: $sm-breakpoint) {
+            width: 28px;
+            height: 28px;
+          }
+          img {
+            border-radius: 50%;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+      }
     }
   }
 }
+
 
 .search-input-container {
   position: relative;
@@ -169,12 +205,6 @@
     &:hover {
       background: $secondary-300;
     }
-  }
-}
-
-@media (max-width: 768px) {
-  .header__search {
-    display: none;
   }
 }
 
@@ -343,23 +373,6 @@
     background: $primary-neutral-palette-500;
     &::after {
       left: 16px;
-    }
-  }
-}
-
-.user-profile-wrapper {
-  position: relative;
-  .user-avatar {
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    border: 1px solid $secondary-200;
-    overflow: hidden;
-    cursor: pointer;
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
     }
   }
 }

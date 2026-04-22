@@ -9,19 +9,22 @@ const props = defineProps<{
 </script>
 
 <template>
-  <div
-    class="action-btn"
-    @click="requireAuth(() => router.push('/favorites'))"
-    title="Favorites"
-  >
-    <span class="icon">
-      <img src="/icons/heart.svg" alt="Favorites" />
-    </span>
-    <span
-      v-if="authStore.isAuthenticated && inventoryStore.favoriteCars.length > 0"
-      class="badge"
+  <div class="favorites-wrapper" title="Favorites">
+    <div
+      class="action-btn"
+      @click="requireAuth(() => router.push('/favorites'))"
     >
-      {{ inventoryStore.favoriteCars.length }}
-    </span>
+      <span class="icon">
+        <img src="/icons/heart.svg" alt="Favorites" />
+      </span>
+      <span
+        v-if="
+          authStore.isAuthenticated && inventoryStore.favoriteCars.length > 0
+        "
+        class="badge"
+      >
+        {{ inventoryStore.favoriteCars.length }}
+      </span>
+    </div>
   </div>
 </template>
