@@ -1,12 +1,13 @@
 import { defineStore } from "pinia";
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import { usersData } from "@/data/usersData";
 import type { userType } from "@/types/users";
 import { navigateTo } from "#app";
 
 export const useAuthStore = defineStore("auth", () => {
   const user = ref<userType | null>(null);
-  const isAuthenticated = ref(false);
+  
+  const isAuthenticated = computed(() => !!user.value);
 
   const SESSION_DURATION = 2 * 60 * 60 * 1000;
 
@@ -19,15 +20,16 @@ export const useAuthStore = defineStore("auth", () => {
       const expiry = Date.now() + SESSION_DURATION;
 
       user.value = foundUser;
-      isAuthenticated.value = true;
 
-      localStorage.setItem(
-        "auth_data",
-        JSON.stringify({
-          user: foundUser,
-          expiry,
-        }),
-      );
+      if (process.client) {
+        localStorage.setItem(
+          "auth_data",
+          JSON.stringify({
+            user: foundUser,
+            expiry,
+          }),
+        );
+      }
 
       return { success: true, role: foundUser.role };
     }
@@ -44,7 +46,6 @@ export const useAuthStore = defineStore("auth", () => {
         const parsed = JSON.parse(data);
         if (Date.now() < parsed.expiry) {
           user.value = parsed.user;
-          isAuthenticated.value = true;
         } else {
           logout();
         }
@@ -56,12 +57,15 @@ export const useAuthStore = defineStore("auth", () => {
 
   const logout = () => {
     user.value = null;
-    isAuthenticated.value = false;
-
-    localStorage.removeItem("auth_data");
-
+    if (process.client) {
+      localStorage.removeItem("auth_data");
+    }
     navigateTo("/login");
   };
+
+  if (process.client) {
+    initAuth();
+  }
 
   return {
     user,
