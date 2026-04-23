@@ -13,6 +13,7 @@ const ProfilePath = "/icons/profile.svg";
 
 const isUserLoggedIn = computed(() => authStore.isAuthenticated);
 const currentUser = computed(() => authStore.user);
+const isMounted = ref(false);
 
 const handleLogout = async () => {
   await authStore.logout();
@@ -21,9 +22,13 @@ const handleLogout = async () => {
 };
 
 onMounted(() => {
-  if (!authStore.isAuthenticated) {
-    authStore.initAuth();
-  }
+  authStore.initAuth();
+  isMounted.value = true;
+});
+
+const checkGuestStatus = computed(() => {
+  if (!isMounted.value) return false;
+  return !authStore.isAuthenticated;
 });
 
 defineExpose({ profileContainer });
@@ -33,9 +38,13 @@ defineExpose({ profileContainer });
   <div class="user-profile-wrapper" ref="profileContainer">
     <div class="user-avatar" @click="profileStore.toggleDropdown">
       <img
-        :src="isUserLoggedIn ? currentUser?.avatar || ProfilePath : ProfilePath"
-        :alt="isUserLoggedIn ? currentUser?.name : 'Guest'"
-        :class="{ 'is-guest': !isUserLoggedIn }"
+        :src="
+          authStore.isAuthenticated
+            ? authStore.user?.avatar || ProfilePath
+            : ProfilePath
+        "
+        :alt="authStore.isAuthenticated ? authStore.user?.name : 'Guest'"
+        :class="{ 'is-guest': checkGuestStatus }"
       />
     </div>
 
