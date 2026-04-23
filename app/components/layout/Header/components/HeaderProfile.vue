@@ -1,4 +1,9 @@
 <script setup lang="ts">
+import { ref, onMounted, computed } from "vue";
+import { useRouter } from "vue-router";
+import { useAuthStore } from "@/stores/useAuthStore";
+import { useProfileStore } from "@/stores/useProfile";
+
 const authStore = useAuthStore();
 const profileStore = useProfileStore();
 const router = useRouter();
@@ -6,11 +11,20 @@ const profileContainer = ref<HTMLElement | null>(null);
 
 const ProfilePath = "/icons/profile.svg";
 
+const isUserLoggedIn = computed(() => authStore.isAuthenticated);
+const currentUser = computed(() => authStore.user);
+
 const handleLogout = async () => {
   await authStore.logout();
   profileStore.closeDropdown();
   router.push("/");
 };
+
+onMounted(() => {
+  if (!authStore.isAuthenticated) {
+    authStore.initAuth();
+  }
+});
 
 defineExpose({ profileContainer });
 </script>
@@ -19,22 +33,18 @@ defineExpose({ profileContainer });
   <div class="user-profile-wrapper" ref="profileContainer">
     <div class="user-avatar" @click="profileStore.toggleDropdown">
       <img
-        :src="
-          authStore.isAuthenticated
-            ? authStore.user?.avatar || ProfilePath
-            : ProfilePath
-        "
-        :alt="authStore.isAuthenticated ? authStore.user?.name : 'Guest'"
-        :class="{ 'is-guest': !authStore.isAuthenticated }"
+        :src="isUserLoggedIn ? currentUser?.avatar || ProfilePath : ProfilePath"
+        :alt="isUserLoggedIn ? currentUser?.name : 'Guest'"
+        :class="{ 'is-guest': !isUserLoggedIn }"
       />
     </div>
 
     <transition name="slide-up">
       <div v-if="profileStore.isDropdownOpen" class="profile-dropdown card">
-        <template v-if="authStore.isAuthenticated">
+        <template v-if="isUserLoggedIn">
           <div class="dropdown-user-info">
-            <p class="name">{{ authStore.user?.name }}</p>
-            <p class="role">{{ authStore.user?.role }}</p>
+            <p class="name">{{ currentUser?.name }}</p>
+            <p class="role">{{ currentUser?.role }}</p>
           </div>
           <div class="dropdown-divider"></div>
           <NuxtLink
