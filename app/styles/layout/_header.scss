@@ -67,6 +67,93 @@
             cursor: pointer;
           }
         }
+        .search-dropdown {
+          position: absolute;
+          top: 55px;
+          left: 0;
+          width: 100%;
+          background: $color-white;
+          border-radius: 12px;
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+          z-index: 999;
+          border: 1px solid $secondary-100;
+          padding: $spacing-unit * 10;
+          overflow: hidden;
+          @media (max-width: $sm-breakpoint) {
+            padding: $spacing-unit * 5;
+          }
+          &-content {
+            max-height: 350px;
+            overflow-y: auto;
+            padding-right: 8px;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(0, 0, 0, 0.3) transparent;
+            @media (max-width: $sm-breakpoint) {
+              max-height: 280px;
+            }
+            &::-webkit-scrollbar {
+              width: 8px;
+            }
+            &::-webkit-scrollbar-track {
+              background: transparent;
+            }
+            &::-webkit-scrollbar-thumb {
+              background: rgba(0, 0, 0, 0.3);
+              border-radius: 999px;
+            }
+            &::-webkit-scrollbar-thumb:hover {
+              background: rgba(0, 0, 0, 0.5);
+            }
+          }
+          .dropdown-item {
+            display: flex;
+            align-items: center;
+            padding-block: $spacing-unit * 3;
+            padding-inline: $spacing-unit * 5;
+            gap: $spacing-unit * 4;
+            cursor: pointer;
+            transition: $transition-base;
+            &:hover {
+              background: $secondary-200;
+            }
+            .car-thumb {
+              width: 44px;
+              height: auto;
+              object-fit: contain;
+            }
+            .car-meta {
+              flex: 1;
+              .car-name {
+                display: block;
+                font-weight: 600;
+                font-size: $font-size-base * 0.85;
+                color: $secondary-500;
+              }
+              .car-type {
+                font-size: $font-size-base * 0.75;
+                color: $secondary-300;
+              }
+            }
+            .car-price {
+              font-weight: 700;
+              color: $primary-neutral-palette-500;
+              font-size: $font-size-base * 0.75;
+            }
+          }
+          .dropdown-footer {
+            padding: $spacing-unit * 4;
+            text-align: center;
+            font-size: $font-size-base * 0.75;
+            color: $primary-neutral-palette-500;
+            font-weight: 700;
+            cursor: pointer;
+            background: $secondary-200;
+            margin-top: $spacing-unit * 6;
+            &:hover {
+              background: $secondary-300;
+            }
+          }
+        }
       }
     }
     .header__actions {
@@ -146,67 +233,6 @@
           }
         }
       }
-    }
-  }
-}
-
-.search-dropdown {
-  position: absolute;
-  top: 55px;
-  left: 0;
-  width: 100%;
-  background: $color-white;
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-  z-index: 999;
-  border: 1px solid $secondary-100;
-
-  .dropdown-item {
-    display: flex;
-    align-items: center;
-    padding-block: $spacing-unit * 3;
-    padding-inline: $spacing-unit * 5;
-    gap: $spacing-unit * 4;
-    cursor: pointer;
-    transition: $transition-base;
-    &:hover {
-      background: $secondary-200;
-    }
-    .car-thumb {
-      width: 44px;
-      height: auto;
-      object-fit: contain;
-    }
-    .car-meta {
-      flex: 1;
-      .car-name {
-        display: block;
-        font-weight: 600;
-        font-size: $font-size-base * 0.85;
-        color: $secondary-500;
-      }
-      .car-type {
-        font-size: $font-size-base * 0.75;
-        color: $secondary-300;
-      }
-    }
-    .car-price {
-      font-weight: 700;
-      color: $primary-neutral-palette-500;
-      font-size: $font-size-base * 0.75;
-    }
-  }
-
-  .dropdown-footer {
-    padding: $spacing-unit * 4;
-    text-align: center;
-    font-size: $font-size-base * 0.75;
-    color: $primary-neutral-palette-500;
-    font-weight: 700;
-    cursor: pointer;
-    background: $secondary-200;
-    &:hover {
-      background: $secondary-300;
     }
   }
 }

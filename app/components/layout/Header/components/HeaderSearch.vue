@@ -49,20 +49,22 @@ defineExpose({ searchInputContainer });
           v-if="
             searchStore.isDropdownOpen && searchStore.filteredResults.length > 0
           "
-          class="search-dropdown card"
+          class="search-dropdown"
         >
-          <div
-            v-for="car in searchStore.filteredResults"
-            :key="car.id"
-            class="dropdown-item"
-            @click="selectCar(car.id)"
-          >
-            <img :src="car.image" class="car-thumb" alt="Car" />
-            <div class="car-meta">
-              <span class="car-name">{{ car.name }}</span>
-              <span class="car-type">{{ car.type }}</span>
+          <div class="search-dropdown-content">
+            <div
+              v-for="car in searchStore.filteredResults"
+              :key="car.id"
+              class="dropdown-item"
+              @click="selectCar(car.id)"
+            >
+              <img :src="car.image" class="car-thumb" alt="Car" />
+              <div class="car-meta">
+                <span class="car-name">{{ car.name }}</span>
+                <span class="car-type">{{ car.type }}</span>
+              </div>
+              <span class="car-price">${{ car.pricePerDay }}</span>
             </div>
-            <span class="car-price">${{ car.pricePerDay }}</span>
           </div>
           <div class="dropdown-footer" @click="handleSearchEnter">
             Show all results for "{{
