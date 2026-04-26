@@ -6,7 +6,7 @@ export default defineNuxtConfig({
     transpile: ["pinia"],
   },
   modules: ["@pinia/nuxt", "@vueuse/nuxt"],
-  css: ["./app/styles/main.scss"],
+  css: ["./app/styles/main.scss", "swiper/css", "swiper/css/pagination"],
   ssr: true,
 
   app: {
