@@ -6,6 +6,8 @@
   --text-muted: #90A3BF;
   --border-color: rgba(195, 212, 248, 0.4);
   --primary-color: #3563E9;
+
+  --header-bg: #FFFFFF;
 }
 
 .dark-mode {
@@ -15,10 +17,15 @@
   --text-main: #FFFFFF;
   --text-muted: #7C7C7C;
   --border-color: #2D2D2D;
+
+  --header-bg: #040815;
 }
 
 body {
   background-color: var(--bg-color);
   color: var(--text-main);
   transition: background-color 0.3s ease, color 0.3s ease;
+  .header {
+    background: var(--header-bg);
+  }
 }

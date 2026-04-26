@@ -46,7 +46,7 @@ const swiperOptions = {
 
 <template>
   <section class="hero-wrapper">
-    <div class="container">
+    <div class="hero-content">
       <swiper
         v-bind="swiperOptions"
         :modules="modules"

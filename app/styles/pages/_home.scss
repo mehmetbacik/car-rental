@@ -1,11 +1,34 @@
-.hero-ads {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: $spacing-unit * 8;
+.hero-wrapper {
   margin: $spacing-unit * 8 0;
+  .custom-hero-swiper {
+    padding-bottom: 40px;
+    overflow: visible;
+    .swiper-pagination {
+      bottom: 0;
+      .swiper-pagination-bullet {
+        background: #c3d4e9;
+        opacity: 1;
+        width: 8px;
+        height: 8px;
+        transition: all 0.3s ease;
+        border-radius: 50%;
+        &-active {
+          background: #3563e9;
+          width: 24px;
+          border-radius: 4px;
+        }
+      }
+    }
+    @media (min-width: 768px) {
+      padding-bottom: 0;
+      .swiper-pagination {
+        display: none !important;
+      }
+    }
+  }
 }
 
-.ad-card {
+.hero-card {
   padding: $spacing-unit * 8;
   border-radius: 10px;
   color: $color-white;
@@ -18,14 +41,41 @@
     background-color: $primary-neutral-palette-500;
   }
 
-  h2 {
-    max-width: 250px;
-    font-size: $font-size-base * 2;
-    margin-bottom: $spacing-unit * 4;
+  &__content {
+    max-width: 285px;
+    z-index: 2;
   }
-  p {
-    max-width: 250px;
-    margin-bottom: $spacing-unit * 6;
+
+  &__title {
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 16px;
+
+    @media (max-width: 768px) {
+      font-size: 16px;
+    }
+  }
+
+  &__text {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    opacity: 0.9;
+
+    @media (max-width: 768px) {
+      font-size: 12px;
+    }
+  }
+
+  &__image {
+    display: flex;
+    justify-content: center;
+    img {
+      max-width: 100%;
+      height: auto;
+      max-height: 120px;
+    }
   }
 }
 
