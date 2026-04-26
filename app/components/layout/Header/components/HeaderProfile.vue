@@ -49,7 +49,7 @@ defineExpose({ profileContainer });
     </div>
 
     <transition name="slide-up">
-      <div v-if="profileStore.isDropdownOpen" class="profile-dropdown card">
+      <div v-if="profileStore.isDropdownOpen" class="profile-dropdown">
         <template v-if="isUserLoggedIn">
           <div class="dropdown-user-info">
             <p class="name">{{ currentUser?.name }}</p>

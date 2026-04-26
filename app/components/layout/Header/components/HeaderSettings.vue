@@ -19,7 +19,7 @@ defineExpose({ settingsContainer });
     </button>
 
     <transition name="slide-up">
-      <div v-if="settingsStore.isDropdownOpen" class="settings-dropdown card">
+      <div v-if="settingsStore.isDropdownOpen" class="settings-dropdown">
         <div class="dropdown-item" @click="settingsStore.toggleDarkMode">
           <span>{{ settingsStore.darkMode ? "Light Mode" : "Dark Mode" }}</span>
           <div

@@ -38,7 +38,7 @@ defineExpose({ notificationContainer });
     <transition name="slide-up">
       <div
         v-if="notificationStore.isDropdownOpen"
-        class="notification-dropdown card"
+        class="notification-dropdown"
       >
         <div class="dropdown-header">
           <span>Notifications</span>
