@@ -1,46 +1,29 @@
 .hero-wrapper {
   margin: $spacing-unit * 8 0;
-  .custom-hero-swiper {
-    padding-bottom: 40px;
-    overflow: visible;
-    .swiper-pagination {
-      bottom: 0;
-      .swiper-pagination-bullet {
-        background: #c3d4e9;
-        opacity: 1;
-        width: 8px;
-        height: 8px;
-        transition: all 0.3s ease;
-        border-radius: 50%;
-        &-active {
-          background: #3563e9;
-          width: 24px;
-          border-radius: 4px;
-        }
+  .hero-content {
+    .hero-card {
+      padding: $spacing-unit * 8;
+      border-radius: 10px;
+      color: $color-white;
+      &--blue {
+        background-color: $information-500;
+        background-image: url("/images/banner/hero-bg-1.svg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
       }
-    }
-    @media (min-width: 768px) {
-      padding-bottom: 0;
-      .swiper-pagination {
-        display: none !important;
+      &--light {
+        background-color: $primary-neutral-palette-500;
+        background-image: url("/images/banner/hero-bg-2.svg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
       }
     }
   }
 }
 
 .hero-card {
-  padding: $spacing-unit * 8;
-  border-radius: 10px;
-  color: $color-white;
-  background-size: cover;
-
-  &--blue {
-    background-color: $information-500;
-  }
-  &--light {
-    background-color: $primary-neutral-palette-500;
-  }
-
   &__content {
     max-width: 285px;
     z-index: 2;
@@ -85,6 +68,9 @@
   gap: $spacing-unit * 4;
   margin-bottom: $spacing-unit * 8;
   position: relative;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 
   .switch-btn {
     display: flex;

@@ -3,7 +3,7 @@ import Home from "~/pages/home/index.vue";
 </script>
 
 <template>
-  <div class="home-page container">
+  <div class="container">
     <Home />
   </div>
 </template>

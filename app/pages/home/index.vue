@@ -9,7 +9,7 @@ const SwitchIconPath = "/icons/switch.svg";
 </script>
 
 <template>
-  <div class="home-page container">
+  <div class="home-page">
     <Hero />
 
     <section class="booking-wrapper">
