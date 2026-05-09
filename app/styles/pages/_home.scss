@@ -5,6 +5,9 @@
       padding: $spacing-unit * 8;
       border-radius: 10px;
       color: $color-white;
+      @media (max-width: $sm-breakpoint) {
+        padding: $spacing-unit * 4;
+      }
       &--blue {
         background-color: $information-500;
         background-image: url("/images/banner/hero-bg-1.svg");
@@ -28,6 +31,9 @@
         font-weight: 500;
         line-height: 1.5;
         margin-bottom: $spacing-unit * 4;
+        @media (max-width: $md-breakpoint) {
+          font-size: $font-size-base * 1.5;
+        }
         @media (max-width: $sm-breakpoint) {
           font-size: $font-size-base * 1;
         }
@@ -36,17 +42,44 @@
         font-size: $font-size-base * 1;
         font-weight: 500;
         margin-bottom: $spacing-unit * 4.5;
-        @media (max-width: 768px) {
+        @media (max-width: $md-breakpoint) {
+          font-size: $font-size-base * 1;
+        }
+        @media (max-width: $sm-breakpoint) {
           font-size: $font-size-base * 0.75;
         }
       }
       &__image {
         display: flex;
         justify-content: center;
+        @media (max-width: $lg-breakpoint) {
+          margin-top: $spacing-unit * 7;
+        }
+        @media (max-width: $md-breakpoint) {
+          margin-top: $spacing-unit * 7;
+        }
+        @media (max-width: $sm-breakpoint) {
+          margin-top: $spacing-unit * 7;
+        }
         img {
           max-width: 100%;
           height: auto;
+          min-height: 116px;
           max-height: 120px;
+          @media (max-width: $lg-breakpoint) {
+            min-height: 90px;
+            max-height: 96px;
+          }
+          @media (max-width: $md-breakpoint) {
+            max-width: 196px;
+            min-height: 56px;
+            max-height: 56px;
+          }
+          @media (max-width: $sm-breakpoint) {
+            max-width: 196px;
+            min-height: 56px;
+            max-height: 56px;
+          }
         }
       }
       .btn {
@@ -56,6 +89,9 @@
         font-weight: 500;
         cursor: pointer;
         transition: $transition-base;
+        @media (max-width: $sm-breakpoint) {
+          font-size: $font-size-base * 0.75;
+        }
         &--primary {
           background: $primary-neutral-palette-500;
           color: $color-white;

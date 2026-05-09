@@ -14,10 +14,6 @@ const heroItems: heroType[] = heroData;
 const swiperOptions = {
   slidesPerView: 1,
   spaceBetween: 20,
-  pagination: {
-    clickable: true,
-    dynamicBullets: false,
-  },
   autoplay: { delay: 5000, disableOnInteraction: false },
   breakpoints: {
     768: {
