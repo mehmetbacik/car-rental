@@ -19,45 +19,60 @@
         background-position: center;
         background-repeat: no-repeat;
       }
-    }
-  }
-}
-
-.hero-card {
-  &__content {
-    max-width: 285px;
-    z-index: 2;
-  }
-
-  &__title {
-    font-size: 32px;
-    font-weight: 600;
-    line-height: 1.5;
-    margin-bottom: 16px;
-
-    @media (max-width: 768px) {
-      font-size: 16px;
-    }
-  }
-
-  &__text {
-    font-size: 16px;
-    font-weight: 500;
-    margin-bottom: 20px;
-    opacity: 0.9;
-
-    @media (max-width: 768px) {
-      font-size: 12px;
-    }
-  }
-
-  &__image {
-    display: flex;
-    justify-content: center;
-    img {
-      max-width: 100%;
-      height: auto;
-      max-height: 120px;
+      &__content {
+        max-width: 285px;
+        z-index: 2;
+      }
+      &__title {
+        font-size: $font-size-base * 2;
+        font-weight: 500;
+        line-height: 1.5;
+        margin-bottom: $spacing-unit * 4;
+        @media (max-width: $sm-breakpoint) {
+          font-size: $font-size-base * 1;
+        }
+      }
+      &__text {
+        font-size: $font-size-base * 1;
+        font-weight: 500;
+        margin-bottom: $spacing-unit * 4.5;
+        @media (max-width: 768px) {
+          font-size: $font-size-base * 0.75;
+        }
+      }
+      &__image {
+        display: flex;
+        justify-content: center;
+        img {
+          max-width: 100%;
+          height: auto;
+          max-height: 120px;
+        }
+      }
+      .btn {
+        padding-block: $spacing-unit * 3;
+        padding-inline: $spacing-unit * 4.5;
+        border-radius: 6px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: $transition-base;
+        &--primary {
+          background: $primary-neutral-palette-500;
+          color: $color-white;
+          border: none;
+          &:hover {
+            background: $primary-neutral-palette-600;
+          }
+        }
+        &--info {
+          background: $information-500;
+          color: $color-white;
+          border: none;
+          &:hover {
+            background: $information-600;
+          }
+        }
+      }
     }
   }
 }
