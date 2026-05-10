@@ -4,6 +4,7 @@ import { useRouter } from "vue-router";
 
 const router = useRouter();
 const SwitchIconPath = "/icons/switch.svg";
+const SearchIconPath = "/icons/search.svg";
 
 const bookingData = ref({
   pickup: { location: "", date: "", time: "" },
@@ -40,8 +41,8 @@ const handleSearch = () => {
       >
         <img :src="SwitchIconPath" alt="Switch" />
       </button>
-      <button class="search-btn" @click="handleSearch" type="button">
-        <span class="search-btn__text">Search</span>
+      <button class="search-btn" @click="handleSearch" type="button" title="Search">
+        <img :src="SearchIconPath" alt="Search" />
       </button>
     </div>
     <SharedBookingCard type="Drop-Off" :data="bookingData.dropoff" />
