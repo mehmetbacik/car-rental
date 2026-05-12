@@ -31,20 +31,27 @@ const handleSearch = () => {
 
 <template>
   <section class="booking-wrapper">
-    <SharedBookingCard type="Pick-Up" :data="bookingData.pickup" />
-    <div class="booking-actions">
-      <button
-        class="switch-btn"
-        @click="handleSwitch"
-        type="button"
-        title="Switch Locations"
-      >
-        <img :src="SwitchIconPath" alt="Switch" />
-      </button>
-      <button class="search-btn" @click="handleSearch" type="button" title="Search">
-        <img :src="SearchIconPath" alt="Search" />
-      </button>
+    <div class="booking-content">
+      <SharedBookingCard type="Pick-Up" :data="bookingData.pickup" />
+      <div class="booking-actions">
+        <button
+          class="switch-btn"
+          @click="handleSwitch"
+          type="button"
+          title="Switch Locations"
+        >
+          <img :src="SwitchIconPath" alt="Switch" />
+        </button>
+        <button
+          class="search-btn"
+          @click="handleSearch"
+          type="button"
+          title="Search"
+        >
+          <img :src="SearchIconPath" alt="Search" />
+        </button>
+      </div>
+      <SharedBookingCard type="Drop-Off" :data="bookingData.dropoff" />
     </div>
-    <SharedBookingCard type="Drop-Off" :data="bookingData.dropoff" />
   </section>
 </template>

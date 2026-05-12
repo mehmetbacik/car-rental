@@ -1,161 +1,166 @@
-.hero-wrapper {
-  margin: $spacing-unit * 8 0;
-  .hero-content {
-    .hero-card {
-      padding: $spacing-unit * 8;
-      border-radius: 10px;
-      color: $color-white;
-      @media (max-width: $sm-breakpoint) {
-        padding: $spacing-unit * 4;
-      }
-      &--blue {
-        background-color: $information-500;
-        background-image: url("/images/banner/hero-bg-1.svg");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-      }
-      &--light {
-        background-color: $primary-neutral-palette-500;
-        background-image: url("/images/banner/hero-bg-2.svg");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-      }
-      &__content {
-        max-width: 285px;
-        z-index: 2;
-      }
-      &__title {
-        font-size: $font-size-base * 2;
-        font-weight: 500;
-        line-height: 1.5;
-        margin-bottom: $spacing-unit * 4;
-        @media (max-width: $md-breakpoint) {
-          font-size: $font-size-base * 1.5;
-        }
+.home-page {
+  .hero-wrapper {
+    margin: $spacing-unit * 8 0;
+    .hero-content {
+      .hero-card {
+        padding: $spacing-unit * 8;
+        border-radius: 10px;
+        color: $color-white;
         @media (max-width: $sm-breakpoint) {
-          font-size: $font-size-base * 1;
+          padding: $spacing-unit * 4;
         }
-      }
-      &__text {
-        font-size: $font-size-base * 1;
-        font-weight: 500;
-        margin-bottom: $spacing-unit * 4.5;
-        @media (max-width: $md-breakpoint) {
-          font-size: $font-size-base * 1;
+        &--blue {
+          background-color: $information-500;
+          background-image: url("/images/banner/hero-bg-1.svg");
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
         }
-        @media (max-width: $sm-breakpoint) {
-          font-size: $font-size-base * 0.75;
+        &--light {
+          background-color: $primary-neutral-palette-500;
+          background-image: url("/images/banner/hero-bg-2.svg");
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
         }
-      }
-      &__image {
-        display: flex;
-        justify-content: center;
-        @media (max-width: $lg-breakpoint) {
-          margin-top: $spacing-unit * 7;
+        &__content {
+          max-width: 285px;
+          z-index: 2;
         }
-        @media (max-width: $md-breakpoint) {
-          margin-top: $spacing-unit * 7;
-        }
-        @media (max-width: $sm-breakpoint) {
-          margin-top: $spacing-unit * 7;
-        }
-        img {
-          max-width: 100%;
-          height: auto;
-          min-height: 116px;
-          max-height: 120px;
-          @media (max-width: $lg-breakpoint) {
-            min-height: 90px;
-            max-height: 96px;
-          }
+        &__title {
+          font-size: $font-size-base * 2;
+          font-weight: 500;
+          line-height: 1.5;
+          margin-bottom: $spacing-unit * 4;
           @media (max-width: $md-breakpoint) {
-            max-width: 196px;
-            min-height: 56px;
-            max-height: 56px;
+            font-size: $font-size-base * 1.5;
           }
           @media (max-width: $sm-breakpoint) {
-            max-width: 196px;
-            min-height: 56px;
-            max-height: 56px;
+            font-size: $font-size-base * 1;
+          }
+        }
+        &__text {
+          font-size: $font-size-base * 1;
+          font-weight: 500;
+          margin-bottom: $spacing-unit * 4.5;
+          @media (max-width: $md-breakpoint) {
+            font-size: $font-size-base * 1;
+          }
+          @media (max-width: $sm-breakpoint) {
+            font-size: $font-size-base * 0.75;
+          }
+        }
+        &__image {
+          display: flex;
+          justify-content: center;
+          @media (max-width: $lg-breakpoint) {
+            margin-top: $spacing-unit * 7;
+          }
+          @media (max-width: $md-breakpoint) {
+            margin-top: $spacing-unit * 7;
+          }
+          @media (max-width: $sm-breakpoint) {
+            margin-top: $spacing-unit * 7;
+          }
+          img {
+            max-width: 100%;
+            height: auto;
+            min-height: 116px;
+            max-height: 120px;
+            @media (max-width: $lg-breakpoint) {
+              min-height: 90px;
+              max-height: 96px;
+            }
+            @media (max-width: $md-breakpoint) {
+              max-width: 196px;
+              min-height: 56px;
+              max-height: 56px;
+            }
+            @media (max-width: $sm-breakpoint) {
+              max-width: 196px;
+              min-height: 56px;
+              max-height: 56px;
+            }
+          }
+        }
+        .btn {
+          padding-block: $spacing-unit * 3;
+          padding-inline: $spacing-unit * 4.5;
+          border-radius: 6px;
+          font-weight: 500;
+          cursor: pointer;
+          transition: $transition-base;
+          @media (max-width: $sm-breakpoint) {
+            font-size: $font-size-base * 0.75;
+          }
+          &--primary {
+            background: $primary-neutral-palette-500;
+            color: $color-white;
+            border: none;
+            &:hover {
+              background: $primary-neutral-palette-600;
+            }
+          }
+          &--info {
+            background: $information-500;
+            color: $color-white;
+            border: none;
+            &:hover {
+              background: $information-600;
+            }
           }
         }
       }
-      .btn {
-        padding-block: $spacing-unit * 3;
-        padding-inline: $spacing-unit * 4.5;
-        border-radius: 6px;
-        font-weight: 500;
-        cursor: pointer;
-        transition: $transition-base;
+    }
+  }
+  .booking-wrapper {
+    .booking-content {
+      display: flex;
+      align-items: center;
+      gap: $spacing-unit * 4;
+      margin-bottom: $spacing-unit * 8;
+      position: relative;
+      @media (max-width: $sm-breakpoint) {
+        flex-direction: column;
+      }
+      .booking-actions {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-unit;
         @media (max-width: $sm-breakpoint) {
-          font-size: $font-size-base * 0.75;
+          flex-direction: row;
         }
-        &--primary {
+        .switch-btn {
+          display: flex;
+          align-items: center;
+          justify-content: center;
           background: $primary-neutral-palette-500;
           color: $color-white;
           border: none;
-          &:hover {
-            background: $primary-neutral-palette-600;
-          }
+          width: 60px;
+          height: 60px;
+          border-radius: 10px;
+          box-shadow: 0 10px 20px rgba($primary-neutral-palette-500, 0.3);
+          cursor: pointer;
+          z-index: 2;
         }
-        &--info {
-          background: $information-500;
+        .search-btn {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: $primary-neutral-palette-500;
           color: $color-white;
           border: none;
-          &:hover {
-            background: $information-600;
+          width: 60px;
+          height: 60px;
+          border-radius: 10px;
+          box-shadow: 0 10px 20px rgba($primary-neutral-palette-500, 0.3);
+          cursor: pointer;
+          z-index: 2;
+          img {
+            filter: brightness(0) invert(1);
           }
         }
-      }
-    }
-  }
-}
-
-.booking-wrapper {
-  display: flex;
-  align-items: center;
-  gap: $spacing-unit * 4;
-  margin-bottom: $spacing-unit * 8;
-  position: relative;
-  @media (max-width: 768px) {
-    flex-direction: column;
-  }
-  .booking-actions {
-    display: flex;
-    flex-direction: column;
-    gap: $spacing-unit;
-    .switch-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: $primary-neutral-palette-500;
-      color: $color-white;
-      border: none;
-      width: 60px;
-      height: 60px;
-      border-radius: 10px;
-      box-shadow: 0 10px 20px rgba($primary-neutral-palette-500, 0.3);
-      cursor: pointer;
-      z-index: 2;
-    }
-
-    .search-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: $primary-neutral-palette-500;
-      color: $color-white;
-      border: none;
-      width: 60px;
-      height: 60px;
-      border-radius: 10px;
-      box-shadow: 0 10px 20px rgba($primary-neutral-palette-500, 0.3);
-      cursor: pointer;
-      z-index: 2;
-      img {
-        filter: brightness(0) invert(1);
       }
     }
   }
