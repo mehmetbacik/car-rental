@@ -12,6 +12,7 @@ export const carsData: carType[] = [
     pricePerDay: 99,
     /*discountPrice: 120,*/
     isFavorite: true,
+    isPopular: true,
     status: "Available",
   },
   {
@@ -25,6 +26,7 @@ export const carsData: carType[] = [
     pricePerDay: 80,
     discountPrice: 100,
     isFavorite: false,
+    isPopular: true,
     status: "Rented",
   },
   {
@@ -38,6 +40,7 @@ export const carsData: carType[] = [
     pricePerDay: 96,
     /*discountPrice: 150,*/
     isFavorite: false,
+    isPopular: true,
     status: "Available",
   },
   {
@@ -51,6 +54,7 @@ export const carsData: carType[] = [
     pricePerDay: 80,
     discountPrice: 100,
     isFavorite: false,
+    isPopular: false,
     status: "Maintenance",
   },
   {
@@ -64,6 +68,7 @@ export const carsData: carType[] = [
     pricePerDay: 72,
     discountPrice: 80,
     isFavorite: false,
+    isPopular: true,
     status: "Available",
   },
   {
@@ -77,6 +82,7 @@ export const carsData: carType[] = [
     pricePerDay: 80,
     /*discountPrice: 95,*/
     isFavorite: true,
+    isPopular: true,
     status: "Available",
   },
   {
@@ -90,6 +96,7 @@ export const carsData: carType[] = [
     pricePerDay: 74,
     /*discountPrice: 95,*/
     isFavorite: false,
+    isPopular: false,
     status: "Available",
   },
   {
@@ -103,6 +110,7 @@ export const carsData: carType[] = [
     pricePerDay: 80,
     /*discountPrice: 95,*/
     isFavorite: false,
+    isPopular: false,
     status: "Available",
   },
   {
@@ -116,6 +124,7 @@ export const carsData: carType[] = [
     pricePerDay: 76,
     discountPrice: 80,
     isFavorite: true,
+    isPopular: false,
     status: "Available",
   },
   {
@@ -129,6 +138,7 @@ export const carsData: carType[] = [
     pricePerDay: 80,
     /*discountPrice: 89,*/
     isFavorite: false,
+    isPopular: true,
     status: "Available",
   },
   {
@@ -142,6 +152,7 @@ export const carsData: carType[] = [
     pricePerDay: 74,
     /*discountPrice: 89,*/
     isFavorite: true,
+    isPopular: true,
     status: "Available",
   },
   {
@@ -155,6 +166,7 @@ export const carsData: carType[] = [
     pricePerDay: 80,
     /*discountPrice: 89,*/
     isFavorite: false,
+    isPopular: true,
     status: "Available",
   },
 ];

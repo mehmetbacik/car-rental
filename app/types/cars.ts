@@ -9,5 +9,6 @@ export interface carType {
   pricePerDay: number;
   discountPrice?: number;
   isFavorite: boolean;
+  isPopular: boolean;
   status?: string;
 }
