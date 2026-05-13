@@ -117,16 +117,38 @@
     .booking-content {
       display: flex;
       align-items: center;
-      gap: $spacing-unit * 4;
+      gap: $spacing-unit * 11;
       margin-bottom: $spacing-unit * 8;
       position: relative;
+      @media (max-width: $xl-breakpoint) {
+        flex-direction: column;
+        gap: $spacing-unit * 6;
+      }
+      @media (max-width: $lg-breakpoint) {
+        flex-direction: column;
+        gap: $spacing-unit * 6;
+      }
+      @media (max-width: $md-breakpoint) {
+        flex-direction: column;
+        gap: $spacing-unit * 4;
+      }
       @media (max-width: $sm-breakpoint) {
         flex-direction: column;
+        gap: $spacing-unit * 4;
       }
       .booking-actions {
         display: flex;
         flex-direction: column;
         gap: $spacing-unit;
+        @media (max-width: $xl-breakpoint) {
+          flex-direction: row;
+        }
+        @media (max-width: $lg-breakpoint) {
+          flex-direction: row;
+        }
+        @media (max-width: $md-breakpoint) {
+          flex-direction: row;
+        }
         @media (max-width: $sm-breakpoint) {
           flex-direction: row;
         }
