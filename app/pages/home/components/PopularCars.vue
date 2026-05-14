@@ -12,8 +12,8 @@ const popularCars = computed(() => {
 });
 
 const swiperOptions = {
-  slidesPerView: 1,
-  spaceBetween: 20,
+  slidesPerView: 1.5,
+  spaceBetween: 32,
   autoplay: { delay: 3000, disableOnInteraction: false },
   breakpoints: {
     640: { slidesPerView: 2 },
