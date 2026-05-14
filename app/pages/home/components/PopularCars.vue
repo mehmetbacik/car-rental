@@ -30,7 +30,6 @@ const swiperOptions = {
         <h2 class="popularCars__title">Popular Car</h2>
         <NuxtLink to="/cars" class="popularCars__link">View All</NuxtLink>
       </div>
-
       <swiper
         v-bind="swiperOptions"
         :modules="modules"
