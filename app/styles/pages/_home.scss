@@ -237,6 +237,34 @@
         @media (max-width: $sm-breakpoint) {
           grid-template-columns: repeat(1, 1fr);
         }
+        @media (max-width: $sm-breakpoint) {
+          .car-card {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            &__header,
+            &__footer {
+              grid-column: 1 / -1;
+            }
+            &__image-wrapper {
+              height: 100%;
+              height: 60px;
+              img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                display: block;
+              }
+            }
+            &__specs {
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              gap: $spacing-unit * 3;
+              min-width: 0;
+              padding-left: $spacing-unit * 8;
+            }
+          }
+        }
       }
       .recommendationCars__footer {
         margin-top: $spacing-unit * 16;
@@ -255,6 +283,10 @@
           transition: $transition-base;
           &:hover {
             background-color: $primary-neutral-palette-700;
+          }
+          @media (max-width: $sm-breakpoint) {
+            padding-block: $spacing-unit * 2.5;
+            font-size: $font-size-base * 0.75;
           }
         }
         .recommendationCars__carCount {
