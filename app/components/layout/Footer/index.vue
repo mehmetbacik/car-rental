@@ -12,7 +12,6 @@ import FooterBottom from "./components/FooterBottom.vue";
         <FooterBrand />
         <FooterNav :groups="footerGroups" />
       </div>
-      
       <FooterBottom :links="legalLinks" />
     </div>
   </footer>
