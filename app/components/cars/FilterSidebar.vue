@@ -2,18 +2,23 @@
 import { ref, watch, computed } from "vue";
 import { carsData } from "@/data/carsData";
 
-const emit = defineEmits(["filter-change"]);
+defineProps<{
+  isOpen?: boolean;
+}>();
+
+const emit = defineEmits(["filter-change", "close"]);
+
 const availableTypes = computed(() =>
-  [...new Set(carsData.map((car) => car.type))].sort(),
+  [...new Set(carsData.map((car) => car.type).filter(Boolean))].sort(),
 );
 const availableCapacities = computed(() =>
-  [...new Set(carsData.map((car) => car.capacity))].sort(),
+  [...new Set(carsData.map((car) => car.capacity).filter(Boolean))].sort(),
 );
 const availableTransmissions = computed(() =>
-  [...new Set(carsData.map((car) => car.transmission))].sort(),
+  [...new Set(carsData.map((car) => car.transmission).filter(Boolean))].sort(),
 );
 const availableFuels = computed(() =>
-  [...new Set(carsData.map((car) => car.fuelCapacity))].sort(),
+  [...new Set(carsData.map((car) => car.fuelCapacity).filter(Boolean))].sort(),
 );
 const maxAvailablePrice = computed(() => {
   if (carsData.length === 0) return 200;
@@ -27,7 +32,10 @@ const selectedFuels = ref<string[]>([]);
 const priceValue = ref(maxAvailablePrice.value);
 
 const getCount = (key: keyof typeof carsData[0], value: string | number) => {
-  return carsData.filter((car) => car[key] === value).length;
+  return carsData.filter((car) => {
+    const carValue = car[key] !== undefined && car[key] !== null ? String(car[key]) : "";
+    return carValue === String(value);
+  }).length;
 };
 
 watch(
@@ -52,7 +60,8 @@ watch(
 </script>
 
 <template>
-  <aside class="filter-sidebar">
+  <aside class="filter-sidebar" :class="{ 'is-open': isOpen }">
+    <button class="close-sidebar-btn" @click="emit('close')">&times;</button>
     <div class="filter-group" v-if="availableTypes.length > 0">
       <h4 class="filter-group__title">TYPE</h4>
       <div v-for="type in availableTypes" :key="type" class="filter-item">
