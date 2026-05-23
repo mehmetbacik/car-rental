@@ -5,6 +5,96 @@
     color: $secondary-300;
     font-weight: 500;
   }
+  .booking-wrapper {
+    margin-bottom: $spacing-unit * 9;
+    .booking-content {
+      display: flex;
+      align-items: center;
+      gap: $spacing-unit * 4;
+      position: relative;
+      @media (max-width: $xl-breakpoint) {
+        flex-direction: column;
+        gap: $spacing-unit * 6;
+      }
+      @media (max-width: $lg-breakpoint) {
+        flex-direction: column;
+        gap: $spacing-unit * 6;
+      }
+      @media (max-width: $md-breakpoint) {
+        flex-direction: column;
+        gap: $spacing-unit * 4;
+      }
+      @media (max-width: $sm-breakpoint) {
+        flex-direction: column;
+        gap: $spacing-unit * 4;
+      }
+      .booking-card {
+        padding: $spacing-unit * 6;
+      }
+      .booking-actions {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-unit;
+        @media (max-width: $xl-breakpoint) {
+          flex-direction: row;
+        }
+        @media (max-width: $lg-breakpoint) {
+          flex-direction: row;
+        }
+        @media (max-width: $md-breakpoint) {
+          flex-direction: row;
+        }
+        @media (max-width: $sm-breakpoint) {
+          flex-direction: row;
+        }
+        .switch-btn {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: $primary-neutral-palette-500;
+          color: $color-white;
+          border: none;
+          width: 60px;
+          height: 60px;
+          border-radius: 10px;
+          box-shadow: 0 10px 20px rgba($primary-neutral-palette-500, 0.3);
+          cursor: pointer;
+          z-index: 2;
+        }
+        .search-btn {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: $primary-neutral-palette-500;
+          color: $color-white;
+          border: none;
+          width: 60px;
+          height: 60px;
+          border-radius: 10px;
+          box-shadow: 0 10px 20px rgba($primary-neutral-palette-500, 0.3);
+          cursor: pointer;
+          z-index: 2;
+          img {
+            filter: brightness(0) invert(1);
+          }
+        }
+      }
+    }
+  }
+  .car-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: $spacing-unit * 8;
+    @media (max-width: $lg-breakpoint) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @media (max-width: $md-breakpoint) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media (max-width: $sm-breakpoint) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
 }
 
 .category-layout {
@@ -108,77 +198,3 @@
     }
   }
 }
-
-  .booking-wrapper {
-    margin-bottom: $spacing-unit * 9;
-    .booking-content {
-      display: flex;
-      align-items: center;
-      gap: $spacing-unit * 11;
-      position: relative;
-      @media (max-width: $xl-breakpoint) {
-        flex-direction: column;
-        gap: $spacing-unit * 6;
-      }
-      @media (max-width: $lg-breakpoint) {
-        flex-direction: column;
-        gap: $spacing-unit * 6;
-      }
-      @media (max-width: $md-breakpoint) {
-        flex-direction: column;
-        gap: $spacing-unit * 4;
-      }
-      @media (max-width: $sm-breakpoint) {
-        flex-direction: column;
-        gap: $spacing-unit * 4;
-      }
-      .booking-actions {
-        display: flex;
-        flex-direction: column;
-        gap: $spacing-unit;
-        @media (max-width: $xl-breakpoint) {
-          flex-direction: row;
-        }
-        @media (max-width: $lg-breakpoint) {
-          flex-direction: row;
-        }
-        @media (max-width: $md-breakpoint) {
-          flex-direction: row;
-        }
-        @media (max-width: $sm-breakpoint) {
-          flex-direction: row;
-        }
-        .switch-btn {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          background: $primary-neutral-palette-500;
-          color: $color-white;
-          border: none;
-          width: 60px;
-          height: 60px;
-          border-radius: 10px;
-          box-shadow: 0 10px 20px rgba($primary-neutral-palette-500, 0.3);
-          cursor: pointer;
-          z-index: 2;
-        }
-        .search-btn {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          background: $primary-neutral-palette-500;
-          color: $color-white;
-          border: none;
-          width: 60px;
-          height: 60px;
-          border-radius: 10px;
-          box-shadow: 0 10px 20px rgba($primary-neutral-palette-500, 0.3);
-          cursor: pointer;
-          z-index: 2;
-          img {
-            filter: brightness(0) invert(1);
-          }
-        }
-      }
-    }
-  }

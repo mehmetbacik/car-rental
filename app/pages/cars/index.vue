@@ -18,7 +18,7 @@ const { displayedCars, showMore, displayCount } =
 
 const handleFilterChange = (newFilters: any) => {
   setFilters(newFilters);
-  displayCount.value = 4;
+  displayCount.value = 9;
 };
 </script>
 
