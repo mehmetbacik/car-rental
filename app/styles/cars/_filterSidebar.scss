@@ -2,17 +2,38 @@
   display: flex;
   flex-direction: column;
   padding: $spacing-unit * 8;
+  margin-bottom: $spacing-unit * 8;
   background: $color-white;
   width: 100%;
   box-sizing: border-box;
-
-  @media (max-width: 991px) {
+  position: sticky;
+  min-width: 260px;
+  max-width: 300px;
+  max-height: calc(100vh - ($spacing-unit * 30));
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.3) transparent;
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 999px;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.5);
+  }
+  @media (max-width: $lg-breakpoint) {
     position: fixed;
     top: 0;
     right: -100%;
     width: 100%;
     max-width: 320px;
-    height: 100vh;
+    height: 100%;
+    max-height: 100%;
     z-index: 999;
     box-shadow: -4px 0 ($spacing-unit * 6) rgba(0, 0, 0, 0.1);
     transition: right 0.3s ease-in-out;
@@ -21,81 +42,56 @@
       right: 0;
     }
   }
-
-  @media (min-width: 992px) {
-    position: sticky;
-    top: $spacing-unit * 25;
-    min-width: 260px;
-    max-width: 300px;
-    max-height: calc(100vh - ($spacing-unit * 30));
-    overflow-y: auto;
-  }
-
   .filter-group {
-    margin-bottom: $spacing-unit * 8;
-    border-bottom: 1px solid rgba($secondary-300, 0.15);
-    padding-bottom: $spacing-unit * 4;
-
+    margin-bottom: $spacing-unit * 12;
     &:last-child {
       border-bottom: none;
       padding-bottom: 0;
       margin-bottom: 0;
     }
-
     &__title {
-      font-size: $font-size-base * 0.875;
-      font-weight: 600;
+      font-size: $font-size-base * 0.75;
+      font-weight: 500;
       color: $secondary-300;
       letter-spacing: 0.1em;
       margin-bottom: $spacing-unit * 5;
     }
-  }
-
-  .filter-item {
-    display: flex;
-    align-items: center;
-    gap: $spacing-unit * 4;
-    margin-bottom: $spacing-unit * 4;
-
-    &:last-child {
-      margin-bottom: 0;
-    }
-
-    input[type="checkbox"] {
-      width: 20px;
-      height: 20px;
-      cursor: pointer;
-      accent-color: $primary-neutral-palette-500;
-    }
-
-    label {
-      font-size: $font-size-base * 1;
-      font-weight: 600;
-      color: $secondary-500;
-      cursor: pointer;
-      user-select: none;
+    .filter-item {
       display: flex;
-      justify-content: space-between;
-      width: 100%;
-
-      span {
-        color: $secondary-300;
+      align-items: center;
+      gap: $spacing-unit * 2;
+      margin-bottom: $spacing-unit * 4;
+      &:last-child {
+        margin-bottom: 0;
+      }
+      input[type="checkbox"] {
+        width: 15px;
+        height: 15px;
+        cursor: pointer;
+        accent-color: $primary-neutral-palette-500;
+      }
+      label {
+        font-size: $font-size-base * 1;
         font-weight: 500;
+        color: $secondary-400;
+        cursor: pointer;
+        user-select: none;
+        span {
+          color: $secondary-300;
+          font-weight: 500;
+        }
+      }
+      .price-range {
+        width: 100%;
+        accent-color: $primary-neutral-palette-500;
+      }
+      .price-label {
+        font-size: $font-size-base * 1;
+        font-weight: 600;
+        color: $secondary-500;
       }
     }
   }
-
-  .price-range {
-    width: 100%;
-    accent-color: $primary-neutral-palette-500;
-  }
-
-  .price-label {
-    font-size: $font-size-base * 1;
-    font-weight: 600;
-    color: $secondary-500;
-  }
-
   .close-sidebar-btn {
     display: block;
     align-self: flex-end;
@@ -105,25 +101,22 @@
     color: $secondary-300;
     cursor: pointer;
     margin-bottom: $spacing-unit * 4;
-
-    @media (min-width: 992px) {
+    @media (min-width: $lg-breakpoint) {
       display: none;
     }
   }
 }
-
 .sidebar-overlay {
-  @media (max-width: 991px) {
+  @media (max-width: $lg-breakpoint) {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     background: rgba(0, 0, 0, 0.4);
     z-index: 998;
   }
 }
-
 .mobile-filter-trigger {
   display: none;
   @media (max-width: $lg-breakpoint) {
