@@ -108,3 +108,77 @@
     }
   }
 }
+
+  .booking-wrapper {
+    margin-bottom: $spacing-unit * 9;
+    .booking-content {
+      display: flex;
+      align-items: center;
+      gap: $spacing-unit * 11;
+      position: relative;
+      @media (max-width: $xl-breakpoint) {
+        flex-direction: column;
+        gap: $spacing-unit * 6;
+      }
+      @media (max-width: $lg-breakpoint) {
+        flex-direction: column;
+        gap: $spacing-unit * 6;
+      }
+      @media (max-width: $md-breakpoint) {
+        flex-direction: column;
+        gap: $spacing-unit * 4;
+      }
+      @media (max-width: $sm-breakpoint) {
+        flex-direction: column;
+        gap: $spacing-unit * 4;
+      }
+      .booking-actions {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-unit;
+        @media (max-width: $xl-breakpoint) {
+          flex-direction: row;
+        }
+        @media (max-width: $lg-breakpoint) {
+          flex-direction: row;
+        }
+        @media (max-width: $md-breakpoint) {
+          flex-direction: row;
+        }
+        @media (max-width: $sm-breakpoint) {
+          flex-direction: row;
+        }
+        .switch-btn {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: $primary-neutral-palette-500;
+          color: $color-white;
+          border: none;
+          width: 60px;
+          height: 60px;
+          border-radius: 10px;
+          box-shadow: 0 10px 20px rgba($primary-neutral-palette-500, 0.3);
+          cursor: pointer;
+          z-index: 2;
+        }
+        .search-btn {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: $primary-neutral-palette-500;
+          color: $color-white;
+          border: none;
+          width: 60px;
+          height: 60px;
+          border-radius: 10px;
+          box-shadow: 0 10px 20px rgba($primary-neutral-palette-500, 0.3);
+          cursor: pointer;
+          z-index: 2;
+          img {
+            filter: brightness(0) invert(1);
+          }
+        }
+      }
+    }
+  }

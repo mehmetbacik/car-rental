@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { ref, watch, computed } from "vue";
 import { carsData } from "@/data/carsData";
+import Booking from "./components/Booking.vue";
 
-const SwitchIconPath = "/icons/switch.svg";
 const isSidebarOpen = ref(false);
 
 const activeFilters = ref({
@@ -79,13 +79,7 @@ const showMore = () => {
         />
 
         <div class="main-content">
-          <section class="booking-wrapper">
-            <SharedBookingCard type="Pick-Up" />
-            <button class="switch-btn">
-              <img :src="SwitchIconPath" alt="Switch" />
-            </button>
-            <SharedBookingCard type="Drop-Off" />
-          </section>
+          <Booking />
 
           <div class="car-grid">
             <CarsCarCard
