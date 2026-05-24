@@ -80,6 +80,9 @@
     .legal-links {
       display: flex;
       gap: $spacing-unit * 10;
+      @media (max-width: $xs-breakpoint) {
+        flex-direction: column;
+      }
       a {
         text-decoration: none;
         font-size: $font-size-base * 1;

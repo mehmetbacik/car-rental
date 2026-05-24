@@ -244,6 +244,11 @@
             &__header,
             &__footer {
               grid-column: 1 / -1;
+              flex-direction: row;
+              .price-box {
+                flex-direction: column;
+                gap: 0;
+              }
             }
             &__image-wrapper {
               height: 100%;
@@ -262,6 +267,9 @@
               gap: $spacing-unit * 3;
               min-width: 0;
               padding-left: $spacing-unit * 8;
+              @media (max-width: $xs-breakpoint) {
+                padding-left: 0;
+              }
             }
           }
         }
