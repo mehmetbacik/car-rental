@@ -116,6 +116,11 @@
 }
 .mobile-filter-trigger {
   display: none;
+  background-color: $primary-neutral-palette-500;
+  color: $color-white;
+  width: 100%;
+  padding: $spacing-unit;
+  border-radius: 5px;
   @media (max-width: $lg-breakpoint) {
     display: block;
   }
