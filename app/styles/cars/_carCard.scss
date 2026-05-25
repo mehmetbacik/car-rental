@@ -80,7 +80,7 @@
   &__specs {
     display: flex;
     justify-content: space-between;
-    @media (max-width: $xs-breakpoint) {
+    @media (max-width: $sm-breakpoint) {
       flex-direction: column;
     }
     .spec-item {
@@ -104,7 +104,7 @@
     justify-content: space-between;
     align-items: center;
     margin-top: auto;
-    @media (max-width: $xs-breakpoint) {
+    @media (max-width: $sm-breakpoint) {
       flex-direction: column;
     }
     .price-box {

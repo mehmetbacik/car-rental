@@ -95,6 +95,42 @@
         @media (max-width: $sm-breakpoint) {
           grid-template-columns: repeat(1, 1fr);
         }
+        @media (max-width: $sm-breakpoint) {
+          .car-card {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            &__header,
+            &__footer {
+              grid-column: 1 / -1;
+              flex-direction: row;
+              .price-box {
+                flex-direction: column;
+                gap: 0;
+              }
+            }
+            &__image-wrapper {
+              height: 100%;
+              height: 60px;
+              img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                display: block;
+              }
+            }
+            &__specs {
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              gap: $spacing-unit * 3;
+              min-width: 0;
+              padding-left: $spacing-unit * 8;
+              @media (max-width: $xs-breakpoint) {
+                padding-left: 0;
+              }
+            }
+          }
+        }
       }
       .pagination-wrapper {
         margin: $spacing-unit * 16 0;
