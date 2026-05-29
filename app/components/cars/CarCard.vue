@@ -40,7 +40,7 @@ const { isFavorite, toggleFavorite } = useCarFavorite(carRef);
     </div>
 
     <div class="car-card__image-wrapper">
-      <img :src="car.image" :alt="car.name" class="car-image" />
+      <img :src="car.images[0]" :alt="car.name" class="car-image" />
       <div class="image-shadow"></div>
     </div>
 

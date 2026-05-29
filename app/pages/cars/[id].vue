@@ -3,7 +3,6 @@ import { useCarDetail } from "../../composables/useCarDetail";
 import { useCarFavorite } from "../../composables/useCarFavorite";
 
 import CarDetailHeroSection from "./components/CarDetailHeroSection.vue";
-import CarDetailThumbnails from "./components/CarDetailThumbnails.vue";
 import CarDetailInfoCard from "./components/CarDetailInfoCard.vue";
 import CarDetailReviews from "./components/CarDetailReviews.vue";
 
@@ -17,12 +16,6 @@ const { isFavorite, mainImage, toggleFavorite, setMainImage } =
     <div class="detail-grid">
       <div class="detail-visuals">
         <CarDetailHeroSection :car="car" :main-image="mainImage" />
-
-        <CarDetailThumbnails
-          :car="car"
-          :main-image="mainImage"
-          @change="setMainImage"
-        />
       </div>
 
       <CarDetailInfoCard
