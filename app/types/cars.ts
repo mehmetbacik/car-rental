@@ -2,7 +2,7 @@ export interface carType {
   id: string;
   name: string;
   type: string;
-  image: string;
+  images: string[];
   fuelCapacity: string;
   transmission: string;
   capacity: string;
