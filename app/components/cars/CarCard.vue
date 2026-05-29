@@ -1,5 +1,7 @@
 <script setup lang="ts">
+import { computed } from "vue";
 import type { carType } from "../../types/cars";
+import { useCarFavorite } from "../../composables/useCarFavorite";
 
 const HeartLikeIconPath = "/icons/heart-like.svg";
 const HeartDisslikeIconPath = "/icons/heart-dislike.svg";
@@ -11,11 +13,9 @@ const props = defineProps<{
   car: carType;
 }>();
 
-const isFavorite = ref(props.car.isFavorite);
+const carRef = computed(() => props.car);
 
-const toggleFavorite = () => {
-  isFavorite.value = !isFavorite.value;
-};
+const { isFavorite, toggleFavorite } = useCarFavorite(carRef);
 </script>
 
 <template>

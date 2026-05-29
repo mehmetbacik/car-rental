@@ -1,6 +1,8 @@
 <script setup lang="ts">
+import type { carType } from "../../../types/cars";
+
 defineProps<{
-  car: any;
+  car: carType;
   isFavorite: boolean;
 }>();
 
