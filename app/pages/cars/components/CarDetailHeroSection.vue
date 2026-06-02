@@ -23,9 +23,9 @@ const car = computed<carType>(() => {
 </script>
 
 <template>
-  <div class="car-detail">
-    <div class="simple-layout">
-      <div class="image-box">
+  <div class="carDetail-swiper">
+    <div class="carDetail-swiper__wrapper">
+      <div class="carDetail-imageBox">
         <Swiper
           :modules="[Thumbs]"
           :thumbs="{ swiper: thumbsSwiper }"
@@ -36,7 +36,7 @@ const car = computed<carType>(() => {
           </SwiperSlide>
         </Swiper>
       </div>
-      <div class="thumb-box">
+      <div class="carDetail-thumbBox">
         <Swiper
           :modules="[Thumbs]"
           watch-slides-progress

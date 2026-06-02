@@ -12,19 +12,15 @@ const { isFavorite, mainImage, toggleFavorite, setMainImage } =
 </script>
 
 <template>
-  <div v-if="car" class="car-detail container">
-    <div class="detail-grid">
-      <div class="detail-visuals">
-        <CarDetailHeroSection :car="car" :main-image="mainImage" />
-      </div>
-
+  <div v-if="car" class="carDetail container">
+    <div class="carDetail-content">
+      <CarDetailHeroSection :car="car" :main-image="mainImage" />
       <CarDetailInfoCard
         :car="car"
         :is-favorite="isFavorite"
         @toggle-favorite="toggleFavorite"
       />
     </div>
-
     <CarDetailReviews />
   </div>
 

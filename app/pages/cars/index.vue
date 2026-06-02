@@ -24,7 +24,7 @@ const handleFilterChange = (newFilters: any) => {
 
 <template>
   <div class="container">
-    <div class="category-page">
+    <div class="carCategory-page">
       <button class="mobile-filter-trigger" @click="isSidebarOpen = true">
         Filter
       </button>
