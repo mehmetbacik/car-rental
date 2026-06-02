@@ -10,54 +10,56 @@ const emit = defineEmits(["toggle-favorite"]);
 </script>
 
 <template>
-  <div class="detail-info-card card">
-    <div class="info-header">
-      <h2>{{ car.name }}</h2>
-
+  <div class="carDetail-info">
+    <div class="carDetail-info__header">
+      <div class="carDetail-info__headline">
+        <h2>{{ car.name }}</h2>
+        <button
+          class="favorite-btn"
+          :class="{ 'is-active': isFavorite }"
+          @click="emit('toggle-favorite')"
+        >
+          <img
+            :src="
+              isFavorite ? '/icons/heart-like.svg' : '/icons/heart-dislike.svg'
+            "
+            alt="Favorite Icon"
+          />
+        </button>
+      </div>
       <div class="rating">⭐⭐⭐⭐⭐ <span>440+ Review</span></div>
-
-      <button
-        class="favorite-btn"
-        :class="{ 'is-active': isFavorite }"
-        @click="emit('toggle-favorite')"
-      >
-        <img
-          :src="
-            isFavorite ? '/icons/heart-like.svg' : '/icons/heart-dislike.svg'
-          "
-          alt="Favorite Icon"
-        />
-      </button>
     </div>
-
-    <p class="description">
-      {{ car.name }} has become the embodiment of outstanding performance.
-    </p>
-
-    <div class="specs-grid">
-      <div class="spec-item">
-        <span class="label">Type Car</span>
-        <span class="value">{{ car.type }}</span>
+    <div class="carDetail-info__main">
+      <div class="carDetail-info__description">
+        <p>
+          {{ car.description }} has become the embodiment of outstanding
+          performance.
+        </p>
       </div>
+      <div class="carDetail-info__specs">
+        <div class="spec-item">
+          <span class="label">Type Car</span>
+          <span class="value">{{ car.type }}</span>
+        </div>
 
-      <div class="spec-item">
-        <span class="label">Capacity</span>
-        <span class="value">{{ car.capacity }}</span>
-      </div>
+        <div class="spec-item">
+          <span class="label">Capacity</span>
+          <span class="value">{{ car.capacity }}</span>
+        </div>
 
-      <div class="spec-item">
-        <span class="label">Steering</span>
-        <span class="value">{{ car.transmission }}</span>
-      </div>
+        <div class="spec-item">
+          <span class="label">Steering</span>
+          <span class="value">{{ car.transmission }}</span>
+        </div>
 
-      <div class="spec-item">
-        <span class="label">Gasoline</span>
-        <span class="value">{{ car.fuelCapacity }}</span>
+        <div class="spec-item">
+          <span class="label">Gasoline</span>
+          <span class="value">{{ car.fuelCapacity }}</span>
+        </div>
       </div>
     </div>
-
-    <div class="detail-footer">
-      <div class="price">
+    <div class="carDetail-info__footer">
+      <div class="carDetail-info__price">
         <span class="amount">${{ car.pricePerDay }}.00/</span>
         <span class="unit">days</span>
 
@@ -65,8 +67,7 @@ const emit = defineEmits(["toggle-favorite"]);
           ${{ car.discountPrice }}.00
         </p>
       </div>
-
-      <NuxtLink :to="`/payment?id=${car.id}`" class="btn btn--primary">
+      <NuxtLink :to="`/payment?id=${car.id}`" class="carDetail-info__btn">
         Rent Now
       </NuxtLink>
     </div>

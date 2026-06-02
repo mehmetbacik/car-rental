@@ -4,6 +4,7 @@ export const carsData: carType[] = [
   {
     id: "1",
     name: "Koenigsegg",
+    description: "NISMO has become the embodiment of Nissan's outstanding performance, inspired by the most unforgiving proving ground, the 'race track'.",
     type: "Sport",
     images: [
       "/images/car/car-koenigsegg.png",
@@ -25,6 +26,7 @@ export const carsData: carType[] = [
   {
     id: "2",
     name: "Nissan GT - R",
+    description: "NISMO has become the embodiment of Nissan's outstanding performance, inspired by the most unforgiving proving ground, the 'race track'.",
     type: "Sport",
     images: [
       "/images/car/car-nissangtr.png",
@@ -46,6 +48,7 @@ export const carsData: carType[] = [
   {
     id: "3",
     name: "Rolls - Royce",
+    description: "NISMO has become the embodiment of Nissan's outstanding performance, inspired by the most unforgiving proving ground, the 'race track'.",
     type: "Sedan",
     images: [
       "/images/car/car-rollsroyce.png",
@@ -67,6 +70,7 @@ export const carsData: carType[] = [
   {
     id: "4",
     name: "Nissan GT - R",
+    description: "NISMO has become the embodiment of Nissan's outstanding performance, inspired by the most unforgiving proving ground, the 'race track'.",
     type: "Sport",
     images: [
       "/images/car/car-nissangtr-2.png",
@@ -88,6 +92,7 @@ export const carsData: carType[] = [
   {
     id: "5",
     name: "All New Rush",
+    description: "NISMO has become the embodiment of Nissan's outstanding performance, inspired by the most unforgiving proving ground, the 'race track'.",
     type: "SUV",
     images: [
       "/images/car/car-allnewrush.png",
@@ -109,6 +114,7 @@ export const carsData: carType[] = [
   {
     id: "6",
     name: "CR - V",
+    description: "NISMO has become the embodiment of Nissan's outstanding performance, inspired by the most unforgiving proving ground, the 'race track'.",
     type: "SUV",
     images: [
       "/images/car/car-crv.png",
@@ -130,6 +136,7 @@ export const carsData: carType[] = [
   {
     id: "7",
     name: "All New Terios",
+    description: "NISMO has become the embodiment of Nissan's outstanding performance, inspired by the most unforgiving proving ground, the 'race track'.",
     type: "SUV",
     images: [
       "/images/car/car-allnewterios.png",
@@ -151,6 +158,7 @@ export const carsData: carType[] = [
   {
     id: "8",
     name: "CR - V",
+    description: "NISMO has become the embodiment of Nissan's outstanding performance, inspired by the most unforgiving proving ground, the 'race track'.",
     type: "SUV",
     images: [
       "/images/car/car-crv-2.png",
@@ -172,6 +180,7 @@ export const carsData: carType[] = [
   {
     id: "9",
     name: "MG ZX Exclusice",
+    description: "NISMO has become the embodiment of Nissan's outstanding performance, inspired by the most unforgiving proving ground, the 'race track'.",
     type: "Hatchback",
     images: [
       "/images/car/car-mgzxexclusice.png",
@@ -193,6 +202,7 @@ export const carsData: carType[] = [
   {
     id: "10",
     name: "New MG ZS",
+    description: "NISMO has become the embodiment of Nissan's outstanding performance, inspired by the most unforgiving proving ground, the 'race track'.",
     type: "SUV",
     images: [
       "/images/car/car-newmgzs.png",
@@ -214,6 +224,7 @@ export const carsData: carType[] = [
   {
     id: "11",
     name: "MG ZX Excite",
+    description: "NISMO has become the embodiment of Nissan's outstanding performance, inspired by the most unforgiving proving ground, the 'race track'.",
     type: "Hatchback",
     images: [
       "/images/car/car-mgzxexcite.png",
@@ -235,6 +246,7 @@ export const carsData: carType[] = [
   {
     id: "12",
     name: "New MG ZS",
+    description: "NISMO has become the embodiment of Nissan's outstanding performance, inspired by the most unforgiving proving ground, the 'race track'.",
     type: "SUV",
     images: [
       "/images/car/car-newmgzs.png",

@@ -41,7 +41,7 @@ const car = computed<carType>(() => {
           :modules="[Thumbs]"
           watch-slides-progress
           watch-slides-visibility
-          :slides-per-view="5"
+          :slides-per-view="4"
           space-between="10"
           @swiper="(swiper) => (thumbsSwiper = swiper)"
           class="thumb-swiper"
