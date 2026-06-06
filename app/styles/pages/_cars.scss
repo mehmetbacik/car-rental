@@ -223,6 +223,15 @@
           display: flex;
           align-items: center;
           justify-content: space-between;
+          h2 {
+            font-size: $font-size-base * 1.75;
+          }
+          .favorite-btn {
+            img {
+              width: 24px;
+              height: 24px;
+            }
+          }
         }
         .carDetail-info__rating {
           display: flex;
@@ -244,7 +253,8 @@
           }
           .carDetail-info__ratingText {
             font-size: $font-size-base;
-            color: $secondary-300;
+            color: $secondary-400;
+            padding-left: $spacing-unit * 2;
           }
         }
       }
@@ -253,6 +263,30 @@
         flex-direction: column;
         gap: $spacing-unit * 8;
         margin-bottom: $spacing-unit * 16;
+        .carDetail-info__description {
+          color: $secondary-400;
+          font-size: $font-size-base * 1.2;
+          line-height: 2.15;
+        }
+        .carDetail-info__specs {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          grid-template-rows: repeat(2, 1fr);
+          gap: $spacing-unit * 4;
+          font-size: $font-size-base * 1.2;
+          .spec-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .label {
+              color: $secondary-300;
+            }
+            .value {
+              color: $secondary-400;
+              font-weight: 500;
+            }
+          }
+        }
       }
       .carDetail-info__footer {
         display: flex;
