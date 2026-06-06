@@ -293,6 +293,39 @@
         align-items: center;
         justify-content: space-between;
         margin-bottom: $spacing-unit * 2;
+        .carDetail-info__price {
+          .amount {
+            font-size: $font-size-base * 1.5;
+          }
+          .unit {
+            color: $secondary-300;
+            font-weight: 500;
+          }
+          .discount {
+            color: $secondary-300;
+            font-weight: 500;
+            text-decoration: line-through;
+          }
+          
+        }
+        .carDetail-info__btn {
+          background: $primary-neutral-palette-500;
+          color: $color-white;
+          padding-block: $spacing-unit * 3;
+          padding-inline: $spacing-unit * 5;
+          border-radius: 4px;
+          text-decoration: none;
+          font-weight: 600;
+          font-size: $font-size-base * 0.9;
+          transition: $transition-base;
+          &:hover {
+            background: $primary-neutral-palette-700;
+          }
+          @media (max-width: $sm-breakpoint) {
+            padding-block: $spacing-unit * 2.5;
+            font-size: $font-size-base * 0.75;
+          }
+        }
       }
     }
   }
