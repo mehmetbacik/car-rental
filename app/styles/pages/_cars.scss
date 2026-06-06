@@ -224,6 +224,29 @@
           align-items: center;
           justify-content: space-between;
         }
+        .carDetail-info__rating {
+          display: flex;
+          align-items: center;
+          gap: $spacing-unit;
+          .carDetail-info__ratingStar {
+            width: 20px;
+            height: 20px;
+            display: block;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            &--filled {
+              background-image: url("/icons/star-filled.svg");
+            }
+            &--empty {
+              background-image: url("/icons/star-empty.svg");
+            }
+          }
+          .carDetail-info__ratingText {
+            font-size: $font-size-base;
+            color: $secondary-300;
+          }
+        }
       }
       .carDetail-info__main {
         display: flex;

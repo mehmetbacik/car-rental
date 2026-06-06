@@ -19,6 +19,7 @@ export const carsData: carType[] = [
     capacity: "2 People",
     pricePerDay: 99,
     /*discountPrice: 120,*/
+    rating: 4,
     isFavorite: true,
     isPopular: true,
     status: "Available",
@@ -41,6 +42,7 @@ export const carsData: carType[] = [
     capacity: "2 People",
     pricePerDay: 80,
     discountPrice: 100,
+    rating: 5,
     isFavorite: false,
     isPopular: true,
     status: "Rented",
@@ -63,6 +65,7 @@ export const carsData: carType[] = [
     capacity: "4 People",
     pricePerDay: 96,
     /*discountPrice: 150,*/
+    rating: 3,
     isFavorite: false,
     isPopular: true,
     status: "Available",
@@ -85,6 +88,7 @@ export const carsData: carType[] = [
     capacity: "2 People",
     pricePerDay: 80,
     discountPrice: 100,
+    rating: 5,
     isFavorite: false,
     isPopular: false,
     status: "Maintenance",
@@ -107,6 +111,7 @@ export const carsData: carType[] = [
     capacity: "6 People",
     pricePerDay: 72,
     discountPrice: 80,
+    rating: 5,
     isFavorite: false,
     isPopular: true,
     status: "Available",
@@ -129,6 +134,7 @@ export const carsData: carType[] = [
     capacity: "6 People",
     pricePerDay: 80,
     /*discountPrice: 95,*/
+    rating: 4,
     isFavorite: true,
     isPopular: true,
     status: "Available",
@@ -151,6 +157,7 @@ export const carsData: carType[] = [
     capacity: "6 People",
     pricePerDay: 74,
     /*discountPrice: 95,*/
+    rating: 5,
     isFavorite: false,
     isPopular: false,
     status: "Available",
@@ -173,6 +180,7 @@ export const carsData: carType[] = [
     capacity: "6 People",
     pricePerDay: 80,
     /*discountPrice: 95,*/
+    rating: 4,
     isFavorite: false,
     isPopular: false,
     status: "Available",
@@ -195,6 +203,7 @@ export const carsData: carType[] = [
     capacity: "4 People",
     pricePerDay: 76,
     discountPrice: 80,
+    rating: 5,
     isFavorite: true,
     isPopular: false,
     status: "Available",
@@ -217,6 +226,7 @@ export const carsData: carType[] = [
     capacity: "6 People",
     pricePerDay: 80,
     /*discountPrice: 89,*/
+    rating: 5,
     isFavorite: false,
     isPopular: true,
     status: "Available",
@@ -239,6 +249,7 @@ export const carsData: carType[] = [
     capacity: "4 People",
     pricePerDay: 74,
     /*discountPrice: 89,*/
+    rating: 5,
     isFavorite: true,
     isPopular: true,
     status: "Available",
@@ -261,6 +272,7 @@ export const carsData: carType[] = [
     capacity: "6 People",
     pricePerDay: 80,
     /*discountPrice: 89,*/
+    rating: 5,
     isFavorite: false,
     isPopular: true,
     status: "Available",

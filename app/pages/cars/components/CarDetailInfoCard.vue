@@ -27,7 +27,18 @@ const emit = defineEmits(["toggle-favorite"]);
           />
         </button>
       </div>
-      <div class="rating">⭐⭐⭐⭐⭐ <span>440+ Review</span></div>
+      <div class="carDetail-info__rating">
+        <span
+          v-for="star in 5"
+          :key="star"
+          class="carDetail-info__ratingStar"
+          :class="{
+            'carDetail-info__ratingStar--filled': star <= car.rating,
+            'carDetail-info__ratingStar--empty': star > car.rating,
+          }"
+        />
+        <span class="carDetail-info__ratingText">440+ Review</span>
+      </div>
     </div>
     <div class="carDetail-info__main">
       <div class="carDetail-info__description">
