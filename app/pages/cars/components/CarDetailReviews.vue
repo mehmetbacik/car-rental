@@ -23,45 +23,38 @@ const toggleShowAll = () => {
 </script>
 
 <template>
-  <section class="reviews card">
-    <div class="reviews-header">
+  <section class="carDetail-reviews">
+    <div class="carDetail-reviews__header">
       <h3>Reviews</h3>
-
-      <span class="badge">
+      <span class="carDetail-reviews__badge">
         {{ reviews.length }}
       </span>
     </div>
-
     <div
       v-for="review in displayedReviews"
       :key="review.id"
-      class="review-item"
+      class="carDetail-reviews__reviewItem"
     >
-      <div class="review-user">
-        <img
-          :src="`https://ui-avatars.com/api/?name=${review.user}&background=random`"
-          :alt="review.user"
-        />
-
+      <div class="carDetail-reviews__reviewUser">
         <div class="user-info">
+          <img
+            :src="`https://ui-avatars.com/api/?name=${review.user}&background=random`"
+            :alt="review.user"
+          />
           <h4>{{ review.user }}</h4>
           <p>{{ review.role }}</p>
         </div>
-
         <div class="review-date-rating">
           <span class="date">{{ review.date }}</span>
-
           <div class="stars">
             {{ "⭐".repeat(review.rating) }}
           </div>
         </div>
       </div>
-
       <p class="review-text">
         {{ review.comment }}
       </p>
     </div>
-
     <button class="show-all-btn" @click="toggleShowAll">
       {{ showAll ? "Show Less ↑" : "Show All ↓" }}
     </button>

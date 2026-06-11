@@ -4,6 +4,7 @@ export const reviewsData: Review[] = [
   {
     id: 1,
     user: "Alex Stanton",
+    image: "",
     role: "CEO at Bukalapak",
     date: "21 July 2022",
     comment:
@@ -13,6 +14,7 @@ export const reviewsData: Review[] = [
   {
     id: 2,
     user: "Skylar Dias",
+    image: "",
     role: "CEO at Amazon",
     date: "20 July 2022",
     comment:
@@ -22,6 +24,7 @@ export const reviewsData: Review[] = [
   {
     id: 3,
     user: "Jordan Lee",
+    image: "",
     role: "Product Manager at Google",
     date: "18 July 2022",
     comment:
@@ -31,6 +34,7 @@ export const reviewsData: Review[] = [
   {
     id: 4,
     user: "Emily Carter",
+    image: "",
     role: "Designer at Adobe",
     date: "16 July 2022",
     comment:
@@ -40,6 +44,7 @@ export const reviewsData: Review[] = [
   {
     id: 5,
     user: "Michael Brown",
+    image: "",
     role: "Engineer at Tesla",
     date: "14 July 2022",
     comment: "Acceleration and handling were impressive. Definitely worth it.",
@@ -48,6 +53,7 @@ export const reviewsData: Review[] = [
   {
     id: 6,
     user: "Sophia Wilson",
+    image: "",
     role: "CEO at StartupX",
     date: "12 July 2022",
     comment: "Customer service was helpful and the car was delivered on time.",
@@ -56,6 +62,7 @@ export const reviewsData: Review[] = [
   {
     id: 7,
     user: "Daniel Kim",
+    image: "",
     role: "Freelance Developer",
     date: "10 July 2022",
     comment: "Great experience overall. I would rent this car again.",
@@ -64,6 +71,7 @@ export const reviewsData: Review[] = [
   {
     id: 8,
     user: "Olivia Martinez",
+    image: "",
     role: "Marketing Lead at Spotify",
     date: "08 July 2022",
     comment: "Very smooth driving experience and excellent fuel efficiency.",
