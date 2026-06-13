@@ -36,13 +36,15 @@ const toggleShowAll = () => {
       class="carDetail-reviews__reviewItem"
     >
       <div class="carDetail-reviews__reviewUser">
-        <div class="user-info">
+        <div class="carDetail-reviews__userInfo">
           <img
             :src="`https://ui-avatars.com/api/?name=${review.user}&background=random`"
             :alt="review.user"
           />
-          <h4>{{ review.user }}</h4>
-          <p>{{ review.role }}</p>
+          <div class="carDetail-reviews__userInfoDetail">
+            <h4>{{ review.user }}</h4>
+            <p>{{ review.role }}</p>
+          </div>
         </div>
         <div class="review-date-rating">
           <span class="date">{{ review.date }}</span>
@@ -51,7 +53,7 @@ const toggleShowAll = () => {
           </div>
         </div>
       </div>
-      <p class="review-text">
+      <p class="carDetail-reviews__reviewText">
         {{ review.comment }}
       </p>
     </div>

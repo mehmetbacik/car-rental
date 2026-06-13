@@ -360,10 +360,49 @@
       }
     }
     &__reviewItem {
+      display: flex;
+      flex-direction: column;
+      gap: $spacing-unit * 3;
       .carDetail-reviews__reviewUser {
         display: flex;
         align-items: center;
         justify-content: space-between;
+      }
+      .carDetail-reviews__userInfo {
+        display: flex;
+        align-items: center;
+        gap: $spacing-unit * 4;
+        img {
+          border-radius: 50%;
+        }
+        .carDetail-reviews__userInfoDetail {
+          display: flex;
+          flex-direction: column;
+          gap: $spacing-unit * 2;
+        }
+      }
+    }
+    .carDetail-reviews__reviewText {
+      padding-left: 80px;
+    }
+  }
+  .recentCars-wrapper {
+    margin-bottom: $spacing-unit * 8;
+    .recentCars-content {
+      .recentCars__header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: $spacing-unit * 5;
+        .recentCars__title {
+          font-size: $font-size-base * 1;
+          font-weight: 600;
+          color: $secondary-300;
+        }
+        .recentCars__link {
+          font-size: $font-size-base * 1;
+          font-weight: 600;
+          color: $primary-neutral-palette-500;
+        }
       }
     }
   }
