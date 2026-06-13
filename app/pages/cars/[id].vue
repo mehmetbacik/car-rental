@@ -6,6 +6,7 @@ import CarDetailHeroSection from "./components/CarDetailHeroSection.vue";
 import CarDetailInfoCard from "./components/CarDetailInfoCard.vue";
 import CarDetailReviews from "./components/CarDetailReviews.vue";
 import RecentCars from "./components/RecentCars.vue";
+import RecomendationCar from "./components/RecomendationCar.vue";
 
 const { car } = useCarDetail();
 const { isFavorite, mainImage, toggleFavorite, setMainImage } =
@@ -24,6 +25,7 @@ const { isFavorite, mainImage, toggleFavorite, setMainImage } =
     </div>
     <CarDetailReviews />
     <RecentCars />
+    <RecomendationCar />
   </div>
 
   <div v-else class="container">Loading...</div>

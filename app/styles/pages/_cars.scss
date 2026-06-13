@@ -406,4 +406,24 @@
       }
     }
   }
+  .recomendationCars-wrapper {
+    margin-bottom: $spacing-unit * 8;
+    .recomendationCars-content {
+      .recomendationCars__header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: $spacing-unit * 5;
+        .recomendationCars__title {
+          font-size: $font-size-base * 1;
+          font-weight: 600;
+          color: $secondary-300;
+        }
+        .recomendationCars__link {
+          font-size: $font-size-base * 1;
+          font-weight: 600;
+          color: $primary-neutral-palette-500;
+        }
+      }
+    }
+  }
 }
