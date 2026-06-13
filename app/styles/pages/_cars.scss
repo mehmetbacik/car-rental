@@ -381,6 +381,35 @@
           gap: $spacing-unit * 2;
         }
       }
+      .carDetail-reviews__ratingWrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: $spacing-unit;
+        .carDetail-reviews__rating {
+          display: flex;
+          align-items: center;
+          gap: $spacing-unit;
+          .carDetail-reviews__ratingStar {
+            width: 20px;
+            height: 20px;
+            display: block;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            &--filled {
+              background-image: url("/icons/star-filled.svg");
+            }
+            &--empty {
+              background-image: url("/icons/star-empty.svg");
+            }
+          }
+        }
+        .carDetail-reviews__reviewDate {
+          font-size: $font-size-base;
+          color: $secondary-400;
+        }
+      }
     }
     .carDetail-reviews__reviewText {
       padding-left: 80px;

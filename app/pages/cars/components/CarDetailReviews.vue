@@ -46,10 +46,20 @@ const toggleShowAll = () => {
             <p>{{ review.role }}</p>
           </div>
         </div>
-        <div class="review-date-rating">
-          <span class="date">{{ review.date }}</span>
-          <div class="stars">
-            {{ "⭐".repeat(review.rating) }}
+        <div class="carDetail-reviews__ratingWrapper">
+          <span class="carDetail-reviews__reviewDate">
+            {{ review.date }}
+          </span>
+          <div class="carDetail-reviews__rating">
+            <span
+              v-for="star in 5"
+              :key="star"
+              class="carDetail-reviews__ratingStar"
+              :class="{
+                'carDetail-reviews__ratingStar--filled': star <= review.rating,
+                'carDetail-reviews__ratingStar--empty': star > review.rating,
+              }"
+            />
           </div>
         </div>
       </div>
