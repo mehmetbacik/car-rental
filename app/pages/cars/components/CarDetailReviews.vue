@@ -67,8 +67,15 @@ const toggleShowAll = () => {
         {{ review.comment }}
       </p>
     </div>
-    <button class="show-all-btn" @click="toggleShowAll">
-      {{ showAll ? "Show Less ↑" : "Show All ↓" }}
+    <button class="carDetail-reviews__showAll" @click="toggleShowAll">
+      <span>{{ showAll ? "Show Less" : "Show All" }}</span>
+
+      <img
+        src="/icons/rating-arrow.svg"
+        alt=""
+        class="show-all-btn__arrow"
+        :class="{ 'show-all-btn__arrow--open': showAll }"
+      />
     </button>
   </section>
 </template>

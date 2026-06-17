@@ -379,6 +379,14 @@
           display: flex;
           flex-direction: column;
           gap: $spacing-unit * 2;
+          h4 {
+            color: $secondary-500;
+            font-size: $font-size-base * 1.2;
+            font-weight: 600;
+          }
+          p {
+            color: $secondary-300;
+          }
         }
       }
       .carDetail-reviews__ratingWrapper {
@@ -413,10 +421,30 @@
     }
     .carDetail-reviews__reviewText {
       padding-left: 80px;
+      color: $secondary-400;
+      line-height: 2;
+    }
+    .carDetail-reviews__showAll {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: $spacing-unit * 2;
+      color: $secondary-300;
+      font-weight: 500;
+      &__arrow {
+        width: 16px;
+        height: 16px;
+        transition: $transition-base;
+        transform: rotate(0deg);
+
+        &--open {
+          transform: rotate(180deg);
+        }
+      }
     }
   }
   .recentCars-wrapper {
-    margin-bottom: $spacing-unit * 8;
+    margin-block: $spacing-unit * 8;
     .recentCars-content {
       .recentCars__header {
         display: flex;
@@ -436,7 +464,7 @@
     }
   }
   .recomendationCars-wrapper {
-    margin-bottom: $spacing-unit * 8;
+    margin-block: $spacing-unit * 8;
     .recomendationCars-content {
       .recomendationCars__header {
         display: flex;
