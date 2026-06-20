@@ -1,3 +1,21 @@
+<script setup lang="ts">
+import { computed } from "vue";
+import { useRoute } from "vue-router";
+import { carsData } from "@/data/carsData";
+
+const route = useRoute();
+
+const carId = computed(() => {
+  const id = route.query.id;
+  return Array.isArray(id) ? id[0] : id;
+});
+
+const car = computed(() => {
+  if (!carId.value) return null;
+  return carsData.find((item) => item.id === carId.value) || null;
+});
+</script>
+
 <template>
   <div class="payment-page container">
     <div class="payment-grid">
@@ -137,15 +155,15 @@
       </div>
 
       <!-- Summary -->
-      <aside class="payment-summary card">
+      <aside class="payment-summary card" v-if="car">
         <h3>Rental Summary</h3>
 
         <div class="summary-car">
-          <img src="/images/car/car-koenigsegg.png" alt="Car" />
+          <img :src="car.images[0]" :alt="car.name" />
 
           <div>
-            <h4>Nissan GT-R</h4>
-            <span>⭐⭐⭐⭐⭐ 440+ Review</span>
+            <h4>{{ car.name }}</h4>
+            <span>⭐⭐⭐⭐⭐ {{ car.rating }} Rating</span>
           </div>
         </div>
 
@@ -154,7 +172,7 @@
         <div class="summary-prices">
           <div class="row">
             <span>Subtotal</span>
-            <strong>$80.00</strong>
+            <strong>${{ car.pricePerDay }}</strong>
           </div>
 
           <div class="row">
@@ -169,9 +187,12 @@
             <p>Overall price and includes rental discount</p>
           </div>
 
-          <h2>$80.00</h2>
+          <h2>${{ car.pricePerDay }}</h2>
         </div>
       </aside>
+
+      <!-- fallback -->
+      <div v-else class="card">Car not found</div>
     </div>
   </div>
 </template>
