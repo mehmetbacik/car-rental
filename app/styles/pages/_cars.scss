@@ -489,6 +489,31 @@
         }
       }
     }
+    &__tooltipWrapper {
+      position: relative;
+      &:hover .carDetail-reviews__tooltip {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+    }
+    &__tooltip {
+      position: absolute;
+      left: 0;
+      top: calc(100% + 8px);
+      z-index: 10;
+      width: 320px;
+      padding: $spacing-unit * 4;
+      background: $color-white;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+      font-size: $font-size-base * 0.875;
+      line-height: 1.5;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(4px);
+      transition: $transition-base;
+    }
     .carDetail-reviews__reviewText {
       padding-left: 80px;
       color: $secondary-400;

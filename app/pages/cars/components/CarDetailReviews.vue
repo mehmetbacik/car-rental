@@ -20,6 +20,14 @@ const toggleShowAll = () => {
     visibleCount.value = 2;
   }
 };
+
+const COMMENT_LIMIT = 120;
+
+const truncateComment = (comment: string) => {
+  return comment.length > COMMENT_LIMIT
+    ? `${comment.slice(0, COMMENT_LIMIT)}...`
+    : comment;
+};
 </script>
 
 <template>
@@ -63,9 +71,18 @@ const toggleShowAll = () => {
           </div>
         </div>
       </div>
-      <p class="carDetail-reviews__reviewText">
-        {{ review.comment }}
-      </p>
+      <div class="carDetail-reviews__tooltipWrapper">
+        <p class="carDetail-reviews__reviewText">
+          {{ truncateComment(review.comment) }}
+        </p>
+
+        <div
+          v-if="review.comment.length > COMMENT_LIMIT"
+          class="carDetail-reviews__tooltip"
+        >
+          {{ review.comment }}
+        </div>
+      </div>
     </div>
     <button class="carDetail-reviews__showAll" @click="toggleShowAll">
       <span>{{ showAll ? "Show Less" : "Show All" }}</span>
