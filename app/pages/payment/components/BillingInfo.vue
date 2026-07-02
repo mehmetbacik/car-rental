@@ -1,28 +1,32 @@
 <template>
-  <section class="card">
-    <h3>Billing Info</h3>
-
-    <div class="form-row">
-      <div class="input-group">
-        <label>Name</label>
-        <input type="text" placeholder="Your name" />
-      </div>
-
-      <div class="input-group">
-        <label>Phone Number</label>
-        <input type="text" placeholder="Phone number" />
+  <section class="paymentCard">
+    <div class="paymentHeader">
+      <h3>Billing Info</h3>
+      <div class="paymentHeader-content">
+        <p>Please enter your billing info</p>
+        <span>Step 1 of 4</span>
       </div>
     </div>
-
-    <div class="form-row">
-      <div class="input-group">
-        <label>Address</label>
-        <input type="text" placeholder="Address" />
+    <div class="paymentForm">
+      <div class="paymentForm-row">
+        <div class="paymentForm-inputGroup">
+          <label>Name</label>
+          <input type="text" placeholder="Your name" />
+        </div>
+        <div class="paymentForm-inputGroup">
+          <label>Phone Number</label>
+          <input type="text" placeholder="Phone number" />
+        </div>
       </div>
-
-      <div class="input-group">
-        <label>Town / City</label>
-        <input type="text" placeholder="Town or city" />
+      <div class="paymentForm-row">
+        <div class="paymentForm-inputGroup">
+          <label>Address</label>
+          <input type="text" placeholder="Address" />
+        </div>
+        <div class="paymentForm-inputGroup">
+          <label>Town / City</label>
+          <input type="text" placeholder="Town or city" />
+        </div>
       </div>
     </div>
   </section>

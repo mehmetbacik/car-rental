@@ -24,18 +24,25 @@ const car = computed(() => {
 </script>
 
 <template>
+  <div class="container">
+    <div class="payment-page">
+      <div class="payment-grid">
+        <div class="payment-forms">
+          <BillingInfo />
+        </div>
+        <RentalSummary v-if="car" :car="car" />
+        <div v-else class="card">Car not found</div>
+      </div>
+    </div>
+  </div>
   <div class="payment-page container">
     <div class="payment-grid">
       <div class="payment-forms">
-        <BillingInfo />
         <RentalInfo />
         <PaymentMethod />
         <ConfirmationSection />
         <RentAction />
       </div>
-
-      <RentalSummary v-if="car" :car="car" />
-      <div v-else class="card">Car not found</div>
     </div>
   </div>
 </template>

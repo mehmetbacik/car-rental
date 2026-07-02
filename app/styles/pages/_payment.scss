@@ -1,25 +1,72 @@
+.payment-page {
+  .payment-forms {
+    .paymentCard {
+      display: flex;
+      flex-direction: column;
+      gap: $spacing-unit * 8;
+      background: $color-white;
+      padding: $spacing-unit * 10;
+      border-radius: 15px;
+      border: 1px solid $secondary-100;
+      .paymentHeader {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-unit * 0.25;
+        h3 {
+          color: $secondary-500;
+          font-weight: bold;
+          font-size: $font-size-base * 1.5;
+        }
+        .paymentHeader-content {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          color: $secondary-300;
+          font-weight: 500;
+          font-size: $font-size-base;
+        }
+      }
+      .paymentForm {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-unit * 6;
+        .paymentForm-row {
+          display: flex;
+          justify-content: space-between;
+          gap: $spacing-unit * 8;
+          .paymentForm-inputGroup {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            label {
+              color: $secondary-500;
+              font-size:  $font-size-base * 1.1;
+              font-weight: 600;
+              margin-bottom: $spacing-unit * 4;
+            }
+            input {
+              padding: $spacing-unit * 4 $spacing-unit * 8;
+              background: $secondary-100;
+              border: none;
+              border-radius: 10px;
+              &::placeholder {
+                color: $secondary-300;
+                font-size: $font-size-base * 0.9;
+                font-weight: 500;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 .payment-grid {
   display: grid;
   grid-template-columns: 2fr 1.2fr;
   gap: $spacing-unit * 8;
   margin-top: $spacing-unit * 8;
-}
-
-.input-group {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  margin-bottom: $spacing-unit * 4;
-  label {
-    font-weight: 600;
-    margin-bottom: $spacing-unit * 2;
-  }
-  input {
-    padding: $spacing-unit * 4;
-    background: $secondary-300;
-    border: none;
-    border-radius: 10px;
-  }
 }
 
 .payment-summary {
