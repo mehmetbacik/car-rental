@@ -29,6 +29,7 @@ const car = computed(() => {
       <div class="payment-grid">
         <div class="payment-forms">
           <BillingInfo />
+          <RentalInfo />
         </div>
         <RentalSummary v-if="car" :car="car" />
         <div v-else class="card">Car not found</div>
@@ -38,7 +39,6 @@ const car = computed(() => {
   <div class="payment-page container">
     <div class="payment-grid">
       <div class="payment-forms">
-        <RentalInfo />
         <PaymentMethod />
         <ConfirmationSection />
         <RentAction />
