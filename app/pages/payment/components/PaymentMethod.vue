@@ -14,16 +14,31 @@ const selectedMethod = ref("card");
       </div>
     </div>
     <div class="paymentOption" :class="{ active: selectedMethod === 'card' }">
-      <label>
-        <input type="radio" value="card" v-model="selectedMethod" />
-        Credit Card
-      </label>
-
-      <div v-if="selectedMethod === 'card'" class="card-inputs">
-        <input type="text" placeholder="Card number" />
-        <input type="text" placeholder="Expiration date" />
-        <input type="text" placeholder="Card holder" />
-        <input type="text" placeholder="CVC" />
+      <div class="paymentForm">
+        <div class="paymentForm-rowTitle">
+          <input type="radio" value="card" v-model="selectedMethod" />
+          <h4>Credit Card</h4>
+        </div>
+        <div class="paymentForm-row" v-if="selectedMethod === 'card'">
+          <div class="paymentForm-inputGroup">
+            <label>Card Number</label>
+            <input type="text" placeholder="Card number" />
+          </div>
+          <div class="paymentForm-inputGroup">
+            <label>Expiration Date</label>
+            <input type="date" />
+          </div>
+        </div>
+        <div class="paymentForm-row" v-if="selectedMethod === 'card'">
+          <div class="paymentForm-inputGroup">
+            <label>Card Holder</label>
+            <input type="text" placeholder="Card holder" />
+          </div>
+          <div class="paymentForm-inputGroup">
+            <label>CVC</label>
+            <input type="text" placeholder="CVC" />
+          </div>
+        </div>
       </div>
     </div>
     <div class="paymentOption" :class="{ active: selectedMethod === 'paypal' }">

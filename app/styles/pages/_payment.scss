@@ -78,6 +78,20 @@
           }
         }
       }
+      .paymentOption {
+        background-color: $secondary-100;
+        padding: $spacing-unit * 6;
+        border-radius: 15px;
+        .paymentForm {
+          .paymentForm-row {
+            .paymentForm-inputGroup {
+              input {
+                background: $color-white;
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
