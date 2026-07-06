@@ -5,11 +5,15 @@ const selectedMethod = ref("card");
 </script>
 
 <template>
-  <section class="card mt-2">
-    <h3>Payment Method</h3>
-
-    <!-- Credit Card -->
-    <div class="payment-option" :class="{ active: selectedMethod === 'card' }">
+  <section class="paymentCard">
+    <div class="paymentHeader">
+      <h3>Payment Method</h3>
+      <div class="paymentHeader-content">
+        <p>Please enter your payment method</p>
+        <span>Step 3 of 4</span>
+      </div>
+    </div>
+    <div class="paymentOption" :class="{ active: selectedMethod === 'card' }">
       <label>
         <input type="radio" value="card" v-model="selectedMethod" />
         Credit Card
@@ -22,27 +26,32 @@ const selectedMethod = ref("card");
         <input type="text" placeholder="CVC" />
       </div>
     </div>
-
-    <!-- PayPal -->
-    <div
-      class="payment-option"
-      :class="{ active: selectedMethod === 'paypal' }"
-    >
+    <div class="paymentOption" :class="{ active: selectedMethod === 'paypal' }">
       <label>
         <input type="radio" value="paypal" v-model="selectedMethod" />
         PayPal
       </label>
+      <div v-if="selectedMethod === 'paypal'" class="card-inputs">
+        <input type="text" placeholder="Card number" />
+        <input type="text" placeholder="Expiration date" />
+        <input type="text" placeholder="Card holder" />
+        <input type="text" placeholder="CVC" />
+      </div>
     </div>
-
-    <!-- Bitcoin -->
     <div
-      class="payment-option"
+      class="paymentOption"
       :class="{ active: selectedMethod === 'bitcoin' }"
     >
       <label>
         <input type="radio" value="bitcoin" v-model="selectedMethod" />
         Bitcoin
       </label>
+      <div v-if="selectedMethod === 'bitcoin'" class="card-inputs">
+        <input type="text" placeholder="Card number" />
+        <input type="text" placeholder="Expiration date" />
+        <input type="text" placeholder="Card holder" />
+        <input type="text" placeholder="CVC" />
+      </div>
     </div>
   </section>
 </template>
