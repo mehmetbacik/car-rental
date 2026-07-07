@@ -3,6 +3,9 @@
     display: flex;
     flex-direction: column;
     gap: $spacing-unit * 8;
+    &:last-child {
+      margin-bottom: $spacing-unit * 8;
+    }
     .paymentCard {
       display: flex;
       flex-direction: column;
@@ -101,6 +104,63 @@
               }
             }
           }
+        }
+      }
+      .paymentForm-checkbox {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-unit * 6;
+        .paymentForm-checkboxGroup {
+          background-color: $secondary-100;
+          padding: $spacing-unit * 6;
+          border-radius: 15px;
+          label {
+            display: flex;
+            align-items: center;
+            gap: $spacing-unit * 2;
+            color: $secondary-500;
+            font-size: $font-size-base * 1.1;
+            font-weight: 600;
+            input[type="checkbox"] {
+              width: 16px;
+              height: 16px;
+              accent-color: $primary-neutral-palette-500;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+      .paymentForm-rentAction {
+        .rentBtn {
+          padding-block: $spacing-unit * 4;
+          padding-inline: $spacing-unit * 8;
+          border-radius: 6px;
+          font-weight: 500;
+          cursor: pointer;
+          transition: $transition-base;
+          background: $primary-neutral-palette-500;
+          color: $color-white;
+          border: none;
+          &:hover {
+            background: $primary-neutral-palette-600;
+          }
+        }
+      }
+      .paymentForm-safety {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: $spacing-unit * 2.5;
+        span {
+          color: $secondary-500;
+          font-size: $font-size-base * 1.1;
+          font-weight: 600;
+        }
+        p {
+          color: $secondary-300;
+          font-weight: 500;
+          font-size: $font-size-base;
         }
       }
     }
