@@ -36,18 +36,29 @@
         .paymentForm-rowTitle {
           display: flex;
           align-items: center;
+          justify-content: space-between;
           gap: $spacing-unit * 2;
           font-weight: 600;
-          input[type="radio"] {
-            width: 16px;
-            height: 16px;
-            accent-color: $primary-neutral-palette-500;
-            cursor: pointer;
+          .paymentForm-content {
+            display: flex;
+            align-items: center;
+            gap: $spacing-unit * 2;
+            input[type="radio"] {
+              width: 16px;
+              height: 16px;
+              accent-color: $primary-neutral-palette-500;
+              cursor: pointer;
+            }
+            h4 {
+              color: $secondary-500;
+              font-size: $font-size-base * 1.1;
+              font-weight: 600;
+            }
           }
-          h4 {
-            color: $secondary-500;
-            font-size: $font-size-base * 1.1;
-            font-weight: 600;
+          .paymentForm-icons {
+            display: flex;
+            align-items: center;
+            gap: $spacing-unit * 2;
           }
         }
         .paymentForm-row {

@@ -2,6 +2,11 @@
 import { ref } from "vue";
 
 const selectedMethod = ref("card");
+
+const CreditCardVisaIconPath = "/images/payment/visa.svg";
+const CreditCardMasterIconPath = "/images/payment/mc.svg";
+const PaypalIconPath = "/images/payment/paypal.svg";
+const BitcoinIconPath = "/images/payment/bitcoin.svg";
 </script>
 
 <template>
@@ -16,8 +21,14 @@ const selectedMethod = ref("card");
     <div class="paymentOption" :class="{ active: selectedMethod === 'card' }">
       <div class="paymentForm">
         <div class="paymentForm-rowTitle">
-          <input type="radio" value="card" v-model="selectedMethod" />
-          <h4>Credit Card</h4>
+          <div class="paymentForm-content">
+            <input type="radio" value="card" v-model="selectedMethod" />
+            <h4>Credit Card</h4>
+          </div>
+          <div class="paymentForm-icons">
+            <img :src="CreditCardVisaIconPath" alt="Visa" />
+            <img :src="CreditCardMasterIconPath" alt="MasterCard" />
+          </div>
         </div>
         <div class="paymentForm-row" v-if="selectedMethod === 'card'">
           <div class="paymentForm-inputGroup">
@@ -44,8 +55,13 @@ const selectedMethod = ref("card");
     <div class="paymentOption" :class="{ active: selectedMethod === 'paypal' }">
       <div class="paymentForm">
         <div class="paymentForm-rowTitle">
-          <input type="radio" value="paypal" v-model="selectedMethod" />
-          <h4>Paypal</h4>
+          <div class="paymentForm-content">
+            <input type="radio" value="paypal" v-model="selectedMethod" />
+            <h4>Paypal</h4>
+          </div>
+          <div class="paymentForm-icons">
+            <img :src="PaypalIconPath" alt="Paypal" />
+          </div>
         </div>
         <div class="paymentForm-row" v-if="selectedMethod === 'paypal'">
           <div class="paymentForm-inputGroup">
@@ -69,11 +85,19 @@ const selectedMethod = ref("card");
         </div>
       </div>
     </div>
-    <div class="paymentOption" :class="{ active: selectedMethod === 'bitcoin' }">
+    <div
+      class="paymentOption"
+      :class="{ active: selectedMethod === 'bitcoin' }"
+    >
       <div class="paymentForm">
         <div class="paymentForm-rowTitle">
-          <input type="radio" value="bitcoin" v-model="selectedMethod" />
-          <h4>Bitcoin</h4>
+          <div class="paymentForm-content">
+            <input type="radio" value="bitcoin" v-model="selectedMethod" />
+            <h4>Bitcoin</h4>
+          </div>
+          <div class="paymentForm-icons">
+            <img :src="BitcoinIconPath" alt="Bitcoin" />
+          </div>
         </div>
         <div class="paymentForm-row" v-if="selectedMethod === 'bitcoin'">
           <div class="paymentForm-inputGroup">

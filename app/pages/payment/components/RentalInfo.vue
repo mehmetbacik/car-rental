@@ -9,8 +9,10 @@
     </div>
     <div class="paymentForm">
       <div class="paymentForm-rowTitle">
-        <input type="radio" checked />
-        <h4>Pick-Up</h4>
+        <div class="paymentForm-content">
+          <input type="radio" checked />
+          <h4>Pick-Up</h4>
+        </div>
       </div>
       <div class="paymentForm-row">
         <div class="paymentForm-inputGroup">
@@ -29,8 +31,10 @@
         </div>
       </div>
       <div class="paymentForm-rowTitle">
-        <input type="radio" checked />
-        <h4>Drop-Off</h4>
+        <div class="paymentForm-content">
+          <input type="radio" checked />
+          <h4>Drop-Off</h4>
+        </div>
       </div>
       <div class="paymentForm-row">
         <div class="paymentForm-inputGroup">
