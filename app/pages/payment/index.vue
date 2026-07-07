@@ -7,7 +7,6 @@ import BillingInfo from "./components/BillingInfo.vue";
 import RentalInfo from "./components/RentalInfo.vue";
 import PaymentMethod from "./components/PaymentMethod.vue";
 import ConfirmationSection from "./components/ConfirmationSection.vue";
-import RentAction from "./components/RentAction.vue";
 import RentalSummary from "./components/RentalSummary.vue";
 
 const route = useRoute();
@@ -41,7 +40,6 @@ const car = computed(() => {
       <div class="payment-forms">
         <PaymentMethod />
         <ConfirmationSection />
-        <RentAction />
       </div>
     </div>
   </div>
