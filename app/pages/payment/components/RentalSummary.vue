@@ -18,11 +18,22 @@ defineProps<{
         your rental car.
       </p>
     </div>
-    <div class="summary-car">
+    <div class="paymentSummary-car">
       <img :src="car.images[0]" :alt="car.name" />
       <div>
         <h4>{{ car.name }}</h4>
-        <span>⭐⭐⭐⭐⭐ {{ car.rating }} Rating</span>
+        <div class="paymentSummary-car__rating">
+          <span
+            v-for="star in 5"
+            :key="star"
+            class="paymentSummary-car__ratingStar"
+            :class="{
+              'paymentSummary-car__ratingStar--filled': star <= car.rating,
+              'paymentSummary-car__ratingStar--empty': star > car.rating,
+            }"
+          />
+          <span class="paymentSummary-car__ratingText">440+ Review</span>
+        </div>
       </div>
     </div>
     <hr />

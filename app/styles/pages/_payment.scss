@@ -180,7 +180,22 @@
     border-radius: 15px;
     border: 1px solid $secondary-100;
     max-height: max-content;
-    .summary-car {
+    &-header {
+      display: flex;
+      flex-direction: column;
+      gap: $spacing-unit * 0.25;
+      h3 {
+        color: $secondary-500;
+        font-weight: bold;
+        font-size: $font-size-base * 1.5;
+      }
+      p {
+        color: $secondary-300;
+        font-weight: 500;
+        font-size: $font-size-base;
+      }
+    }
+    &-car {
       display: flex;
       gap: $spacing-unit * 4;
       align-items: center;
@@ -189,6 +204,37 @@
         background: $primary-neutral-palette-700;
         border-radius: 10px;
         padding: 10px;
+      }
+      .paymentSummary-car__rating {
+        display: flex;
+        align-items: center;
+        gap: $spacing-unit;
+        .paymentSummary-car__ratingStar {
+          width: 20px;
+          height: 20px;
+          display: block;
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: contain;
+          &--filled {
+            background-image: url("/icons/star-filled.svg");
+          }
+          &--empty {
+            background-image: url("/icons/star-empty.svg");
+          }
+          @media (max-width: $sm-breakpoint) {
+            width: 16px;
+            height: 16px;
+          }
+        }
+        .paymentSummary-car__ratingText {
+          font-size: $font-size-base;
+          color: $secondary-400;
+          padding-left: $spacing-unit * 2;
+          @media (max-width: $sm-breakpoint) {
+            font-size: $font-size-base * 0.875;
+          }
+        }
       }
     }
     .summary-prices {
