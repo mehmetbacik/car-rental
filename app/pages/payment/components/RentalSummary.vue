@@ -19,7 +19,11 @@ defineProps<{
       </p>
     </div>
     <div class="paymentSummary-car">
-      <img class="paymentSummary-car__image" :src="car.images[0]" :alt="car.name" />
+      <img
+        class="paymentSummary-car__image"
+        :src="car.images[0]"
+        :alt="car.name"
+      />
       <div class="paymentSummary-car__content">
         <h4>{{ car.name }}</h4>
         <div class="paymentSummary-car__rating">
@@ -45,6 +49,15 @@ defineProps<{
         <span class="title">Tax</span>
         <span class="price">$0</span>
       </div>
+    </div>
+    <div class="paymentSummary-promo">
+      <input
+        type="text"
+        placeholder="Apply promo code"
+        class="paymentSummary-promo__input"
+      />
+
+      <button class="paymentSummary-promo__button">Apply Now</button>
     </div>
     <div class="total-price">
       <div>

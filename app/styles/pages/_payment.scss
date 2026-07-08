@@ -269,5 +269,31 @@
         }
       }
     }
+    &-promo {
+      display: flex;
+      gap: $spacing-unit * 4;
+      &__input {
+        flex: 1;
+        border: 1px solid $secondary-100;
+        outline: none;
+        transition: $transition-base;
+        &:focus {
+          border-color: $information-600;
+        }
+        &::placeholder {
+          color: $secondary-300;
+        }
+      }
+      &__button {
+        height: 56px;
+        border: none;
+        background: $secondary-100;
+        cursor: pointer;
+        transition: $transition-base;
+        &:hover {
+          background: $secondary-300;
+        }
+      }
+    }
   }
 }
