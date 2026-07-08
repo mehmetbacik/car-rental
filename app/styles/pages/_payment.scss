@@ -1,4 +1,10 @@
 .payment-page {
+  .payment-grid {
+    display: grid;
+    grid-template-columns: 2fr 1.2fr;
+    gap: $spacing-unit * 8;
+    margin-top: $spacing-unit * 8;
+  }
   .payment-forms {
     display: flex;
     flex-direction: column;
@@ -165,33 +171,33 @@
       }
     }
   }
-}
-
-.payment-grid {
-  display: grid;
-  grid-template-columns: 2fr 1.2fr;
-  gap: $spacing-unit * 8;
-  margin-top: $spacing-unit * 8;
-}
-
-.payment-summary {
-  .summary-car {
+  .paymentSummary {
     display: flex;
-    gap: $spacing-unit * 4;
-    align-items: center;
-    img {
-      width: 100px;
-      background: $primary-neutral-palette-700;
-      border-radius: 10px;
-      padding: 10px;
-    }
-  }
-  .summary-prices {
-    margin: $spacing-unit * 6 0;
-    .row {
+    flex-direction: column;
+    gap: $spacing-unit * 8;
+    background: $color-white;
+    padding: $spacing-unit * 10;
+    border-radius: 15px;
+    border: 1px solid $secondary-100;
+    max-height: max-content;
+    .summary-car {
       display: flex;
-      justify-content: space-between;
-      margin-bottom: $spacing-unit * 2;
+      gap: $spacing-unit * 4;
+      align-items: center;
+      img {
+        width: 100px;
+        background: $primary-neutral-palette-700;
+        border-radius: 10px;
+        padding: 10px;
+      }
+    }
+    .summary-prices {
+      margin: $spacing-unit * 6 0;
+      .row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: $spacing-unit * 2;
+      }
     }
   }
 }
