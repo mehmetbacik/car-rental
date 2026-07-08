@@ -252,12 +252,21 @@
         }
       }
     }
-    .summary-prices {
-      margin: $spacing-unit * 6 0;
-      .row {
+    &-prices {
+      &__row {
         display: flex;
         justify-content: space-between;
         margin-bottom: $spacing-unit * 2;
+        .title {
+          color: $secondary-300;
+          font-weight: 500;
+          font-size: $font-size-base;
+        }
+        .price {
+          color: $secondary-500;
+          font-weight: bold;
+          font-size: $font-size-base;
+        }
       }
     }
   }

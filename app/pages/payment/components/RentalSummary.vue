@@ -36,14 +36,14 @@ defineProps<{
         </div>
       </div>
     </div>
-    <div class="summary-prices">
-      <div class="row">
-        <span>Subtotal</span>
-        <strong>${{ car.pricePerDay }}</strong>
+    <div class="paymentSummary-prices">
+      <div class="paymentSummary-prices__row">
+        <span class="title">Subtotal</span>
+        <span class="price">${{ car.pricePerDay }}</span>
       </div>
-      <div class="row">
-        <span>Tax</span>
-        <strong>$0.00</strong>
+      <div class="paymentSummary-prices__row">
+        <span class="title">Tax</span>
+        <span class="price">$0</span>
       </div>
     </div>
     <div class="total-price">
