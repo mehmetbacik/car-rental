@@ -19,8 +19,8 @@ defineProps<{
       </p>
     </div>
     <div class="paymentSummary-car">
-      <img :src="car.images[0]" :alt="car.name" />
-      <div>
+      <img class="paymentSummary-car__image" :src="car.images[0]" :alt="car.name" />
+      <div class="paymentSummary-car__content">
         <h4>{{ car.name }}</h4>
         <div class="paymentSummary-car__rating">
           <span
@@ -36,7 +36,6 @@ defineProps<{
         </div>
       </div>
     </div>
-    <hr />
     <div class="summary-prices">
       <div class="row">
         <span>Subtotal</span>

@@ -199,40 +199,55 @@
       display: flex;
       gap: $spacing-unit * 4;
       align-items: center;
-      img {
-        width: 100px;
-        background: $primary-neutral-palette-700;
+      border-bottom: solid 1px $secondary-200;
+      padding-bottom: $spacing-unit * 8;
+      &__image {
+        width: 150px;
+        height: 100%;
+        object-fit: cover;
+        background: $primary-neutral-palette-400;
         border-radius: 10px;
         padding: 10px;
       }
-      .paymentSummary-car__rating {
+      &__content {
         display: flex;
-        align-items: center;
+        flex-direction: column;
         gap: $spacing-unit;
-        .paymentSummary-car__ratingStar {
-          width: 20px;
-          height: 20px;
-          display: block;
-          background-repeat: no-repeat;
-          background-position: center;
-          background-size: contain;
-          &--filled {
-            background-image: url("/icons/star-filled.svg");
-          }
-          &--empty {
-            background-image: url("/icons/star-empty.svg");
-          }
-          @media (max-width: $sm-breakpoint) {
-            width: 16px;
-            height: 16px;
-          }
+        h4 {
+          color: $secondary-500;
+          font-weight: bold;
+          font-size: $font-size-base * 1.8;
+          line-height: normal;
         }
-        .paymentSummary-car__ratingText {
-          font-size: $font-size-base;
-          color: $secondary-400;
-          padding-left: $spacing-unit * 2;
-          @media (max-width: $sm-breakpoint) {
-            font-size: $font-size-base * 0.875;
+        .paymentSummary-car__rating {
+          display: flex;
+          align-items: center;
+          gap: $spacing-unit;
+          .paymentSummary-car__ratingStar {
+            width: 18px;
+            height: 18px;
+            display: block;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            &--filled {
+              background-image: url("/icons/star-filled.svg");
+            }
+            &--empty {
+              background-image: url("/icons/star-empty.svg");
+            }
+            @media (max-width: $sm-breakpoint) {
+              width: 16px;
+              height: 16px;
+            }
+          }
+          .paymentSummary-car__ratingText {
+            font-size: $font-size-base;
+            color: $secondary-400;
+            padding-left: $spacing-unit * 2;
+            @media (max-width: $sm-breakpoint) {
+              font-size: $font-size-base * 0.875;
+            }
           }
         }
       }
