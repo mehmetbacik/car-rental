@@ -4,6 +4,10 @@
     grid-template-columns: 2fr 1.2fr;
     gap: $spacing-unit * 8;
     margin-top: $spacing-unit * 8;
+    @media (max-width: $sm-breakpoint) {
+      display: flex;
+      flex-direction: column-reverse;
+    }
   }
   .payment-forms {
     display: flex;
@@ -74,6 +78,10 @@
           display: flex;
           justify-content: space-between;
           gap: $spacing-unit * 8;
+          @media (max-width: $sm-breakpoint) {
+            display: flex;
+            flex-direction: column;
+          }
           .paymentForm-inputGroup {
             display: flex;
             flex-direction: column;
@@ -180,6 +188,10 @@
     border-radius: 15px;
     border: 1px solid $secondary-100;
     max-height: max-content;
+    @media (max-width: $sm-breakpoint) {
+      padding: $spacing-unit * 4;
+      gap: $spacing-unit * 6;
+    }
     &-header {
       display: flex;
       flex-direction: column;
@@ -188,11 +200,17 @@
         color: $secondary-500;
         font-weight: bold;
         font-size: $font-size-base * 1.5;
+        @media (max-width: $sm-breakpoint) {
+          font-size: $font-size-base * 1;
+        }
       }
       p {
         color: $secondary-300;
         font-weight: 500;
         font-size: $font-size-base;
+        @media (max-width: $sm-breakpoint) {
+          font-size: $font-size-base * 0.75;
+        }
       }
     }
     &-car {
@@ -208,6 +226,9 @@
         background: $primary-neutral-palette-400;
         border-radius: 10px;
         padding: 10px;
+        @media (max-width: $sm-breakpoint) {
+          width: 116px;
+        }
       }
       &__content {
         display: flex;
@@ -218,6 +239,9 @@
           font-weight: bold;
           font-size: $font-size-base * 1.8;
           line-height: normal;
+          @media (max-width: $sm-breakpoint) {
+            font-size: $font-size-base * 1.2;
+          }
         }
         .paymentSummary-car__rating {
           display: flex;
@@ -237,8 +261,8 @@
               background-image: url("/icons/star-empty.svg");
             }
             @media (max-width: $sm-breakpoint) {
-              width: 16px;
-              height: 16px;
+              width: 12px;
+              height: 12px;
             }
           }
           .paymentSummary-car__ratingText {
@@ -246,7 +270,7 @@
             color: $secondary-400;
             padding-left: $spacing-unit * 2;
             @media (max-width: $sm-breakpoint) {
-              font-size: $font-size-base * 0.875;
+              font-size: $font-size-base * 0.65;
             }
           }
         }
@@ -261,11 +285,17 @@
           color: $secondary-300;
           font-weight: 500;
           font-size: $font-size-base;
+          @media (max-width: $sm-breakpoint) {
+            font-size: $font-size-base * 0.75;
+          }
         }
         .price {
           color: $secondary-500;
           font-weight: bold;
           font-size: $font-size-base;
+          @media (max-width: $sm-breakpoint) {
+            font-size: $font-size-base * 0.75;
+          }
         }
       }
     }
@@ -275,6 +305,10 @@
       background-color: $secondary-100;
       padding-inline: $spacing-unit * 8;
       border-radius: 10px;
+      @media (max-width: $sm-breakpoint) {
+        font-size: $font-size-base * 0.75;
+        padding-inline: $spacing-unit * 5;
+      }
       &__input {
         flex: 1;
         border: 1px solid $secondary-100;
@@ -292,6 +326,9 @@
         transition: $transition-base;
         color: $secondary-500;
         font-weight: 500;
+        @media (max-width: $sm-breakpoint) {
+          height: 40px;
+        }
         &:hover {
           color: $primary-neutral-palette-700;
         }
@@ -307,17 +344,26 @@
           color: $secondary-500;
           font-weight: bold;
           font-size: $font-size-base * 1.5;
+          @media (max-width: $sm-breakpoint) {
+            font-size: $font-size-base * 1;
+          }
         }
         p {
           color: $secondary-300;
           font-weight: 500;
           font-size: $font-size-base;
+          @media (max-width: $sm-breakpoint) {
+            font-size: $font-size-base * 0.75;
+          }
         }
       }
       &__price {
         color: $secondary-500;
         font-weight: bold;
         font-size: $font-size-base * 1.8;
+        @media (max-width: $sm-breakpoint) {
+          font-size: $font-size-base * 1.2;
+        }
       }
     }
   }
