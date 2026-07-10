@@ -59,12 +59,12 @@ defineProps<{
 
       <button class="paymentSummary-promo__button">Apply Now</button>
     </div>
-    <div class="total-price">
-      <div>
+    <div class="paymentSummary-totalPrice">
+      <div class="paymentSummary-totalPrice__content">
         <h4>Total Rental Price</h4>
         <p>Overall price and includes rental discount</p>
       </div>
-      <h2>${{ car.pricePerDay }}</h2>
+      <h2 class="paymentSummary-totalPrice__price">${{ car.pricePerDay }}</h2>
     </div>
   </aside>
 </template>
