@@ -8,7 +8,7 @@ const SafetyIconPath = "/images/payment/safety.svg";
       <h3>Confirmation</h3>
       <div class="paymentHeader-content">
         <p>
-          We are getting to the end. Just few clicks and your rental is ready!
+          We are getting to the end. Just few <br>clicks and your rental is ready!
         </p>
         <span>Step 4 of 4</span>
       </div>

@@ -24,6 +24,10 @@
       padding: $spacing-unit * 10;
       border-radius: 15px;
       border: 1px solid $secondary-100;
+      @media (max-width: $sm-breakpoint) {
+        padding: $spacing-unit * 4;
+        gap: $spacing-unit * 6;
+      }
       .paymentHeader {
         display: flex;
         flex-direction: column;
@@ -32,6 +36,9 @@
           color: $secondary-500;
           font-weight: bold;
           font-size: $font-size-base * 1.5;
+          @media (max-width: $sm-breakpoint) {
+            font-size: $font-size-base * 1;
+          }
         }
         .paymentHeader-content {
           display: flex;
@@ -40,6 +47,9 @@
           color: $secondary-300;
           font-weight: 500;
           font-size: $font-size-base;
+          @media (max-width: $sm-breakpoint) {
+            font-size: $font-size-base * 0.75;
+          }
         }
       }
       .paymentForm {
@@ -66,6 +76,9 @@
               color: $secondary-500;
               font-size: $font-size-base * 1.1;
               font-weight: 600;
+              @media (max-width: $sm-breakpoint) {
+                font-size: $font-size-base * 1;
+              }
             }
           }
           .paymentForm-icons {
@@ -91,12 +104,20 @@
               font-size: $font-size-base * 1.1;
               font-weight: 600;
               margin-bottom: $spacing-unit * 4;
+              @media (max-width: $sm-breakpoint) {
+                font-size: $font-size-base * 0.875;
+                margin-bottom: $spacing-unit * 2;
+              }
             }
             input {
               padding: $spacing-unit * 4 $spacing-unit * 8;
               background: $secondary-100;
               border: none;
               border-radius: 10px;
+              @media (max-width: $sm-breakpoint) {
+                padding: $spacing-unit * 2.75 $spacing-unit * 6;
+                font-size: $font-size-base * 0.75;
+              }
               &::placeholder {
                 color: $secondary-300;
                 font-size: $font-size-base * 0.9;
@@ -135,6 +156,9 @@
             color: $secondary-500;
             font-size: $font-size-base * 1.1;
             font-weight: 600;
+            @media (max-width: $sm-breakpoint) {
+              font-size: $font-size-base * 0.75;
+            }
             input[type="checkbox"] {
               width: 16px;
               height: 16px;
@@ -155,6 +179,11 @@
           background: $primary-neutral-palette-500;
           color: $color-white;
           border: none;
+          @media (max-width: $sm-breakpoint) {
+            padding-block: $spacing-unit * 2;
+            padding-inline: $spacing-unit * 4;
+            font-size: $font-size-base * 0.875;
+          }
           &:hover {
             background: $primary-neutral-palette-600;
           }
@@ -170,11 +199,17 @@
           color: $secondary-500;
           font-size: $font-size-base * 1.1;
           font-weight: 600;
+          @media (max-width: $sm-breakpoint) {
+            font-size: $font-size-base * 1;
+          }
         }
         p {
           color: $secondary-300;
           font-weight: 500;
           font-size: $font-size-base;
+          @media (max-width: $sm-breakpoint) {
+            font-size: $font-size-base * 0.75;
+          }
         }
       }
     }
