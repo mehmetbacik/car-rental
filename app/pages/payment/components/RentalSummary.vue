@@ -15,7 +15,7 @@ defineProps<{
       <h3>Rental Summary</h3>
       <p>
         Prices may change depending on the length of the rental and the price of
-        your rental car.
+        your&nbsp;rental&nbsp;car.
       </p>
     </div>
     <div class="paymentSummary-car">

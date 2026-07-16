@@ -5,6 +5,9 @@
   position: sticky;
   top: 0;
   z-index: 100;
+  @media (max-width: $md-breakpoint) {
+    padding: $spacing-unit * 8 0;
+  }
   @media (max-width: $sm-breakpoint) {
     padding: $spacing-unit * 8 0;
   }
@@ -14,10 +17,17 @@
     align-items: center;
     justify-content: space-between;
     gap: $spacing-unit * 16;
+    @media (max-width: $md-breakpoint) {
+      gap: $spacing-unit * 8;
+    }
     @media (max-width: $sm-breakpoint) {
       gap: $spacing-unit * 8;
     }
     .header__logo {
+      @media (max-width: $md-breakpoint) {
+        order: 1;
+        width: 33%;
+      }
       @media (max-width: $sm-breakpoint) {
         order: 1;
         width: 33%;
@@ -26,6 +36,10 @@
     .header__search {
       flex: 1;
       max-width: 492px;
+      @media (max-width: $md-breakpoint) {
+        order: 3;
+        width: 100%;
+      }
       @media (max-width: $sm-breakpoint) {
         order: 3;
         width: 100%;
@@ -41,6 +55,9 @@
           border: 1px solid $secondary-100;
           border-radius: 70px;
           gap: $spacing-unit * 4;
+          @media (max-width: $md-breakpoint) {
+            border-radius: 12px;
+          }
           @media (max-width: $sm-breakpoint) {
             border-radius: 12px;
           }
@@ -162,6 +179,11 @@
       justify-content: flex-end;
       gap: $spacing-unit * 5;
       flex: 0.75;
+      @media (max-width: $md-breakpoint) {
+        order: 2;
+        width: 50%;
+        gap: $spacing-unit * 2.5;
+      }
       @media (max-width: $sm-breakpoint) {
         order: 2;
         width: 50%;
@@ -178,12 +200,20 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        @media (max-width: $md-breakpoint) {
+          width: 28px;
+          height: 28px;
+        }
         @media (max-width: $sm-breakpoint) {
           width: 28px;
           height: 28px;
         }
         .icon {
           img {
+            @media (max-width: $md-breakpoint) {
+              width: 13px;
+              height: 13px;
+            }
             @media (max-width: $sm-breakpoint) {
               width: 13px;
               height: 13px;
@@ -221,6 +251,10 @@
           border: 1px solid $secondary-200;
           overflow: hidden;
           cursor: pointer;
+          @media (max-width: $md-breakpoint) {
+            width: 28px;
+            height: 28px;
+          }
           @media (max-width: $sm-breakpoint) {
             width: 28px;
             height: 28px;

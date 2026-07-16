@@ -4,6 +4,18 @@
     grid-template-columns: 2fr 1.2fr;
     gap: $spacing-unit * 8;
     margin-top: $spacing-unit * 8;
+    @media (max-width: $xl-breakpoint) {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+    @media (max-width: $lg-breakpoint) {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+    @media (max-width: $md-breakpoint) {
+      display: flex;
+      flex-direction: column-reverse;
+    }
     @media (max-width: $sm-breakpoint) {
       display: flex;
       flex-direction: column-reverse;
@@ -91,6 +103,10 @@
           display: flex;
           justify-content: space-between;
           gap: $spacing-unit * 8;
+          @media (max-width: $md-breakpoint) {
+            display: flex;
+            flex-direction: column;
+          }
           @media (max-width: $sm-breakpoint) {
             display: flex;
             flex-direction: column;
