@@ -4,9 +4,9 @@ import DemoAccounts from "./components/DemoAccounts.vue";
 </script>
 
 <template>
-  <div class="login-container">
-    <div class="login-card card">
-      <div class="login-header">
+  <div class="loginPage container">
+    <div class="loginCard">
+      <div class="loginHeader">
         <h2>Welcome</h2>
         <DemoAccounts />
       </div>
