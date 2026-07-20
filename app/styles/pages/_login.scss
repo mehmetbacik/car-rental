@@ -4,60 +4,156 @@
   justify-content: center;
   min-height: 80vh;
   .loginCard {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-unit * 8;
     width: 100%;
     max-width: 400px;
-    padding: $spacing-unit * 12;
-    text-align: center;
     background: $color-white;
     padding: $spacing-unit * 10;
     border-radius: 15px;
     border: 1px solid $secondary-100;
-    h2 {
-      margin-bottom: $spacing-unit * 2;
-      color: $secondary-800;
-    }
-    p {
-      color: $secondary-800;
-      margin-bottom: $spacing-unit * 8;
-    }
     .loginHeader {
       display: flex;
-      align-items: center;
       justify-content: center;
-      gap: $spacing-unit * 2;
-      margin-bottom: $spacing-unit * 2;
-      h2 {
-        margin: 0;
+      align-items: center;
+      flex-direction: column;
+      .loginTitle-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: $spacing-unit * 2;
+        margin-bottom: $spacing-unit * 2;
+      }
+      .loginTitle {
+        color: $secondary-500;
+        font-weight: bold;
+        font-size: $font-size-base * 1.5;
+        @media (max-width: $sm-breakpoint) {
+          font-size: $font-size-base * 1;
+        }
+      }
+      .loginDescription {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: $secondary-300;
+        font-weight: 500;
+        font-size: $font-size-base;
+        @media (max-width: $sm-breakpoint) {
+          font-size: $font-size-base * 0.75;
+        }
+      }
+    }
+    .loginForm {
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-unit * 6;
+      }
+      &-inputGroup {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        label {
+          color: $secondary-500;
+          font-size: $font-size-base * 1.1;
+          font-weight: 600;
+          margin-bottom: $spacing-unit * 4;
+          @media (max-width: $sm-breakpoint) {
+            font-size: $font-size-base * 0.875;
+            margin-bottom: $spacing-unit * 2;
+          }
+        }
+        input {
+          padding: $spacing-unit * 4 $spacing-unit * 8;
+          background: $secondary-100;
+          border: none;
+          border-radius: 10px;
+          @media (max-width: $sm-breakpoint) {
+            padding: $spacing-unit * 2.75 $spacing-unit * 6;
+            font-size: $font-size-base * 0.75;
+          }
+          &::placeholder {
+            color: $secondary-300;
+            font-size: $font-size-base * 0.9;
+            font-weight: 500;
+          }
+        }
+      }
+      &-loginBtn {
+        padding-block: $spacing-unit * 3;
+        padding-inline: $spacing-unit * 8;
+        border-radius: 6px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: $transition-base;
+        background: $primary-neutral-palette-500;
+        color: $color-white;
+        border: none;
+        @media (max-width: $sm-breakpoint) {
+          padding-block: $spacing-unit * 2;
+          padding-inline: $spacing-unit * 4;
+          font-size: $font-size-base * 0.875;
+        }
+        &:hover {
+          background: $primary-neutral-palette-600;
+        }
+      }
+      &-error {
+        display: flex;
+        align-items: center;
+        gap: $spacing-unit * 3;
+        padding: $spacing-unit * 2;
+        border: 1px solid $error-400;
+        border-left: 4px solid $error-500;
+        border-radius: 12px;
+        background: linear-gradient(90deg, $error-200, $error-100);
+        box-shadow: 0 8px 24px rgba(220, 38, 38, 0.08),
+          0 2px 6px rgba(0, 0, 0, 0.04);
+        .loginForm-errorIcon {
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          background: $error-600;
+          color: $color-white;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: $font-size-base * 0.875;
+          font-weight: 600;
+          cursor: pointer;
+          user-select: none;
+          transition: $transition-base;
+        }
+        .loginForm-errorMsg {
+          margin: 0;
+          color: $error-900;
+          font-size: $font-size-base * 0.875;
+          font-weight: 500;
+          line-height: 1.5;
+        }
+      }
+      .error-enter-active,
+      .error-leave-active {
+        transition: opacity 0.28s ease, transform 0.28s ease,
+          max-height 0.28s ease;
+        overflow: hidden;
+      }
+      .error-enter-from,
+      .error-leave-to {
+        opacity: 0;
+        transform: translateY(-10px);
+        max-height: 0;
+      }
+      .error-enter-to,
+      .error-leave-from {
+        opacity: 1;
+        transform: translateY(0);
+        max-height: 120px;
       }
     }
   }
-}
-
-.input-group {
-  text-align: left;
-  margin-bottom: $spacing-unit * 6;
-  label {
-    display: block;
-    margin-bottom: $spacing-unit * 2;
-    font-weight: 600;
-  }
-  input {
-    width: 100%;
-    padding: $spacing-unit * 4;
-    border-radius: 10px;
-    border: 1px solid $information-200;
-    background: $secondary-300;
-    color: $secondary-800;
-  }
-}
-.login-btn {
-  width: 100%;
-  padding: $spacing-unit * 4;
-}
-.error-msg {
-  color: $error-600;
-  font-size: $font-size-base * 0.85;
-  margin-bottom: $spacing-unit * 4;
 }
 
 .demo-info {

@@ -29,9 +29,8 @@ const handleLogin = async () => {
 
 <template>
   <form @submit.prevent="handleLogin">
-    <div class="input-group">
+    <div class="loginForm-inputGroup">
       <label for="email">Email</label>
-
       <input
         id="email"
         v-model="email"
@@ -41,10 +40,8 @@ const handleLogin = async () => {
         required
       />
     </div>
-
-    <div class="input-group">
+    <div class="loginForm-inputGroup">
       <label for="password">Password</label>
-
       <input
         id="password"
         v-model="password"
@@ -54,11 +51,14 @@ const handleLogin = async () => {
         required
       />
     </div>
-
-    <p v-if="error" class="error-msg">
-      {{ error }}
-    </p>
-
-    <button type="submit" class="btn btn--primary login-btn">Log In</button>
+    <Transition name="error">
+      <div v-if="error" class="loginForm-error">
+        <span class="loginForm-errorIcon">!</span>
+        <p class="loginForm-errorMsg">
+          {{ error }}
+        </p>
+      </div>
+    </Transition>
+    <button type="submit" class="loginForm-loginBtn">Log In</button>
   </form>
 </template>

@@ -7,11 +7,15 @@ import DemoAccounts from "./components/DemoAccounts.vue";
   <div class="loginPage container">
     <div class="loginCard">
       <div class="loginHeader">
-        <h2>Welcome</h2>
-        <DemoAccounts />
+        <div class="loginTitle-wrapper">
+          <h2 class="loginTitle">Welcome</h2>
+          <DemoAccounts />
+        </div>
+        <p class="loginDescription">Please enter your credentials.</p>
       </div>
-      <p>Please enter your credentials.</p>
-      <LoginForm />
+      <div class="loginForm">
+        <LoginForm />
+      </div>
     </div>
   </div>
 </template>
