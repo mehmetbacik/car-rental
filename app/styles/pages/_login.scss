@@ -44,6 +44,28 @@
           font-size: $font-size-base * 0.75;
         }
       }
+      .login-demoInfo {
+        position: relative;
+        display: inline-flex;
+        .login-infoIcon {
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          background: $primary-neutral-palette-500;
+          color: $color-white;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: $font-size-base * 0.875;
+          font-weight: 600;
+          cursor: pointer;
+          user-select: none;
+          transition: $transition-base;
+          &:hover {
+            background: $primary-neutral-palette-700;
+          }
+        }
+      }
     }
     .loginForm {
       form {
@@ -156,31 +178,6 @@
   }
 }
 
-.demo-info {
-  position: relative;
-  display: inline-flex;
-}
-
-.info-icon {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background: #3b82f6;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 12px;
-  font-weight: 600;
-  cursor: pointer;
-  user-select: none;
-  transition: background 0.2s ease;
-}
-
-.info-icon:hover {
-  background: #2563eb;
-}
-
 .tooltip {
   position: absolute;
   top: calc(100% + 10px);
@@ -212,7 +209,7 @@
   border-top: 1px solid #e5e7eb;
 }
 
-.demo-info:hover .tooltip {
+.login-demoInfo:hover .tooltip {
   opacity: 1;
   visibility: visible;
 }

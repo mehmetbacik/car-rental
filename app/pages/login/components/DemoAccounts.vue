@@ -19,8 +19,8 @@ const accounts = [
 </script>
 
 <template>
-  <div class="demo-info">
-    <span class="info-icon">i</span>
+  <div class="login-demoInfo">
+    <span class="login-infoIcon">i</span>
 
     <div class="tooltip">
       <h4>Demo Accounts</h4>
