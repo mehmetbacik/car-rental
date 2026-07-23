@@ -21,10 +21,8 @@ const accounts = [
 <template>
   <div class="login-demoInfo">
     <span class="login-infoIcon">i</span>
-
-    <div class="tooltip">
+    <div class="loginTooltip tooltip">
       <h4>Demo Accounts</h4>
-
       <DemoAccountItem
         v-for="account in accounts"
         :key="account.title"

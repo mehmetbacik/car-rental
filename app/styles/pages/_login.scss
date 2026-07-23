@@ -176,130 +176,85 @@
       }
     }
   }
-}
-
-.tooltip {
-  position: absolute;
-  top: calc(100% + 10px);
-  left: 50%;
-  transform: translateX(-50%);
-  width: 240px;
-  padding: 1rem;
-  border-radius: 12px;
-  background: #fff;
-  border: 1px solid #e5e7eb;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
-
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.2s ease;
-  z-index: 100;
-}
-
-.tooltip::before {
-  content: "";
-  position: absolute;
-  top: -6px;
-  left: 50%;
-  transform: translateX(-50%) rotate(45deg);
-  width: 12px;
-  height: 12px;
-  background: white;
-  border-left: 1px solid #e5e7eb;
-  border-top: 1px solid #e5e7eb;
-}
-
-.login-demoInfo:hover .tooltip {
-  opacity: 1;
-  visibility: visible;
-}
-
-.tooltip h4 {
-  margin: 0 0 0.75rem;
-  font-size: 14px;
-  color: #111827;
-}
-
-.account + .account {
-  margin-top: 0.75rem;
-  padding-top: 0.75rem;
-  border-top: 1px solid #f3f4f6;
-}
-
-.account strong {
-  display: block;
-  margin-bottom: 0.35rem;
-  color: #2563eb;
-  font-size: 14px;
-}
-
-.account p {
-  margin: 2px 0;
-  font-size: 13px;
-  color: #4b5563;
-}
-
-.copy-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.5rem;
-  margin-top: 0.35rem;
-}
-
-.copy-btn {
-  width: 28px;
-  height: 28px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  border: none;
-  border-radius: 6px;
-
-  background: #f3f4f6;
-  cursor: pointer;
-
-  transition: 0.2s;
-}
-
-.copy-btn:hover {
-  background: #dbeafe;
-}
-
-.copy-btn:active {
-  transform: scale(0.95);
-}
-
-.copy-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  width: 38px;
-  height: 38px;
-
-  border: 1px solid #e5e7eb;
-  border-radius: 10px;
-  background: #fff;
-
-  color: #4b5563;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.copy-btn:hover {
-  background: #f9fafb;
-  border-color: #d1d5db;
-  color: #111827;
-}
-
-.copy-btn:active {
-  transform: scale(0.96);
-}
-
-.copy-btn svg {
-  width: 20px;
-  height: 20px;
+  .loginTooltip {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 240px;
+    padding: $spacing-unit * 4;
+    border-radius: 12px;
+    background: $color-white;
+    border: 1px solid $secondary-100;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    opacity: 0;
+    visibility: hidden;
+    transition: $transition-base;
+    z-index: 100;
+    &::before {
+      content: "";
+      position: absolute;
+      top: -6px;
+      left: 50%;
+      transform: translateX(-50%) rotate(45deg);
+      width: 12px;
+      height: 12px;
+      background: $color-white;
+      border-left: 1px solid $secondary-100;
+      border-top: 1px solid $secondary-100;
+    }
+    h4 {
+      margin-bottom: $spacing-unit * 3;
+      font-size: $font-size-base * 0.875;
+      color: $secondary-500;
+    }
+    .loginTooltip-account + .loginTooltip-account {
+      margin-top: $spacing-unit * 3;
+      padding-top: $spacing-unit * 3;
+      border-top: 1px solid $secondary-100;
+    }
+    .loginTooltip-account strong {
+      display: block;
+      margin-bottom: $spacing-unit * 1.5;
+      color: $primary-neutral-palette-500;
+      font-size: $font-size-base * 0.95;
+    }
+    .loginTooltip-copyRow {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: $spacing-unit * 2;
+      margin-top: $spacing-unit * 2;
+      span {
+        font-size: $font-size-base * 0.875;
+        color: $secondary-500;
+      }
+    }
+    .loginTooltip-copyBtn {
+      width: 28px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      border-radius: 6px;
+      background: $secondary-100;
+      cursor: pointer;
+      transition: $transition-base;
+      &:hover {
+        background: $secondary-200;
+      }
+      &:active {
+        transform: scale(0.95);
+      }
+      svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+  .login-demoInfo:hover .loginTooltip {
+    opacity: 1;
+    visibility: visible;
+  }
 }

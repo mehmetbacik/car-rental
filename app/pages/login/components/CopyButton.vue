@@ -13,7 +13,7 @@ const emit = defineEmits<{
 <template>
   <button
     type="button"
-    class="copy-btn"
+    class="loginTooltip-copyBtn"
     @click="emit('click')"
     :aria-label="copied ? 'Copied' : 'Copy'"
   >

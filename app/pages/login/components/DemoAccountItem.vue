@@ -14,21 +14,17 @@ const emit = defineEmits<{
 </script>
 
 <template>
-  <div class="account">
+  <div class="loginTooltip-account">
     <strong>{{ title }}</strong>
-
-    <div class="copy-row">
+    <div class="loginTooltip-copyRow">
       <span>Email: {{ email }}</span>
-
       <CopyButton
         :copied="copied === `${title}-email`"
         @click="emit('copy', email, `${title}-email`)"
       />
     </div>
-
-    <div class="copy-row">
+    <div class="loginTooltip-copyRow">
       <span>Password: {{ password }}</span>
-
       <CopyButton
         :copied="copied === `${title}-password`"
         @click="emit('copy', password, `${title}-password`)"
