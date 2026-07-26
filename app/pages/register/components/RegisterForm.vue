@@ -48,8 +48,8 @@ const handleRegister = async () => {
 </script>
 
 <template>
-  <form class="register-form" @submit.prevent="handleRegister">
-    <div class="form-group">
+  <form @submit.prevent="handleRegister">
+    <div class="registerForm-inputGroup">
       <label for="name">Full Name</label>
 
       <div class="input-wrapper">
@@ -63,7 +63,7 @@ const handleRegister = async () => {
       </div>
     </div>
 
-    <div class="form-group">
+    <div class="registerForm-inputGroup">
       <label for="email">Email Address</label>
 
       <div class="input-wrapper">
@@ -78,35 +78,33 @@ const handleRegister = async () => {
       </div>
     </div>
 
-    <div class="form-grid">
-      <div class="form-group">
-        <label for="password">Password</label>
+    <div class="registerForm-inputGroup">
+      <label for="password">Password</label>
 
-        <div class="input-wrapper">
-          <input
-            id="password"
-            v-model="formData.password"
-            type="password"
-            placeholder="••••••••"
-            autocomplete="new-password"
-            required
-          />
-        </div>
+      <div class="input-wrapper">
+        <input
+          id="password"
+          v-model="formData.password"
+          type="password"
+          placeholder="••••••••"
+          autocomplete="new-password"
+          required
+        />
       </div>
+    </div>
 
-      <div class="form-group">
-        <label for="confirmPassword">Confirm Password</label>
+    <div class="registerForm-inputGroup">
+      <label for="confirmPassword">Confirm Password</label>
 
-        <div class="input-wrapper">
-          <input
-            id="confirmPassword"
-            v-model="formData.confirmPassword"
-            type="password"
-            placeholder="••••••••"
-            autocomplete="new-password"
-            required
-          />
-        </div>
+      <div class="input-wrapper">
+        <input
+          id="confirmPassword"
+          v-model="formData.confirmPassword"
+          type="password"
+          placeholder="••••••••"
+          autocomplete="new-password"
+          required
+        />
       </div>
     </div>
 

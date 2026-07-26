@@ -1,3 +1,95 @@
+.registerPage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  margin-block: $spacing-unit * 20;
+  .registerCard {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-unit * 8;
+    width: 100%;
+    max-width: 400px;
+    background: $color-white;
+    padding: $spacing-unit * 10;
+    border-radius: 15px;
+    border: 1px solid $secondary-100;
+    .registerHeader {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      .registerTitle {
+        color: $secondary-500;
+        font-weight: bold;
+        font-size: $font-size-base * 1.5;
+        @media (max-width: $sm-breakpoint) {
+          font-size: $font-size-base * 1;
+        }
+      }
+      .registerDescription {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: $secondary-300;
+        font-weight: 500;
+        font-size: $font-size-base;
+        @media (max-width: $sm-breakpoint) {
+          font-size: $font-size-base * 0.75;
+        }
+      }
+    }
+    .registerForm {
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-unit * 6;
+      }
+      &-inputGroup {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        label {
+          color: $secondary-500;
+          font-size: $font-size-base * 1.1;
+          font-weight: 600;
+          margin-bottom: $spacing-unit * 4;
+          @media (max-width: $sm-breakpoint) {
+            font-size: $font-size-base * 0.875;
+            margin-bottom: $spacing-unit * 2;
+          }
+        }
+        input {
+          padding: $spacing-unit * 4 $spacing-unit * 8;
+          background: $secondary-100;
+          border: none;
+          border-radius: 10px;
+          @media (max-width: $sm-breakpoint) {
+            padding: $spacing-unit * 2.75 $spacing-unit * 6;
+            font-size: $font-size-base * 0.75;
+          }
+          &::placeholder {
+            color: $secondary-300;
+            font-size: $font-size-base * 0.9;
+            font-weight: 500;
+          }
+        }
+      }
+    }
+    .registerFooter {
+      margin-top: $spacing-unit * 8;
+      text-align: center;
+      font-size: $font-size-base * 0.875;
+      color: $secondary-300;
+      a {
+        color: $primary-neutral-palette-500;
+        font-weight: 600;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
 .register-page {
   min-height: calc(100vh - 80px);
   display: flex;
@@ -103,16 +195,4 @@
   font-size: $font-size-base * 0.875;
   margin-bottom: $spacing-unit * 4;
   text-align: center;
-}
-
-.register-footer {
-  margin-top: $spacing-unit * 8;
-  text-align: center;
-  font-size: $font-size-base * 0.875;
-  color: $secondary-300;
-  a {
-    color: $primary-neutral-palette-500;
-    font-weight: 600;
-    text-decoration: none;
-  }
 }
