@@ -8,8 +8,6 @@
     display: flex;
     flex-direction: column;
     gap: $spacing-unit * 8;
-    width: 100%;
-    max-width: 400px;
     background: $color-white;
     padding: $spacing-unit * 10;
     border-radius: 15px;
@@ -44,6 +42,11 @@
         display: flex;
         flex-direction: column;
         gap: $spacing-unit * 6;
+        .registerForm-row {
+          display: flex;
+          align-items: center;
+          gap: $spacing-unit * 8;
+        }
       }
       &-inputGroup {
         display: flex;
