@@ -104,7 +104,7 @@ const handleRegister = async () => {
         </div>
       </div>
     </div>
-    <div class="form-options">
+    <div class="registerForm-options">
       <label class="checkbox-container">
         <input v-model="formData.terms" type="checkbox" />
         <span class="checkmark"></span>
@@ -114,15 +114,11 @@ const handleRegister = async () => {
       </label>
     </div>
 
-    <p v-if="error" class="error-msg">
+    <p v-if="error" class="registerForm-errorMsg">
       {{ error }}
     </p>
 
-    <button
-      type="submit"
-      class="btn btn--primary register-btn"
-      :disabled="isLoading"
-    >
+    <button type="submit" class="registerForm-btn" :disabled="isLoading">
       {{ isLoading ? "Creating Account..." : "Sign Up" }}
     </button>
   </form>

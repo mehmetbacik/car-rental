@@ -64,6 +64,52 @@
             gap: $spacing-unit * 4;
           }
         }
+        .registerForm-options {
+          margin: $spacing-unit * 5 0;
+          @media (max-width: $sm-breakpoint) {
+            margin: $spacing-unit * 2 0;
+          }
+          .checkbox-container {
+            display: flex;
+            align-items: center;
+            gap: $spacing-unit * 2;
+            cursor: pointer;
+            font-size: $font-size-base * 0.875;
+            color: $secondary-400;
+            strong {
+              color: $primary-neutral-palette-500;
+            }
+          }
+        }
+        .registerForm-btn {
+          width: 100%;
+          padding: $spacing-unit * 4;
+          background: $primary-neutral-palette-500;
+          color: $color-white;
+          border: none;
+          border-radius: 10px;
+          font-weight: 700;
+          font-size: $font-size-base * 1;
+          cursor: pointer;
+          transition: $transition-base;
+          &:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+          }
+          &:hover {
+            background: $primary-neutral-palette-600;
+          }
+          @media (max-width: $sm-breakpoint) {
+            padding: $spacing-unit * 2.5;
+            font-size: $font-size-base * 0.875;
+          }
+        }
+        .registerForm-errorMsg {
+          color: $error-500;
+          font-size: $font-size-base * 0.875;
+          margin-bottom: $spacing-unit * 4;
+          text-align: center;
+        }
       }
       &-inputGroup {
         display: flex;
@@ -121,118 +167,4 @@
       }
     }
   }
-}
-
-.register-page {
-  min-height: calc(100vh - 80px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--bg-color);
-  padding: $spacing-unit * 4.5;
-}
-
-.register-container {
-  width: 100%;
-  max-width: 500px;
-}
-
-.card {
-  background: $color-white;
-  padding: $spacing-unit * 10;
-  border-radius: 15px;
-  border: 1px solid $secondary-100;
-}
-
-.register-header {
-  text-align: center;
-  margin-bottom: $spacing-unit * 8;
-  h2 {
-    font-size: $font-size-base * 2.5;
-    font-weight: 700;
-    color: $secondary-500;
-  }
-  p {
-    color: $secondary-300;
-    margin-top: $spacing-unit;
-  }
-}
-
-.form-group {
-  margin-bottom: $spacing-unit * 4.5;
-  label {
-    display: block;
-    margin-bottom: $spacing-unit;
-    font-weight: 600;
-    color: $secondary-400;
-    font-size: $font-size-base * 0.875;
-  }
-  input {
-    width: 100%;
-    padding-block: $spacing-unit * 3;
-    padding-inline: $spacing-unit * 4;
-    background: $secondary-300;
-    border: 1px solid $secondary-100;
-    border-radius: 10px;
-    transition: $transition-base;
-    &:focus {
-      border-color: $primary-neutral-palette-500;
-      outline: none;
-    }
-  }
-}
-
-.form-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: $spacing-unit * 4;
-  @media (max-width: 480px) {
-    grid-template-columns: 1fr;
-  }
-}
-
-.form-options {
-  margin: $spacing-unit * 5 0;
-  @media (max-width: $sm-breakpoint) {
-    margin: $spacing-unit * 2 0;
-  }
-  .checkbox-container {
-    display: flex;
-    align-items: center;
-    gap: $spacing-unit * 2;
-    cursor: pointer;
-    font-size: $font-size-base * 0.875;
-    color: $secondary-400;
-    strong {
-      color: $primary-neutral-palette-500;
-    }
-  }
-}
-
-.register-btn {
-  width: 100%;
-  padding: $spacing-unit * 4;
-  background: $primary-neutral-palette-500;
-  color: $color-white;
-  border: none;
-  border-radius: 10px;
-  font-weight: 700;
-  font-size: $font-size-base * 1;
-  cursor: pointer;
-  transition: $transition-base;
-  &:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-  }
-  @media (max-width: $sm-breakpoint) {
-    padding: $spacing-unit * 2.5;
-    font-size: $font-size-base * 0.875;
-  }
-}
-
-.error-msg {
-  color: $error-500;
-  font-size: $font-size-base * 0.875;
-  margin-bottom: $spacing-unit * 4;
-  text-align: center;
 }
