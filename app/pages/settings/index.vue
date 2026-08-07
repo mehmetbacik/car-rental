@@ -13,6 +13,10 @@ const currencies = ["USD", "EUR", "GBP", "TRY"];
 
 <template>
   <div class="container">
+    <header class="page-header">
+      <h1>Settings</h1>
+      <p>Update your photo and personal details here.</p>
+    </header>
     <div class="settings-grid">
       <SettingsTabs />
       <main class="settings-content card">
