@@ -3,10 +3,10 @@ const settingsStore = useSettingsStore();
 </script>
 
 <template>
-  <section class="settings-section">
+  <section class="settingsSection">
     <h3>Notifications</h3>
 
-    <div class="setting-row">
+    <div class="settingsRow">
       <div class="text">
         <label>Email Notifications</label>
         <p>Receive updates about your rentals.</p>

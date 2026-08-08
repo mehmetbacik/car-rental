@@ -8,10 +8,10 @@ const settingsStore = useSettingsStore();
 </script>
 
 <template>
-  <section class="settings-section">
+  <section class="settingsSection">
     <h3>Localization</h3>
 
-    <div class="setting-row">
+    <div class="settingsRow">
       <div class="text">
         <label>Language</label>
       </div>
@@ -23,7 +23,7 @@ const settingsStore = useSettingsStore();
       </select>
     </div>
 
-    <div class="setting-row">
+    <div class="settingsRow">
       <div class="text">
         <label>Currency</label>
       </div>

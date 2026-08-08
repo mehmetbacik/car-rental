@@ -3,10 +3,10 @@ const settingsStore = useSettingsStore();
 </script>
 
 <template>
-  <section class="settings-section">
+  <section class="settingsSection">
     <h3>Appearance</h3>
 
-    <div class="setting-row">
+    <div class="settingsRow">
       <div class="text">
         <label>Dark Mode</label>
         <p>Toggle between light and dark theme.</p>

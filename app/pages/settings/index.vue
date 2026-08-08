@@ -12,19 +12,24 @@ const currencies = ["USD", "EUR", "GBP", "TRY"];
 </script>
 
 <template>
-  <div class="container">
-    <header class="page-header">
+  <div class="settingsPage container">
+    <div class="settingsHeader">
       <h1>Settings</h1>
       <p>Update your photo and personal details here.</p>
-    </header>
-    <div class="settings-grid">
+    </div>
+    <div class="settingsWrapper">
       <SettingsTabs />
-      <main class="settings-content card">
+      <div class="settingsContent card">
         <AppearanceSection />
         <LocalizationSection :languages="languages" :currencies="currencies" />
         <NotificationsSection />
         <SettingsFooter />
-      </main>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="settings-grid">
+      <main class="settings-content card"></main>
     </div>
   </div>
 </template>

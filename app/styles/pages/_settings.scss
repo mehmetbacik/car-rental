@@ -1,9 +1,8 @@
-.settings-page {
+.settingsPage {
   padding: $spacing-unit * 10 0;
   background: var(--bg-color);
   min-height: 100vh;
-
-  .page-header {
+  .settingsHeader {
     margin-bottom: $spacing-unit * 8;
     h1 {
       font-size: $font-size-base * 1.5;
@@ -13,12 +12,43 @@
       color: $secondary-300;
     }
   }
-}
-
-.settings-grid {
-  display: grid;
-  grid-template-columns: 200px 1fr;
-  gap: $spacing-unit * 8;
+  .settingsWrapper {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: $spacing-unit * 8;
+    .settingsContent {
+      background: $color-white;
+      padding: $spacing-unit * 8;
+      border-radius: 10px;
+      .settingsSection {
+        margin-bottom: $spacing-unit * 9;
+        h3 {
+          font-size: $font-size-base * 1.2;
+          color: $secondary-500;
+          margin-bottom: $spacing-unit * 7;
+          border-bottom: 1px solid $secondary-100;
+          padding-bottom: $spacing-unit * 3;
+        }
+      }
+      .settingsRow {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: $spacing-unit * 6;
+        .text {
+          label {
+            display: block;
+            font-weight: 700;
+            color: $secondary-500;
+          }
+          p {
+            font-size: $font-size-base;
+            color: $secondary-300;
+          }
+        }
+      }
+    }
+  }
 }
 
 .settings-tabs {
@@ -38,41 +68,6 @@
     &.active {
       background: $primary-neutral-palette-500;
       color: $color-white;
-    }
-  }
-}
-
-.settings-content {
-  background: $color-white;
-  padding: $spacing-unit * 8;
-  border-radius: 10px;
-
-  .settings-section {
-    margin-bottom: $spacing-unit * 9;
-    h3 {
-      font-size: $font-size-base * 1.2;
-      color: $secondary-500;
-      margin-bottom: $spacing-unit * 7;
-      border-bottom: 1px solid $secondary-100;
-      padding-bottom: $spacing-unit * 3;
-    }
-  }
-
-  .setting-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: $spacing-unit * 6;
-    .text {
-      label {
-        display: block;
-        font-weight: 700;
-        color: $secondary-500;
-      }
-      p {
-        font-size: 12px;
-        color: $secondary-300;
-      }
     }
   }
 }
