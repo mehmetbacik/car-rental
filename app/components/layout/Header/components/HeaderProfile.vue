@@ -58,7 +58,7 @@ defineExpose({ profileContainer });
           <div class="dropdown-divider"></div>
           <NuxtLink
             to="/profile"
-            class="dropdown-item"
+            class="dropdown-item myProfile-btn"
             @click="profileStore.closeDropdown"
           >
             My Profile
@@ -66,7 +66,7 @@ defineExpose({ profileContainer });
           <a
             href="/dashboard"
             target="_blank"
-            class="dropdown-item dashboard-link"
+            class="dropdown-item dashboard-btn"
             @click="profileStore.closeDropdown"
           >
             Dashboard
