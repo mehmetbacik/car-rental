@@ -1,7 +1,7 @@
 <template>
-  <div class="settings-footer">
-    <button class="btn-cancel">Cancel</button>
+  <div class="settingsFooter">
+    <button class="settingsFooter-btnCancel">Cancel</button>
 
-    <button class="btn-save">Save Changes</button>
+    <button class="settingsFooter-btnSave">Save Changes</button>
   </div>
 </template>

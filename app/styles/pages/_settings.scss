@@ -100,33 +100,32 @@
         }
       }
     }
-  }
-}
-
-.settings-footer {
-  display: flex;
-  justify-content: flex-end;
-  gap: $spacing-unit * 4;
-  border-top: 1px solid $secondary-100;
-  padding-top: $spacing-unit * 7;
-  .btn-save {
-    background: $primary-neutral-palette-500;
-    color: $color-white;
-    border: none;
-    padding-block: $spacing-unit * 3;
-    padding-inline: $spacing-unit * 4;
-    border-radius: 6px;
-    font-weight: 600;
-    cursor: pointer;
-  }
-  .btn-cancel {
-    background: $color-white;
-    border: 1px solid $secondary-100;
-    color: $secondary-300;
-    padding-block: $spacing-unit * 3;
-    padding-inline: $spacing-unit * 4;
-    border-radius: 6px;
-    font-weight: 600;
-    cursor: pointer;
+    .settingsFooter {
+      display: flex;
+      justify-content: flex-end;
+      gap: $spacing-unit * 4;
+      border-top: 1px solid $secondary-100;
+      padding-top: $spacing-unit * 7;
+      &-btnSave {
+        background: $primary-neutral-palette-500;
+        color: $color-white;
+        border: none;
+        padding-block: $spacing-unit * 3;
+        padding-inline: $spacing-unit * 4;
+        border-radius: 6px;
+        font-weight: 600;
+        cursor: pointer;
+      }
+      &-btnCancel {
+        background: $color-white;
+        border: 1px solid $secondary-100;
+        color: $secondary-300;
+        padding-block: $spacing-unit * 3;
+        padding-inline: $spacing-unit * 4;
+        border-radius: 6px;
+        font-weight: 600;
+        cursor: pointer;
+      }
+    }
   }
 }
