@@ -7,14 +7,14 @@ const settingsStore = useSettingsStore();
     <h3>Appearance</h3>
 
     <div class="settingsRow">
-      <div class="text">
+      <div class="settingsText">
         <label>Dark Mode</label>
         <p>Toggle between light and dark theme.</p>
       </div>
 
       <div class="control" @click="settingsStore.toggleDarkMode">
         <div
-          class="toggle-switch large"
+          class="settings-toggleSwitch"
           :class="{ active: settingsStore.darkMode }"
         />
       </div>

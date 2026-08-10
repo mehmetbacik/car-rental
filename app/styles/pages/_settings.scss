@@ -35,7 +35,7 @@
         justify-content: space-between;
         align-items: center;
         margin-bottom: $spacing-unit * 6;
-        .text {
+        .settingsText {
           label {
             display: block;
             font-weight: 700;
@@ -46,38 +46,61 @@
             color: $secondary-300;
           }
         }
+        .settings-toggleSwitch {
+          width: 32px;
+          height: 18px;
+          background: $secondary-300;
+          border-radius: 10px;
+          position: relative;
+          transition: $transition-base;
+          &::after {
+            content: "";
+            position: absolute;
+            left: 2px;
+            top: 2px;
+            width: 14px;
+            height: 14px;
+            background: $color-white;
+            border-radius: 50%;
+            transition: $transition-base;
+          }
+          &.active {
+            background: $primary-neutral-palette-500;
+            &::after {
+              left: 16px;
+            }
+          }
+        }
+        .settings-formSelect {
+          padding: $spacing-unit * 2;
+          border-radius: 6px;
+          border: 1px solid $secondary-100;
+          background: $secondary-200;
+          width: 150px;
+        }
+      }
+    }
+    .settingsTabs {
+      display: flex;
+      flex-direction: column;
+      gap: $spacing-unit;
+      &-btn {
+        text-align: left;
+        padding-block: $spacing-unit * 3;
+        padding-inline: $spacing-unit * 4;
+        border-radius: 8px;
+        border: none;
+        background: transparent;
+        color: $secondary-300;
+        font-weight: 600;
+        cursor: pointer;
+        &.active {
+          background: $primary-neutral-palette-500;
+          color: $color-white;
+        }
       }
     }
   }
-}
-
-.settings-tabs {
-  display: flex;
-  flex-direction: column;
-  gap: $spacing-unit;
-  .tab-btn {
-    text-align: left;
-    padding-block: $spacing-unit * 3;
-    padding-inline: $spacing-unit * 4;
-    border-radius: 8px;
-    border: none;
-    background: transparent;
-    color: $secondary-300;
-    font-weight: 600;
-    cursor: pointer;
-    &.active {
-      background: $primary-neutral-palette-500;
-      color: $color-white;
-    }
-  }
-}
-
-.form-select {
-  padding: $spacing-unit * 2;
-  border-radius: 6px;
-  border: 1px solid $secondary-100;
-  background: $secondary-200;
-  width: 150px;
 }
 
 .settings-footer {

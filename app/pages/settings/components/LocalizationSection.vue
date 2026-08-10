@@ -12,11 +12,11 @@ const settingsStore = useSettingsStore();
     <h3>Localization</h3>
 
     <div class="settingsRow">
-      <div class="text">
+      <div class="settingsText">
         <label>Language</label>
       </div>
 
-      <select v-model="settingsStore.language" class="form-select">
+      <select v-model="settingsStore.language" class="settings-formSelect">
         <option v-for="lang in languages" :key="lang" :value="lang">
           {{ lang }}
         </option>
@@ -24,11 +24,11 @@ const settingsStore = useSettingsStore();
     </div>
 
     <div class="settingsRow">
-      <div class="text">
+      <div class="settingsText">
         <label>Currency</label>
       </div>
 
-      <select v-model="settingsStore.currency" class="form-select">
+      <select v-model="settingsStore.currency" class="settings-formSelect">
         <option v-for="curr in currencies" :key="curr" :value="curr">
           {{ curr }}
         </option>

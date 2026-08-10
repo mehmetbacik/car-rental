@@ -7,7 +7,7 @@ const settingsStore = useSettingsStore();
     <h3>Notifications</h3>
 
     <div class="settingsRow">
-      <div class="text">
+      <div class="settingsText">
         <label>Email Notifications</label>
         <p>Receive updates about your rentals.</p>
       </div>
@@ -15,7 +15,7 @@ const settingsStore = useSettingsStore();
       <input
         v-model="settingsStore.notificationsEnabled"
         type="checkbox"
-        class="custom-checkbox"
+        class="settings-customCheckbox"
       />
     </div>
   </section>

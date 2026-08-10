@@ -1,7 +1,7 @@
 <template>
-  <aside class="settings-tabs">
-    <button class="tab-btn active">General</button>
-    <button class="tab-btn">Security</button>
-    <button class="tab-btn">Billing</button>
+  <aside class="settingsTabs">
+    <button class="settingsTabs-btn active">General</button>
+    <button class="settingsTabs-btn">Security</button>
+    <button class="settingsTabs-btn">Billing</button>
   </aside>
 </template>

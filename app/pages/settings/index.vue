@@ -19,17 +19,12 @@ const currencies = ["USD", "EUR", "GBP", "TRY"];
     </div>
     <div class="settingsWrapper">
       <SettingsTabs />
-      <div class="settingsContent card">
+      <div class="settingsContent">
         <AppearanceSection />
         <LocalizationSection :languages="languages" :currencies="currencies" />
         <NotificationsSection />
         <SettingsFooter />
       </div>
-    </div>
-  </div>
-  <div class="container">
-    <div class="settings-grid">
-      <main class="settings-content card"></main>
     </div>
   </div>
 </template>
