@@ -12,15 +12,15 @@ const props = defineProps<Props>();
 const statusConfig = {
   success: {
     icon: "mdi:check-circle-outline",
-    class: "icon-success",
+    class: "notifications-iconSuccess",
   },
   warning: {
     icon: "mdi:alert-outline",
-    class: "icon-warning",
+    class: "notifications-iconWarning",
   },
   info: {
     icon: "mdi:information-outline",
-    class: "icon-info",
+    class: "notifications-iconInfo",
   },
 };
 
@@ -28,8 +28,8 @@ const config = computed(() => statusConfig[props.type] ?? statusConfig.info);
 </script>
 
 <template>
-  <div class="status-icon" :class="config.class">
-    <span v-if="!isRead" class="dot" />
+  <div class="notifications-statusIcon" :class="config.class">
+    <span v-if="!isRead" class="notifications-dot" />
 
     <Icon :icon="config.icon" width="24" height="24" />
   </div>

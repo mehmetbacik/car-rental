@@ -23,7 +23,7 @@ const emit = defineEmits<{
 
 <template>
   <article
-    class="notification-item"
+    class="notificationsItem"
     :class="{ 'is-unread': !notification.isRead }"
     @click="emit('markAsRead', notification.id)"
   >
@@ -32,25 +32,22 @@ const emit = defineEmits<{
       :is-read="notification.isRead"
     />
 
-    <div class="notification-content">
-      <div class="content-main">
-        <h4 class="title">
+    <div class="notificationsContent">
+      <div class="notificationsContent-main">
+        <h4 class="notificationsContent-title">
           {{ notification.title }}
         </h4>
-
-        <time class="time">
+        <time class="notificationsContent-time">
           {{ notification.time }}
         </time>
       </div>
-
-      <p class="message">
+      <p class="notificationsContent-message">
         {{ notification.message }}
       </p>
-
       <div v-if="!notification.isRead" class="actions">
         <button
           type="button"
-          class="btn-read"
+          class="notificationsContent-btnRead"
           @click.stop="emit('markAsRead', notification.id)"
         >
           Mark as read
