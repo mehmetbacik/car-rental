@@ -1,59 +1,46 @@
-.favorites-page {
-  padding: $spacing-unit * 10 0;
-  background: var(--bg-color);
-  min-height: calc(100vh - 100px);
-}
-
-.page-header {
-  margin-bottom: $spacing-unit * 8;
-  h1 {
-    color: $secondary-500;
-    font-size: $font-size-base * 1.5;
-    margin-bottom: $spacing-unit;
+.favoritesPage {
+  min-height: 100vh;
+  .favoritesHeader {
+    margin-block: $spacing-unit * 8;
+    h1 {
+      font-size: $font-size-base * 1.5;
+      color: $secondary-500;
+    }
+    p {
+      color: $secondary-300;
+    }
   }
-  p {
-    color: $secondary-300;
-    font-weight: 500;
+  .favorites-carsWrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: $spacing-unit * 8;
   }
-}
-
-.cars-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: $spacing-unit * 8;
-}
-
-.empty-favorites {
-  text-align: center;
-  padding: $spacing-unit * 15 0;
-  background: $color-white;
-  border-radius: 10px;
-
-  .empty-icon {
-    font-size: $font-size-base * 4;
-    margin-bottom: $spacing-unit * 4;
-  }
-  h3 {
-    color: $secondary-500;
-    margin-bottom: $spacing-unit * 3;
-  }
-  p {
-    color: $secondary-300;
-    margin-bottom: $spacing-unit * 6;
-  }
-
-  .btn-explore {
-    display: inline-block;
-    background: $primary-neutral-palette-500;
-    color: $color-white;
-    padding-block: $spacing-unit * 3;
-    padding-inline: $spacing-unit * 6;
-    border-radius: 6px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: $transition-base;
-    &:hover {
-      background: $primary-neutral-palette-600;
+  .favorites-emptyWrapper {
+    text-align: center;
+    padding: $spacing-unit * 15 0;
+    background: $color-white;
+    border-radius: 10px;
+    h3 {
+      color: $secondary-500;
+      margin-bottom: $spacing-unit * 3;
+    }
+    p {
+      color: $secondary-300;
+      margin-bottom: $spacing-unit * 6;
+    }
+    .favorites-btnExplore {
+      display: inline-block;
+      background: $primary-neutral-palette-500;
+      color: $color-white;
+      padding-block: $spacing-unit * 3;
+      padding-inline: $spacing-unit * 6;
+      border-radius: 6px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: $transition-base;
+      &:hover {
+        background: $primary-neutral-palette-600;
+      }
     }
   }
 }
