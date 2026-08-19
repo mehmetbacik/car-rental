@@ -15,7 +15,7 @@ const currencies = ["USD", "EUR", "GBP", "TRY"];
   <div class="settingsPage container">
     <div class="settingsHeader">
       <h1>Settings</h1>
-      <p>Update your photo and personal details here.</p>
+      <p>Update system settings here.</p>
     </div>
     <div class="settingsWrapper">
       <SettingsTabs />

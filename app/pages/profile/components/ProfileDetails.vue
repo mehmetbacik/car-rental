@@ -1,5 +1,4 @@
 <script setup lang="ts">
-
 import ProfileForm from "./ProfileForm.vue";
 import ProfileSecurity from "./ProfileSecurity.vue";
 
@@ -22,19 +21,17 @@ const emit = defineEmits<{
 </script>
 
 <template>
-  <main class="profile-details card shadow-sm">
-    <div class="details-header">
-      <h3 class="title">Profile Settings</h3>
-
+  <main class="profileDetails">
+    <div class="profileDetails-header">
+      <h3 class="profileDetails-headerTitle">Profile Settings</h3>
       <button
-        class="btn"
-        :class="isEditing ? 'btn--secondary' : 'btn--primary'"
+        class="profileBtn"
+        :class="isEditing ? 'profileBtn-Secondary' : 'profileBtn-Primary'"
         @click="isEditing ? emit('save') : emit('edit')"
       >
         {{ isEditing ? "Save Changes" : "Edit Profile" }}
       </button>
     </div>
-
     <ProfileForm :user="user" :is-editing="isEditing" />
     <ProfileSecurity />
   </main>

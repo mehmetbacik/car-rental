@@ -43,11 +43,10 @@ const handleSubmit = () => {
 </script>
 
 <template>
-  <form class="profile-form" @submit.prevent="handleSubmit">
-    <div class="form-grid">
-      <div class="form-group">
+  <form class="profileForm" @submit.prevent="handleSubmit">
+    <div class="profileForm-wrapper">
+      <div class="profileForm-group">
         <label for="full-name">Full Name</label>
-
         <input
           id="full-name"
           v-model="profileForm.name"
@@ -56,10 +55,8 @@ const handleSubmit = () => {
           placeholder="Your Name"
         />
       </div>
-
-      <div class="form-group">
+      <div class="profileForm-group">
         <label for="email">Email Address</label>
-
         <input
           id="email"
           v-model="profileForm.email"
@@ -67,13 +64,10 @@ const handleSubmit = () => {
           type="email"
           placeholder="email@example.com"
         />
-
-        <small class="hint"> Email cannot be changed. </small>
+        <small class="profileForm-inf"> Email cannot be changed. </small>
       </div>
-
-      <div class="form-group full-width">
+      <div class="profileForm-group full-width">
         <label for="bio">Bio</label>
-
         <textarea
           id="bio"
           v-model="profileForm.bio"

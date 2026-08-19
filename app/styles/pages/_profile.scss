@@ -1,180 +1,182 @@
-.profile-page {
-  padding: $spacing-unit * 10 0;
-  background-color: var(--bg-color);
-  min-height: calc(100vh - 80px);
-}
-
-.profile-grid {
-  display: grid;
-  grid-template-columns: 320px 1fr;
-  gap: $spacing-unit * 8;
-  align-items: start;
-
-  @media (max-width: 992px) {
-    grid-template-columns: 1fr;
-  }
-}
-
-.card {
-  background: $color-white;
-  border-radius: 12px;
-  padding: $spacing-unit * 7;
-}
-
-.profile-avatar-wrapper {
-  position: relative;
-  width: 120px;
-  height: 120px;
-  margin: 0 auto $spacing-unit * 4.5;
-
-  .profile-avatar {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 4px solid $color-white;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  }
-
-  .avatar-upload-label {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    background: $primary-neutral-palette-500;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    color: $color-white;
-  }
-}
-
-.profile-info {
-  margin-bottom: $spacing-unit * 4.5;
-  .profile-name {
-    font-size: $font-size-base * 1.5;
-    font-weight: 700;
-    color: $secondary-500;
-  }
-  .profile-role {
-    color: $secondary-300;
-    font-size: $font-size-base * 0.875;
-    margin-top: $spacing-unit;
-  }
-  .profile-location {
-    font-size: $font-size-base * 0.75;
-    color: $secondary-400;
-    margin-top: $spacing-unit;
-  }
-}
-
-.profile-stats {
-  display: flex;
-  justify-content: space-around;
-  border-top: 1px solid $secondary-100;
-  padding-top: $spacing-unit * 4.5;
-  .stat-item {
-    text-align: center;
-    .count {
-      display: block;
-      font-weight: 700;
-      font-size: $font-size-base * 1.2;
+.profilePage {
+  min-height: 100vh;
+  .profileHeader {
+    margin-block: $spacing-unit * 8;
+    h1 {
+      font-size: $font-size-base * 1.5;
       color: $secondary-500;
     }
-    .label {
-      font-size: $font-size-base * 0.75;
+    p {
       color: $secondary-300;
     }
   }
-}
-
-.details-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: $spacing-unit * 8;
-  .title {
-    font-size: $font-size-base * 1.2;
-    font-weight: 700;
-  }
-}
-
-.form-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: $spacing-unit * 3;
-  .full-width {
-    grid-column: span 2;
-  }
-}
-
-.form-group {
-  label {
-    display: block;
-    margin-bottom: $spacing-unit;
-    font-weight: 600;
-    color: $secondary-400;
-    font-size: $font-size-base * 0.875;
-  }
-  input,
-  textarea {
-    width: 100%;
-    padding-block: $spacing-unit * 3;
-    padding-inline: $spacing-unit * 4;
-    background: $secondary-100;
-    border: 1px solid $secondary-200;
-    border-radius: 8px;
-    font-size: $font-size-base * 0.875;
-    &:disabled {
-      opacity: 0.7;
-      cursor: not-allowed;
+  .profileWrapper {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: $spacing-unit * 8;
+    align-items: start;
+    @media (max-width: $lg-breakpoint) {
+      grid-template-columns: 1fr;
     }
-  }
-  .hint {
-    font-size: $font-size-base * 0.65;
-    color: $secondary-300;
-    margin-top: $spacing-unit;
-    display: block;
-  }
-}
-
-.security-section {
-  margin-top: $spacing-unit * 10;
-  padding-top: $spacing-unit * 5;
-  border-top: 1px solid $secondary-100;
-  .section-title {
-    margin-bottom: $spacing-unit * 4;
-    font-size: $font-size-base * 1;
-    font-weight: 700;
-  }
-}
-
-.btn {
-  padding-block: $spacing-unit * 2;
-  padding-inline: $spacing-unit * 5;
-  border-radius: 8px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: $transition-base;
-  &--primary {
-    background: $primary-neutral-palette-500;
-    color: $color-white;
-    border: none;
-  }
-  &--secondary {
-    background: $error-500;
-    color: $color-white;
-    border: none;
-  }
-  &--outline {
-    background: transparent;
-    border: 1px solid $primary-neutral-palette-500;
-    color: $primary-neutral-palette-500;
-  }
-  &:hover {
-    opacity: 0.9;
+    .profileCard {
+      background: $color-white;
+      border-radius: 12px;
+      padding: $spacing-unit * 6;
+      .profile-avatarWrapper {
+        position: relative;
+        width: 120px;
+        height: 120px;
+        margin: 0 auto $spacing-unit * 4.5;
+        .profileAvatar {
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+          object-fit: cover;
+          border: 4px solid $color-white;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        .profile-avatarUploadLabel {
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          background: $primary-neutral-palette-500;
+          width: 36px;
+          height: 36px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          color: $color-white;
+        }
+      }
+      .profile-infoWrapper {
+        margin-bottom: $spacing-unit * 4.5;
+        .profile-infoName {
+          font-size: $font-size-base * 1.5;
+          font-weight: 700;
+          color: $secondary-500;
+        }
+        .profile-infoRole {
+          color: $secondary-300;
+          font-size: $font-size-base * 0.875;
+          margin-top: $spacing-unit;
+        }
+        .profile-infoLocation {
+          font-size: $font-size-base * 0.75;
+          color: $secondary-400;
+          margin-top: $spacing-unit;
+        }
+      }
+      .profile-statsWrapper {
+        display: flex;
+        justify-content: space-around;
+        border-top: 1px solid $secondary-100;
+        padding-top: $spacing-unit * 4.5;
+        .profile-statItem {
+          text-align: center;
+          .profile-statItemcount {
+            display: block;
+            font-weight: 700;
+            font-size: $font-size-base * 1.2;
+            color: $secondary-500;
+          }
+          .profile-statItemlabel {
+            font-size: $font-size-base * 0.75;
+            color: $secondary-300;
+          }
+        }
+      }
+    }
+    .profileDetails {
+      background: $color-white;
+      border-radius: 12px;
+      padding: $spacing-unit * 6;
+      .profileDetails-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: $spacing-unit * 8;
+        .profileDetails-headerTitle {
+          font-size: $font-size-base * 1.2;
+          font-weight: 700;
+        }
+      }
+      .profileForm {
+        .profileForm-wrapper {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: $spacing-unit * 3;
+          .full-width {
+            grid-column: span 2;
+          }
+          .profileForm-group {
+            label {
+              display: block;
+              margin-bottom: $spacing-unit;
+              font-weight: 600;
+              color: $secondary-400;
+              font-size: $font-size-base * 0.875;
+            }
+            input,
+            textarea {
+              width: 100%;
+              padding-block: $spacing-unit * 3;
+              padding-inline: $spacing-unit * 4;
+              background: $secondary-100;
+              border: 1px solid $secondary-200;
+              border-radius: 8px;
+              font-size: $font-size-base * 0.875;
+              &:disabled {
+                opacity: 0.7;
+                cursor: not-allowed;
+              }
+            }
+            .profileForm-inf {
+              font-size: $font-size-base * 0.65;
+              color: $secondary-300;
+              margin-top: $spacing-unit;
+              display: block;
+            }
+          }
+        }
+      }
+      .profileSecurity {
+        margin-top: $spacing-unit * 10;
+        padding-top: $spacing-unit * 5;
+        border-top: 1px solid $secondary-100;
+        .profileSecurity-title {
+          margin-bottom: $spacing-unit * 4;
+          font-size: $font-size-base * 1;
+          font-weight: 700;
+        }
+      }
+    }
+    .profileBtn {
+      padding-block: $spacing-unit * 2;
+      padding-inline: $spacing-unit * 5;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: $transition-base;
+      &-Primary {
+        background: $primary-neutral-palette-500;
+        color: $color-white;
+        border: none;
+      }
+      &-Secondary {
+        background: $error-500;
+        color: $color-white;
+        border: none;
+      }
+      &-Outline {
+        background: transparent;
+        border: 1px solid $primary-neutral-palette-500;
+        color: $primary-neutral-palette-500;
+      }
+      &:hover {
+        opacity: 0.9;
+      }
+    }
   }
 }

@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { ref } from "vue";
 
+import { Icon } from "@iconify/vue";
+
 interface ProfileUser {
   name?: string;
   email?: string;
@@ -33,43 +35,43 @@ const handleAvatarChange = (event: Event) => {
 </script>
 
 <template>
-  <aside class="profile-card card shadow-sm">
-    <div class="profile-avatar-wrapper">
-      <img :src="avatar" alt="User Avatar" class="profile-avatar" />
-
-      <label v-if="isEditing" class="avatar-upload-label">
+  <aside class="profileCard">
+    <div class="profile-avatarWrapper">
+      <img :src="avatar" alt="User Avatar" class="profileAvatar" />
+      <label v-if="isEditing" class="profile-avatarUploadLabel">
         <input
           type="file"
           hidden
           accept="image/*"
           @change="handleAvatarChange"
         />
-
-        <span class="upload-icon">📸</span>
+        <span class="profile-uploadIcon">
+          <Icon
+            icon="mdi:camera-plus-outline"
+            width="18"
+            height=""
+            class="notifications-emptyIcon"
+          />
+        </span>
       </label>
     </div>
-
-    <div class="profile-info text-center">
-      <h2 class="profile-name">
+    <div class="profile-infoWrapper">
+      <h2 class="profile-infoName">
         {{ user?.name }}
       </h2>
-
-      <p class="profile-role">
+      <p class="profile-infoRole">
         {{ user?.role }}
       </p>
-
-      <p class="profile-location">Istanbul, Turkey</p>
+      <p class="profile-infoLocation">Istanbul, Turkey</p>
     </div>
-
-    <div class="profile-stats">
-      <div class="stat-item">
-        <span class="count">12</span>
-        <span class="label">Rentals</span>
+    <div class="profile-statsWrapper">
+      <div class="profile-statItem">
+        <span class="profile-statItemcount">12</span>
+        <span class="profile-statItemlabel">Rentals</span>
       </div>
-
-      <div class="stat-item">
-        <span class="count">4.8</span>
-        <span class="label">Rating</span>
+      <div class="profile-statItem">
+        <span class="profile-statItemcount">4.8</span>
+        <span class="profile-statItemlabel">Rating</span>
       </div>
     </div>
   </aside>

@@ -20,17 +20,19 @@ const handleSave = async () => {
 </script>
 
 <template>
-  <div class="profile-page">
-    <div class="container">
-      <div class="profile-grid">
-        <ProfileCard :user="user" :is-editing="isEditing" />
-        <ProfileDetails
-          :user="user"
-          :is-editing="isEditing"
-          @edit="handleEdit"
-          @save="handleSave"
-        />
-      </div>
+  <div class="profilePage container">
+    <div class="profileHeader">
+      <h1>Profile</h1>
+      <p>Update your photo and personal details here.</p>
+    </div>
+    <div class="profileWrapper">
+      <ProfileCard :user="user" :is-editing="isEditing" />
+      <ProfileDetails
+        :user="user"
+        :is-editing="isEditing"
+        @edit="handleEdit"
+        @save="handleSave"
+      />
     </div>
   </div>
 </template>

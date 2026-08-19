@@ -5,12 +5,12 @@ const emit = defineEmits<{
 </script>
 
 <template>
-  <section class="security-section">
-    <h4 class="section-title">Security</h4>
+  <section class="profileSecurity">
+    <h4 class="profileSecurity-title">Security</h4>
 
     <button
       type="button"
-      class="btn btn--outline"
+      class="profileBtn profileBtn-Outline"
       @click="emit('changePassword')"
     >
       Change Password
