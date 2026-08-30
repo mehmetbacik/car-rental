@@ -71,7 +71,7 @@ export const dashboardNavItems: NavItem[] = [
   {
     id: 9,
     label: "My Rentals",
-    link: "/dashboard/my-rentals",
+    link: "/dashboard/myrentals",
     icon: "🔑",
     roles: ["user"],
   },

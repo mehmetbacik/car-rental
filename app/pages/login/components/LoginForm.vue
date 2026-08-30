@@ -19,7 +19,7 @@ const handleLogin = async () => {
   }
 
   const dashboardUrl =
-    result.role === "admin" ? "/dashboard" : "/dashboard/my-rentals";
+    result.role === "admin" ? "/dashboard" : "/dashboard/myrentals";
 
   window.open(dashboardUrl, "_blank");
 

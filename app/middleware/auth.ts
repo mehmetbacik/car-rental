@@ -18,7 +18,7 @@ export default defineNuxtRouteMiddleware((to) => {
 
     if (targetNav && !targetNav.roles.includes(userRole as any)) {
       const redirectPath =
-        userRole === "admin" ? "/dashboard" : "/dashboard/my-rentals";
+        userRole === "admin" ? "/dashboard" : "/dashboard/myrentals";
       return navigateTo(redirectPath, { replace: true });
     }
   }
