@@ -82,11 +82,4 @@ export const dashboardNavItems: NavItem[] = [
     icon: "💳",
     roles: ["user"],
   },
-  {
-    id: 11,
-    label: "Rent History",
-    link: "/dashboard/history",
-    icon: "📜",
-    roles: ["user"],
-  },
 ];
