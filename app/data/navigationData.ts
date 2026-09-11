@@ -8,6 +8,13 @@ export const dashboardNavItems: NavItem[] = [
     icon: "⚙️",
     roles: ["admin", "user"],
   },
+  {
+    id: 11,
+    label: "Preview",
+    link: "/",
+    icon: "🏠",
+    roles: ["admin", "user"],
+  },
 
   //Admin
   {
