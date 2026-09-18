@@ -47,21 +47,17 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="admin-layout">
+  <div class="adminLayout">
     <DashboardMobileHeader @toggle="toggleSidebar" />
-
     <Transition name="fade">
-      <div v-if="isSidebarOpen" class="sidebar-overlay" @click="closeSidebar" />
+      <div v-if="isSidebarOpen" class="sidebarOverlay" @click="closeSidebar" />
     </Transition>
-
     <DashboardSidebar :is-open="isSidebarOpen" @close="closeSidebar" />
-
-    <main class="admin-main">
+    <main class="adminMain">
       <template v-if="isAuthorized">
         <slot />
       </template>
-
-      <div v-else class="loading-overlay">
+      <div v-else class="loadingOverlay">
         <p>Loading...</p>
       </div>
     </main>

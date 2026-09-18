@@ -7,16 +7,16 @@ defineEmits<{
 </script>
 
 <template>
-  <header class="mobile-header">
+  <div class="mobileSidebar">
     <button
       type="button"
-      class="sidebar-toggle"
+      class="sidebarToggle"
       aria-label="Toggle sidebar"
       @click="$emit('toggle')"
     >
       <Icon icon="mdi:menu" width="24" height="24" />
     </button>
 
-    <span class="mobile-title"> Dashboard </span>
-  </header>
+    <span class="mobileSidebar-title"> Dashboard </span>
+  </div>
 </template>

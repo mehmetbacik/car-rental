@@ -24,21 +24,18 @@ const filteredMenu = computed(() => {
 </script>
 
 <template>
-  <aside class="admin-sidebar" :class="{ 'is-open': isOpen }">
-    <div class="sidebar-top">
-      <div class="sidebar-group">
-        <p class="sidebar-label">MAIN MENU</p>
-
+  <aside class="adminSidebar" :class="{ 'is-open': isOpen }">
+    <div class="adminSidebar-sidebarTop">
+      <div class="adminSidebar-sidebarGroup">
+        <p class="adminSidebar-sidebarLabel">MAIN MENU</p>
         <DashboardNavItem
           v-for="item in filteredMenu"
           :key="item.id"
           :item="item"
         />
       </div>
-
       <DashboardPreferences />
     </div>
-
     <DashboardSidebarFooter />
   </aside>
 </template>

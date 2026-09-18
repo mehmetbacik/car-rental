@@ -1,200 +1,153 @@
-.admin-layout {
+.adminLayout {
   display: flex;
   background: $secondary-100;
   min-height: 100vh;
-}
-
-.admin-sidebar {
-  width: 280px;
-  flex-shrink: 0;
-  background: $color-white;
-  padding: $spacing-unit * 8;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  border-right: 1px solid rgba(0, 0, 0, 0.05);
-
-  .sidebar-label {
-    font-size: $font-size-base * 0.75;
-    color: $secondary-300;
-    margin-bottom: $spacing-unit * 6;
-    margin-top: $spacing-unit * 8;
-  }
-
-  .nav-link {
-    display: flex;
-    align-items: center;
-    padding-block: $spacing-unit * 2.5;
-    padding-inline: $spacing-unit * 4;
-    color: $secondary-300;
-    text-decoration: none;
-    font-weight: 500;
-    border-radius: 10px;
-    margin-bottom: $spacing-unit * 2;
-    border: none;
-    background: none;
-    width: 100%;
-    cursor: pointer;
-
-    &.active,
-    &:hover {
-      background: $primary-neutral-palette-700;
-      color: $color-white;
-    }
-  }
-}
-
-.admin-main {
-  flex: 1;
-  min-width: 0;
-  padding: $spacing-unit * 8;
-}
-
-.loading-overlay {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background: $secondary-300;
-}
-
-/* ---------------------------------
-   Mobile Header
---------------------------------- */
-
-.mobile-header {
-  display: none;
-}
-
-.sidebar-overlay {
-  display: none;
-}
-
-/* ---------------------------------
-   Mobile
---------------------------------- */
-
-@media (max-width: 768px) {
-  .admin-layout {
+  @media (max-width: $md-breakpoint) {
     display: block;
     min-height: 100vh;
   }
-
-  .mobile-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-
-    display: flex;
-    align-items: center;
-    gap: $spacing-unit * 4;
-
-    height: 64px;
-    padding-inline: $spacing-unit * 5;
-
+  .adminSidebar {
+    width: 280px;
+    flex-shrink: 0;
     background: $color-white;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-  }
-
-  .mobile-title {
-    font-size: $font-size-base;
-    font-weight: 600;
-    color: $secondary-300;
-  }
-
-  .sidebar-toggle {
+    padding: $spacing-unit * 8;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    border-right: 1px solid rgba(0, 0, 0, 0.05);
+    @media (max-width: $md-breakpoint) {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      z-index: 1100;
+      width: 280px;
+      height: 100vh;
+      min-height: 100vh;
+      padding: $spacing-unit * 8;
+      transform: translateX(-100%);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      overflow-y: auto;
+      box-shadow: none;
+      &.is-open {
+        transform: translateX(0);
+        box-shadow: 8px 0 30px rgba(0, 0, 0, 0.12);
+      }
+    }
+    .adminSidebar-sidebarTop {
+      .adminSidebar-sidebarGroup {
+        .adminSidebar-sidebarLabel {
+          font-size: $font-size-base * 0.75;
+          color: $secondary-300;
+          margin-bottom: $spacing-unit * 6;
+          margin-top: $spacing-unit * 8;
+        }
+        .adminSidebar-navLink {
+          display: flex;
+          align-items: center;
+          padding-block: $spacing-unit * 2.5;
+          padding-inline: $spacing-unit * 4;
+          color: $secondary-300;
+          text-decoration: none;
+          font-weight: 500;
+          border-radius: 10px;
+          margin-bottom: $spacing-unit * 2;
+          border: none;
+          background: none;
+          width: 100%;
+          cursor: pointer;
+          &.active,
+          &:hover {
+            background: $primary-neutral-palette-700;
+            color: $color-white;
+          }
+        }
+      }
+    }
+  }
+  .mobileSidebar {
+    display: none;
+    @media (max-width: $md-breakpoint) {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      gap: $spacing-unit * 4;
+      height: 64px;
+      padding-inline: $spacing-unit * 5;
+      background: $color-white;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      &-title {
+        font-size: $font-size-base;
+        font-weight: 600;
+        color: $secondary-300;
+      }
+      .sidebarToggle {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: $spacing-unit * 2;
+        width: 40px;
+        height: 40px;
+        padding: 0;
+        border: none;
+        border-radius: 8px;
+        background: transparent;
+        cursor: pointer;
+        span {
+          display: block;
+          width: 22px;
+          height: 2px;
+          border-radius: 2px;
+          background: $secondary-300;
+          transition: $transition-base;
+        }
+        &:hover {
+          background: $secondary-100;
+        }
+      }
+    }
+  }
+  .sidebarOverlay {
+    display: none;
+    @media (max-width: $md-breakpoint) {
+      position: fixed;
+      inset: 0;
+      z-index: 1050;
+      display: block;
+      background: rgba(0, 0, 0, 0.45);
+    }
+  }
+  .adminMain {
+    flex: 1;
+    min-width: 0;
+    padding: $spacing-unit * 8;
+    @media (max-width: $md-breakpoint) {
+      width: 100%;
+      min-height: 100vh;
+      padding: $spacing-unit * 5;
+      padding-top: calc(64px + #{$spacing-unit * 5});
+    }
+  }
+  .loadingOverlay {
+    display: flex;
     justify-content: center;
     align-items: center;
-    gap: 5px;
-
-    width: 40px;
-    height: 40px;
-    padding: 0;
-
-    border: none;
-    border-radius: 8px;
-    background: transparent;
-    cursor: pointer;
-
-    span {
-      display: block;
-      width: 22px;
-      height: 2px;
-      border-radius: 2px;
-      background: $secondary-300;
-      transition: all 0.25s ease;
-    }
-
-    &:hover {
-      background: $secondary-100;
-    }
-  }
-
-  /* Sidebar */
-
-  .admin-sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    z-index: 1100;
-
-    width: 280px;
     height: 100vh;
-    min-height: 100vh;
-
-    padding: $spacing-unit * 8;
-
-    transform: translateX(-100%);
-    transition:
-      transform 0.3s ease,
-      box-shadow 0.3s ease;
-
-    overflow-y: auto;
-    box-shadow: none;
-
-    &.is-open {
-      transform: translateX(0);
-      box-shadow: 8px 0 30px rgba(0, 0, 0, 0.12);
-    }
+    background: $secondary-300;
   }
 
-  /* Overlay */
-
-  .sidebar-overlay {
-    position: fixed;
-    inset: 0;
-    z-index: 1050;
-
-    display: block;
-
-    background: rgba(0, 0, 0, 0.45);
+  .fade-enter-active,
+  .fade-leave-active {
+    transition: opacity 0.25s ease;
   }
 
-  /* Main */
-
-  .admin-main {
-    width: 100%;
-    min-height: 100vh;
-    padding: $spacing-unit * 5;
-    padding-top: calc(64px + #{$spacing-unit * 5});
+  .fade-enter-from,
+  .fade-leave-to {
+    opacity: 0;
   }
-}
-
-/* ---------------------------------
-   Overlay Animation
---------------------------------- */
-
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.25s ease;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
 }
