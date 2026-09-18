@@ -4,6 +4,6 @@ export interface NavItem {
   id: number;
   label: string;
   link: string;
-  icon?: string;
+  icon: string;
   roles: UserRole[];
 }

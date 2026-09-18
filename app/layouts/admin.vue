@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { dashboardNavItems } from "@/data/navigationData";
+import { Icon } from "@iconify/vue";
 
 const uiStore = useUIStore();
 const authStore = useAuthStore();
@@ -15,9 +16,7 @@ const filteredMenu = computed(() => {
 });
 
 const isAuthorized = computed(() => {
-  const targetNav = dashboardNavItems.find(
-    (item) => item.link === route.path
-  );
+  const targetNav = dashboardNavItems.find((item) => item.link === route.path);
 
   if (!targetNav) return true;
 
@@ -47,7 +46,7 @@ watch(
   () => route.path,
   () => {
     closeSidebar();
-  }
+  },
 );
 
 onMounted(() => {
@@ -85,18 +84,11 @@ const handleEscape = (event: KeyboardEvent) => {
 
     <!-- Mobile Overlay -->
     <Transition name="fade">
-      <div
-        v-if="isSidebarOpen"
-        class="sidebar-overlay"
-        @click="closeSidebar"
-      />
+      <div v-if="isSidebarOpen" class="sidebar-overlay" @click="closeSidebar" />
     </Transition>
 
     <!-- Sidebar -->
-    <aside
-      class="admin-sidebar"
-      :class="{ 'is-open': isSidebarOpen }"
-    >
+    <aside class="admin-sidebar" :class="{ 'is-open': isSidebarOpen }">
       <div class="sidebar-top">
         <div class="sidebar-group">
           <p class="sidebar-label">MAIN MENU</p>
@@ -108,7 +100,9 @@ const handleEscape = (event: KeyboardEvent) => {
             class="nav-link"
             active-class="active"
           >
-            <span class="icon">{{ item.icon }}</span>
+            <span class="icon">
+              <Icon :icon="item.icon" width="20" height="20" />
+            </span>
             <span class="label">{{ item.label }}</span>
           </NuxtLink>
         </div>
@@ -116,18 +110,19 @@ const handleEscape = (event: KeyboardEvent) => {
         <div class="sidebar-group">
           <p class="sidebar-label">PREFERENCES</p>
 
-          <NuxtLink
-            to="/dashboard/settings"
-            class="nav-link"
-          >
+          <NuxtLink to="/dashboard/settings" class="nav-link">
+            <Icon icon="mdi:cog-outline" width="20" height="20" />
             Settings
           </NuxtLink>
 
-          <NuxtLink
-            to="/dashboard/help"
-            class="nav-link"
-          >
+          <NuxtLink to="/dashboard/help" class="nav-link">
+            <Icon icon="mdi:help-circle-outline" width="20" height="20" />
             Help & Center
+          </NuxtLink>
+
+          <NuxtLink to="/" target="_blank" class="nav-link">
+            <Icon icon="mdi:home-outline" width="20" height="20" />
+            Preview
           </NuxtLink>
 
           <button
@@ -148,11 +143,7 @@ const handleEscape = (event: KeyboardEvent) => {
       </div>
 
       <div class="sidebar-footer">
-        <button
-          type="button"
-          class="nav-link logout"
-          @click="handleLogout"
-        >
+        <button type="button" class="nav-link logout" @click="handleLogout">
           Log Out
         </button>
       </div>
@@ -164,10 +155,7 @@ const handleEscape = (event: KeyboardEvent) => {
         <slot />
       </template>
 
-      <div
-        v-else
-        class="loading-overlay"
-      >
+      <div v-else class="loading-overlay">
         <p>Loading...</p>
       </div>
     </main>
