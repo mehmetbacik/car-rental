@@ -59,7 +59,7 @@ const isStartOfBooking = (carId: string, date: string) => {
 
         <template v-for="car in inventoryStore.items" :key="car.id">
           <div class="car-row sticky-col">
-            <img :src="car.image" class="car-mini" />
+            <img :src="car.images[0]" class="car-mini" />
             <div class="info">
               <span class="name">{{ car.name }}</span>
               <span class="type">{{ car.type }}</span>

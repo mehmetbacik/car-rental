@@ -33,7 +33,7 @@ const topRentals = computed(() => {
           <tr v-for="car in topRentals" :key="car.id">
             <td>
               <div class="car-info">
-                <img :src="car.image" :alt="car.name" class="car-thumb" />
+                <img :src="car.images[0]" :alt="car.name" class="car-thumb" />
                 <div class="car-details">
                   <span class="name">{{ car.name }}</span>
                   <span class="id">#{{ car.id }}0234</span>

@@ -23,7 +23,15 @@ const topCars = computed(() => cars.value.slice(0, 5));
       <div class="details-rental card">
         <h3>Details Rental</h3>
         <div class="map-placeholder">
-          <div class="mock-map">Map is loading...</div>
+          <ClientOnly>
+            <DashboardRentalMap />
+            <template #fallback>
+              <div class="map-loading">
+                <span class="loading-spinner"></span>
+                Loading map...
+              </div>
+            </template>
+          </ClientOnly>
         </div>
         <SharedBookingCard type="Pick-Up" />
         <SharedBookingCard type="Drop-Off" />
