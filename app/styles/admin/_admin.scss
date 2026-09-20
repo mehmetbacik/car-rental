@@ -45,6 +45,7 @@
         .adminSidebar-navLink {
           display: flex;
           align-items: center;
+          gap: $spacing-unit * 2;
           padding-block: $spacing-unit * 2.5;
           padding-inline: $spacing-unit * 4;
           color: $secondary-300;
@@ -140,12 +141,10 @@
     height: 100vh;
     background: $secondary-300;
   }
-
   .fade-enter-active,
   .fade-leave-active {
     transition: opacity 0.25s ease;
   }
-
   .fade-enter-from,
   .fade-leave-to {
     opacity: 0;

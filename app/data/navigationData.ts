@@ -1,14 +1,6 @@
 import type { NavItem } from "../types/navigation";
 
 export const dashboardNavItems: NavItem[] = [
-  {
-    id: 1,
-    label: "Settings",
-    link: "/dashboard/settings",
-    icon: "mdi:cog-outline",
-    roles: ["admin", "user"],
-  },
-
   // Admin
   {
     id: 2,
@@ -64,7 +56,7 @@ export const dashboardNavItems: NavItem[] = [
     label: "Help & Center",
     link: "/dashboard/help",
     icon: "mdi:help-circle-outline",
-    roles: ["admin"],
+    roles: ["admin", "user"],
   },
 
   // User

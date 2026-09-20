@@ -15,8 +15,8 @@ const topCars = computed(() => cars.value.slice(0, 5));
 </script>
 
 <template>
-  <div class="dashboard-content">
-    <div class="quick-stats card">
+  <div class="dashboardContent">
+    <div class="quickStats">
       <QuickStats />
     </div>
     <div class="dashboard-grid">

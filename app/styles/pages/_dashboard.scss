@@ -1,6 +1,17 @@
+.dashboardContent {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-unit * 4;
+  .quickStats {
+    background: $color-white;
+    padding: $spacing-unit * 6;
+    border-radius: 10px;
+  }
+}
+
 .dashboard-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  display: flex;
+  flex-direction: column;
   gap: $spacing-unit * 8;
   @media (max-width: $lg-breakpoint) {
     grid-template-columns: 1fr;
