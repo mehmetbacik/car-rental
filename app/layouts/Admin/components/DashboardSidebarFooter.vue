@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { Icon } from "@iconify/vue";
+
 const authStore = useAuthStore();
 
 const handleLogout = async () => {
@@ -11,9 +13,10 @@ const handleLogout = async () => {
 </script>
 
 <template>
-  <div class="sidebar-footer">
-    <button type="button" class="nav-link logout" @click="handleLogout">
-      Log Out
+  <div class="adminSidebar-sidebarFooter">
+    <button type="button" class="adminSidebar-logout" @click="handleLogout">
+      <Icon icon="mdi:logout" class="adminSidebar-logoutIcon" />
+      <span>Log Out</span>
     </button>
   </div>
 </template>
