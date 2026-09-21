@@ -36,7 +36,6 @@ const topCars = computed(() => cars.value.slice(0, 5));
         <SharedBookingCard type="Pick-Up" />
         <SharedBookingCard type="Drop-Off" />
       </div>
-
       <div class="stats-panel">
         <div class="top-rental card">
           <h3>Top 5 Car Rental</h3>
