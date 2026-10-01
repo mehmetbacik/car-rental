@@ -16,9 +16,6 @@
   @media (max-width: $lg-breakpoint) {
     grid-template-columns: 1fr;
     gap: $spacing-unit * 4;
-    .stats-panel {
-      display: none;
-    }
   }
 }
 
