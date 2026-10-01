@@ -2,7 +2,6 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: $spacing-unit * 5;
-  margin-bottom: $spacing-unit * 6;
   .statBox {
     background: $information-100;
     padding: $spacing-unit * 5;

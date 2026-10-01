@@ -16,10 +16,10 @@ const topCars = computed(() => cars.value.slice(0, 5));
 
 <template>
   <div class="dashboardContent">
-    <div class="quickStats">
-      <QuickStats />
-    </div>
     <div class="dashboard-grid">
+      <div class="quickStats">
+        <QuickStats />
+      </div>
       <div class="details-rental card">
         <h3>Details Rental</h3>
         <div class="map-placeholder">
@@ -34,47 +34,41 @@ const topCars = computed(() => cars.value.slice(0, 5));
           </ClientOnly>
         </div>
       </div>
-      <div class="stats-panel">
-        <div class="top-rental card">
-          <DashboardStatCharts />
+      <div class="statCharts">
+        <DashboardStatCharts />
+      </div>
+      <div class="recent-inventory card">
+        <div class="card-header">
+          <h3>Recent Inventory</h3>
+          <NuxtLink to="/dashboard/inventory" class="view-all"
+            >View All</NuxtLink
+          >
         </div>
-        <div class="recent-inventory card">
-          <div class="card-header">
-            <h3>Recent Inventory</h3>
-            <NuxtLink to="/dashboard/inventory" class="view-all"
-              >View All</NuxtLink
-            >
-          </div>
 
-          <div class="mini-list">
-            <div
-              v-for="car in cars.slice(0, 5)"
-              :key="car.id"
-              class="mini-item"
-            >
-              <div class="car-info-mini">
-                <img :src="car.image" :alt="car.name" class="mini-img" />
-                <div class="text">
-                  <span class="name">{{ car.name }}</span>
-                  <span class="type">{{ car.type }}</span>
-                </div>
+        <div class="mini-list">
+          <div v-for="car in cars.slice(0, 5)" :key="car.id" class="mini-item">
+            <div class="car-info-mini">
+              <img :src="car.image" :alt="car.name" class="mini-img" />
+              <div class="text">
+                <span class="name">{{ car.name }}</span>
+                <span class="type">{{ car.type }}</span>
               </div>
-              <span
-                class="badge"
-                :class="car.status?.toLowerCase() || 'available'"
-              >
-                {{ car.status || "Available" }}
-              </span>
             </div>
+            <span
+              class="badge"
+              :class="car.status?.toLowerCase() || 'available'"
+            >
+              {{ car.status || "Available" }}
+            </span>
           </div>
         </div>
       </div>
-    </div>
-    <div class="recent-transactions card">
-      <TopRentalsTable />
-    </div>
-    <div class="calender card">
-      <Calendar />
+      <div class="recent-transactions card">
+        <TopRentalsTable />
+      </div>
+      <div class="calender card">
+        <Calendar />
+      </div>
     </div>
   </div>
 </template>

@@ -3,8 +3,8 @@ import DashboardCharts from "./DashboardCharts.vue";
 </script>
 
 <template>
-  <div class="stats-grid">
-    <div class="stat-card">
+  <div class="statsGrid">
+    <div class="statCard">
       <div class="card-header">
         <h3>Top 5 Car Rental</h3>
         <p>Rental distribution by type</p>
@@ -13,7 +13,7 @@ import DashboardCharts from "./DashboardCharts.vue";
         <DashboardCharts chart="car-type" />
       </div>
     </div>
-    <div class="stat-card">
+    <div class="statCard">
       <div class="card-header">
         <h3>Transmission Types</h3>
         <p>Manual vs Automatic</p>
@@ -22,7 +22,7 @@ import DashboardCharts from "./DashboardCharts.vue";
         <DashboardCharts chart="transmission" />
       </div>
     </div>
-    <div class="stat-card wide">
+    <div class="statCard wide">
       <div class="card-header">
         <h3>Price Overview</h3>
         <p>Daily rental prices per model</p>
@@ -31,7 +31,7 @@ import DashboardCharts from "./DashboardCharts.vue";
         <DashboardCharts chart="price-overview" />
       </div>
     </div>
-    <div class="stat-card">
+    <div class="statCard">
       <div class="card-header">
         <h3>Passenger Capacity</h3>
         <p>Distribution of seat counts</p>
@@ -40,7 +40,7 @@ import DashboardCharts from "./DashboardCharts.vue";
         <DashboardCharts chart="passenger-capacity" />
       </div>
     </div>
-    <div class="stat-card">
+    <div class="statCard">
       <div class="card-header">
         <h3>Fleet Overview</h3>
         <p>Total vehicles by rental type</p>
@@ -49,7 +49,7 @@ import DashboardCharts from "./DashboardCharts.vue";
         <DashboardCharts chart="fleet-overview" />
       </div>
     </div>
-    <div class="stat-card">
+    <div class="statCard">
       <div class="card-header">
         <h3>Daily Price Range</h3>
         <p>Vehicle distribution by rental price</p>
@@ -58,7 +58,7 @@ import DashboardCharts from "./DashboardCharts.vue";
         <DashboardCharts chart="price-range" />
       </div>
     </div>
-    <div class="stat-card">
+    <div class="statCard">
       <div class="card-header">
         <h3>Fleet Summary</h3>
         <p>Key rental fleet statistics</p>

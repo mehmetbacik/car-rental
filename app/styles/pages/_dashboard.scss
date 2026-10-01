@@ -12,7 +12,7 @@
 .dashboard-grid {
   display: flex;
   flex-direction: column;
-  gap: $spacing-unit * 8;
+  gap: $spacing-unit * 4;
   @media (max-width: $lg-breakpoint) {
     grid-template-columns: 1fr;
     gap: $spacing-unit * 4;
