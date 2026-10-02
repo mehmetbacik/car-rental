@@ -1,8 +1,12 @@
+```vue
 <script setup lang="ts">
 import { useInventoryStore } from "@/stores/useInventory";
 import { useBookingStore } from "@/stores/useBooking";
 
-definePageMeta({ layout: "admin", middleware: "auth" });
+definePageMeta({
+  layout: "admin",
+  middleware: "auth",
+});
 
 const inventoryStore = useInventoryStore();
 const bookingStore = useBookingStore();
@@ -10,13 +14,24 @@ const bookingStore = useBookingStore();
 const daysToShow = 14;
 const startDate = new Date(2026, 2, 18);
 
+const formatDate = (date: Date): string => {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+
+  return `${year}-${month}-${day}`;
+};
+
 const calendarDays = computed(() => {
   return Array.from({ length: daysToShow }, (_, i) => {
     const date = new Date(startDate);
     date.setDate(startDate.getDate() + i);
+
     return {
-      fullDate: date.toISOString().split("T")[0],
-      dayName: date.toLocaleDateString("en-US", { weekday: "short" }),
+      fullDate: formatDate(date),
+      dayName: date.toLocaleDateString("en-US", {
+        weekday: "short",
+      }),
       dayNumber: date.getDate(),
     };
   });
@@ -24,13 +39,17 @@ const calendarDays = computed(() => {
 
 const getBookingForDay = (carId: string, date: string) => {
   return bookingStore.bookings.find(
-    (b) => carId === b.carId && date >= b.startDate && date <= b.endDate,
+    (booking) =>
+      booking.carId === carId &&
+      date >= booking.startDate &&
+      date <= booking.endDate,
   );
 };
 
-const isStartOfBooking = (carId: string, date: string) => {
+const isStartOfBooking = (carId: string, date: string): boolean => {
   const booking = getBookingForDay(carId, date);
-  return booking && booking.startDate === date;
+
+  return booking?.startDate === date;
 };
 </script>
 
@@ -38,9 +57,13 @@ const isStartOfBooking = (carId: string, date: string) => {
   <div class="calendar-page">
     <div class="header">
       <h2>Booking Timeline</h2>
+
       <div class="legend">
-        <span class="dot confirmed"></span> Confirmed
-        <span class="dot pending"></span> Pending
+        <span class="dot confirmed"></span>
+        Confirmed
+
+        <span class="dot pending"></span>
+        Pending
       </div>
     </div>
 
@@ -53,16 +76,27 @@ const isStartOfBooking = (carId: string, date: string) => {
           :key="day.fullDate"
           class="grid-header day-col"
         >
-          <span class="day-name">{{ day.dayName }}</span>
-          <span class="day-num">{{ day.dayNumber }}</span>
+          <span class="day-name">
+            {{ day.dayName }}
+          </span>
+
+          <span class="day-num">
+            {{ day.dayNumber }}
+          </span>
         </div>
 
         <template v-for="car in inventoryStore.items" :key="car.id">
           <div class="car-row sticky-col">
-            <img :src="car.images[0]" class="car-mini" />
+            <img :src="car.images[0]" :alt="car.name" class="car-mini" />
+
             <div class="info">
-              <span class="name">{{ car.name }}</span>
-              <span class="type">{{ car.type }}</span>
+              <span class="name">
+                {{ car.name }}
+              </span>
+
+              <span class="type">
+                {{ car.type }}
+              </span>
             </div>
           </div>
 
@@ -72,7 +106,9 @@ const isStartOfBooking = (carId: string, date: string) => {
               class="booking-bar"
               :class="[
                 getBookingForDay(car.id, day.fullDate)?.status,
-                { 'is-start': isStartOfBooking(car.id, day.fullDate) },
+                {
+                  'is-start': isStartOfBooking(car.id, day.fullDate),
+                },
               ]"
             >
               <span

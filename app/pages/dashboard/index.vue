@@ -1,7 +1,5 @@
 <script setup lang="ts">
 import { carsData } from "@/data/carsData";
-import Calendar from "~/components/dashboard/Calendar.vue";
-import QuickStats from "~/components/dashboard/QuickStats.vue";
 import TopRentalsTable from "~/components/dashboard/TopRentalsTable.vue";
 
 definePageMeta({
@@ -18,7 +16,7 @@ const topCars = computed(() => cars.value.slice(0, 5));
   <div class="dashboardContent">
     <div class="dashboard-grid">
       <div class="quickStats">
-        <QuickStats />
+        <DashboardQuickStats />
       </div>
       <div class="details-rental card">
         <h3>Details Rental</h3>
@@ -44,7 +42,7 @@ const topCars = computed(() => cars.value.slice(0, 5));
         <TopRentalsTable />
       </div>
       <div class="calender card">
-        <Calendar />
+        <DashboardCalendar />
       </div>
     </div>
   </div>
