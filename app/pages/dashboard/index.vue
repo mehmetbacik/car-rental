@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { carsData } from "@/data/carsData";
-import TopRentalsTable from "~/components/dashboard/TopRentalsTable.vue";
 
 definePageMeta({
   layout: "admin",
@@ -39,7 +38,7 @@ const topCars = computed(() => cars.value.slice(0, 5));
         <DashboardRecentInventory :cars="cars" />
       </div>
       <div class="recent-transactions card">
-        <TopRentalsTable />
+        <DashboardTopRentalsTable />
       </div>
       <div class="calender card">
         <DashboardCalendar />
