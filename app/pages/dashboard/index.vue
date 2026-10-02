@@ -38,30 +38,7 @@ const topCars = computed(() => cars.value.slice(0, 5));
         <DashboardStatCharts />
       </div>
       <div class="recent-inventory card">
-        <div class="card-header">
-          <h3>Recent Inventory</h3>
-          <NuxtLink to="/dashboard/inventory" class="view-all"
-            >View All</NuxtLink
-          >
-        </div>
-
-        <div class="mini-list">
-          <div v-for="car in cars.slice(0, 5)" :key="car.id" class="mini-item">
-            <div class="car-info-mini">
-              <img :src="car.image" :alt="car.name" class="mini-img" />
-              <div class="text">
-                <span class="name">{{ car.name }}</span>
-                <span class="type">{{ car.type }}</span>
-              </div>
-            </div>
-            <span
-              class="badge"
-              :class="car.status?.toLowerCase() || 'available'"
-            >
-              {{ car.status || "Available" }}
-            </span>
-          </div>
-        </div>
+        <DashboardRecentInventory :cars="cars" />
       </div>
       <div class="recent-transactions card">
         <TopRentalsTable />
