@@ -1,4 +1,3 @@
-```vue
 <script setup lang="ts">
 import { useInventoryStore } from "@/stores/useInventory";
 import { useBookingStore } from "@/stores/useBooking";
@@ -13,6 +12,48 @@ const bookingStore = useBookingStore();
 
 const daysToShow = 14;
 const startDate = new Date(2026, 2, 18);
+
+const windowWidth = ref(0);
+
+const updateWindowWidth = () => {
+  windowWidth.value = window.innerWidth;
+};
+
+onMounted(() => {
+  updateWindowWidth();
+
+  window.addEventListener("resize", updateWindowWidth);
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener("resize", updateWindowWidth);
+});
+
+const carNameMaxLength = computed(() => {
+  if (windowWidth.value <= 400) {
+    return 10;
+  }
+
+  if (windowWidth.value <= 576) {
+    return 14;
+  }
+
+  if (windowWidth.value <= 768) {
+    return 18;
+  }
+
+  return 25;
+});
+
+const truncateCarName = (name: string): string => {
+  const maxLength = carNameMaxLength.value;
+
+  if (name.length <= maxLength) {
+    return name;
+  }
+
+  return `${name.slice(0, maxLength)}...`;
+};
 
 const formatDate = (date: Date): string => {
   const year = date.getFullYear();
@@ -84,7 +125,7 @@ const isStartOfBooking = (carId: string, date: string): boolean => {
             <img :src="car.images[0]" :alt="car.name" class="car-mini" />
             <div class="info">
               <span class="name">
-                {{ car.name }}
+                {{ truncateCarName(car.name) }}
               </span>
               <span class="type">
                 {{ car.type }}
