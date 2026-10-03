@@ -1,7 +1,7 @@
 <script setup lang="ts">
 interface Car {
   id: number | string;
-  images: string;
+  images: string[];
   name: string;
   type: string;
   status?: string;
