@@ -35,11 +35,11 @@ const carNameMaxLength = computed(() => {
   }
 
   if (windowWidth.value <= 576) {
-    return 14;
+    return 10;
   }
 
   if (windowWidth.value <= 768) {
-    return 18;
+    return 6;
   }
 
   return 25;
