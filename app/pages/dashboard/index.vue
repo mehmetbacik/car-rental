@@ -17,7 +17,7 @@ const topCars = computed(() => cars.value.slice(0, 5));
       <div class="quickStats">
         <DashboardQuickStats />
       </div>
-      <div class="details-rental card">
+      <div class="rentalMap">
         <h3>Details Rental</h3>
         <div class="map-placeholder">
           <ClientOnly>
@@ -34,13 +34,13 @@ const topCars = computed(() => cars.value.slice(0, 5));
       <div class="statCharts">
         <DashboardStatCharts />
       </div>
-      <div class="recent-inventory card">
+      <div class="recentInventory">
         <DashboardRecentInventory :cars="cars" />
       </div>
-      <div class="recent-transactions card">
+      <div class="recentTransactions">
         <DashboardTopRentalsTable />
       </div>
-      <div class="calender card">
+      <div class="calender">
         <DashboardCalendar />
       </div>
     </div>

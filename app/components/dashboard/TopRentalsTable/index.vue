@@ -13,7 +13,7 @@ const topRentals = computed(() => {
 </script>
 
 <template>
-  <div class="top-rentals-card card">
+  <div class="top-rentals-card">
     <div class="card-header">
       <h3>Recent Transaction</h3>
       <NuxtLink to="/dashboard/inventory" class="view-all">View All</NuxtLink>
