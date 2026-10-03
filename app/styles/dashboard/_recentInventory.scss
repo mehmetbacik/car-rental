@@ -1,110 +1,112 @@
-.recentInventory-content {
-  width: 100%;
-  min-width: 0;
-  box-sizing: border-box;
-  background: var(--card-bg);
-  .card-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: $spacing-unit * 4;
-    margin-bottom: $spacing-unit * 5;
-    h3 {
-      font-size: $font-size-base * 1.2;
-      color: $color-black;
-    }
-    .view-all {
-      font-size: $font-size-base * 0.8;
-      color: $information-700;
-      font-weight: 600;
-      text-decoration: none;
-    }
-  }
-  .mini-list {
-    display: flex;
-    flex-direction: column;
+.recentInventory {
+  .recentInventory-content {
     width: 100%;
-    .mini-item {
+    min-width: 0;
+    box-sizing: border-box;
+    background: var(--card-bg);
+    .card-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      width: 100%;
-      min-width: 0;
       gap: $spacing-unit * 4;
-      padding: $spacing-unit * 3 0;
-      border-bottom: 1px solid $secondary-200;
-      &:first-child {
-        padding-top: 0;
+      margin-bottom: $spacing-unit * 5;
+      h3 {
+        font-size: $font-size-base * 1.2;
+        color: $color-black;
       }
-      &:last-child {
-        padding-bottom: 0;
-        border-bottom: none;
+      .view-all {
+        font-size: $font-size-base * 0.8;
+        color: $information-700;
+        font-weight: 600;
+        text-decoration: none;
       }
-      .car-info-mini {
+    }
+    .mini-list {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      .mini-item {
         display: flex;
         align-items: center;
-        flex: 1;
+        justify-content: space-between;
+        width: 100%;
         min-width: 0;
-        gap: $spacing-unit * 3;
-        .mini-img {
-          width: 50px;
-          height: 35px;
-          flex: 0 0 50px;
-          object-fit: contain;
-          border-radius: 8px;
-          background: $secondary-100;
+        gap: $spacing-unit * 4;
+        padding: $spacing-unit * 3 0;
+        border-bottom: 1px solid $secondary-200;
+        &:first-child {
+          padding-top: 0;
         }
-        .text {
+        &:last-child {
+          padding-bottom: 0;
+          border-bottom: none;
+        }
+        .car-info-mini {
           display: flex;
+          align-items: center;
           flex: 1;
-          flex-direction: column;
           min-width: 0;
-          gap: $spacing-unit;
-          .name {
-            overflow: hidden;
-            color: $secondary-900;
-            font-size: $font-size-base * 0.875;
-            font-weight: 600;
-            line-height: 1.3;
-            text-overflow: ellipsis;
-            white-space: nowrap;
+          gap: $spacing-unit * 3;
+          .mini-img {
+            width: 50px;
+            height: 35px;
+            flex: 0 0 50px;
+            object-fit: contain;
+            border-radius: 8px;
+            background: $secondary-100;
           }
-          .type {
-            overflow: hidden;
-            color: $secondary-400;
-            font-size: $font-size-base * 0.75;
-            font-weight: 400;
-            line-height: 1.3;
-            text-overflow: ellipsis;
-            white-space: nowrap;
+          .text {
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            min-width: 0;
+            gap: $spacing-unit;
+            .name {
+              overflow: hidden;
+              color: $secondary-900;
+              font-size: $font-size-base * 0.875;
+              font-weight: 600;
+              line-height: 1.3;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+            }
+            .type {
+              overflow: hidden;
+              color: $secondary-400;
+              font-size: $font-size-base * 0.75;
+              font-weight: 400;
+              line-height: 1.3;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+            }
           }
         }
-      }
-      .badge {
-        flex: 0 0 auto;
-        padding-inline: $spacing-unit * 3;
-        padding-block: $spacing-unit * 2;
-        border-radius: 20px;
-        font-size: $font-size-base * 0.675;
-        font-weight: 600;
-        line-height: 1;
-        text-transform: capitalize;
-        white-space: nowrap;
-        &.available {
-          background: $success-100;
-          color: $success-800;
-        }
-        &.rented {
-          background: $information-100;
-          color: $information-800;
-        }
-        &.maintenance {
-          background: $warning-100;
-          color: $warning-800;
-        }
-        &.unavailable {
-          background: $error-100;
-          color: $error-800;
+        .badge {
+          flex: 0 0 auto;
+          padding-inline: $spacing-unit * 3;
+          padding-block: $spacing-unit * 2;
+          border-radius: 20px;
+          font-size: $font-size-base * 0.675;
+          font-weight: 600;
+          line-height: 1;
+          text-transform: capitalize;
+          white-space: nowrap;
+          &.available {
+            background: $success-100;
+            color: $success-800;
+          }
+          &.rented {
+            background: $information-100;
+            color: $information-800;
+          }
+          &.maintenance {
+            background: $warning-100;
+            color: $warning-800;
+          }
+          &.unavailable {
+            background: $error-100;
+            color: $error-800;
+          }
         }
       }
     }

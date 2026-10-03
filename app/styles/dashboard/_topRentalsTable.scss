@@ -1,97 +1,158 @@
-.top-rentals-card {
-  .card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: $spacing-unit * 4;
-
-    h3 {
-      font-size: $font-size-base * 1.2;
-      color: $color-black;
+.recentTransactions {
+  .topRentals-content {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    background: var(--card-bg);
+    .card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: $spacing-unit * 4;
+      margin-bottom: $spacing-unit * 5;
+      h3 {
+        font-size: $font-size-base * 1.2;
+        color: $color-black;
+      }
+      .view-all {
+        font-size: $font-size-base * 0.8;
+        color: $information-700;
+        font-weight: 600;
+        text-decoration: none;
+      }
     }
-    .view-all {
-      font-size: $font-size-base * 0.8;
-      color: $information-700;
-      font-weight: 600;
-      text-decoration: none;
+    .table-container {
+      width: 100%;
+      overflow-x: auto;
+      scrollbar-width: thin;
+      scrollbar-color: $secondary-200 transparent;
+      &::-webkit-scrollbar {
+        height: 4px;
+      }
+      &::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      &::-webkit-scrollbar-thumb {
+        background: $secondary-200;
+        border-radius: 10px;
+      }
+      .rentals-table {
+        width: 100%;
+        min-width: 600px;
+        border-collapse: collapse;
+        table-layout: auto;
+        thead {
+          tr {
+            border-bottom: 1px solid $secondary-200;
+          }
+          th {
+            padding: 0 $spacing-unit * 3 $spacing-unit * 3;
+            color: $secondary-800;
+            font-size: $font-size-base * 0.75;
+            font-weight: 600;
+            line-height: 1.4;
+            text-align: left;
+            white-space: nowrap;
+            &:first-child {
+              padding-left: 0;
+            }
+            &:last-child {
+              padding-right: 0;
+              text-align: right;
+            }
+          }
+        }
+        tbody {
+          tr {
+            border-bottom: 1px solid $secondary-100;
+            transition: $transition-base;
+            cursor: pointer;
+            &:last-child {
+              border-bottom: none;
+            }
+            &:hover {
+              background: $secondary-100;
+            }
+          }
+          td {
+            padding: $spacing-unit * 3;
+            color: $secondary-700;
+            font-size: $font-size-base * 0.75;
+            vertical-align: middle;
+            white-space: nowrap;
+            &:first-child {
+              padding-left: 0;
+            }
+            &:last-child {
+              padding-right: 0;
+              text-align: right;
+            }
+          }
+        }
+      }
     }
-  }
-}
 
-.table-container {
-  overflow-x: auto;
-}
-
-.rentals-table {
-  width: 100%;
-  border-collapse: collapse;
-
-  th {
-    text-align: left;
-    padding: $spacing-unit * 4;
-    color: $secondary-300;
-    font-size: $font-size-base * 0.8;
-    font-weight: 500;
-    border-bottom: 1px solid $secondary-300;
-  }
-
-  td {
-    padding-block: $spacing-unit * 4;
-    padding-inline: $spacing-unit * 4;
-    border-bottom: 1px solid $secondary-300;
-    vertical-align: middle;
-  }
-
-  .car-info {
-    display: flex;
-    align-items: center;
-    gap: $spacing-unit * 4;
-
-    .car-thumb {
-      width: 50px;
-      height: 35px;
-      object-fit: contain;
-      background: $secondary-300;
-      border-radius: 4px;
+    .car-info {
+      display: flex;
+      align-items: center;
+      gap: $spacing-unit * 3;
+      min-width: 160px;
+      .car-thumb {
+        width: 50px;
+        height: 35px;
+        flex: 0 0 50px;
+        object-fit: contain;
+        border-radius: 8px;
+        background: $secondary-100;
+      }
     }
-
     .car-details {
       display: flex;
       flex-direction: column;
+      min-width: 0;
+      gap: $spacing-unit;
       .name {
-        font-weight: 700;
-        color: $secondary-300;
-        font-size: $font-size-base * 0.9;
+        max-width: 140px;
+        overflow: hidden;
+        color: $secondary-900;
+        font-size: $font-size-base * 0.875;
+        font-weight: 600;
+        line-height: 1.3;
+        text-overflow: ellipsis;
+        white-space: nowrap;
       }
       .id {
-        font-size: $font-size-base * 0.7;
-        color: $secondary-300;
+        color: $secondary-400;
+        font-size: $font-size-base * 0.75;
+        font-weight: 400;
+        line-height: 1.3;
       }
     }
-  }
 
-  .type-badge {
-    background: rgba(53, 99, 233, 0.1);
-    color: $information-700;
-    padding-block: $spacing-unit;
-    padding-inline: $spacing-unit * 4;
-    border-radius: 20px;
-    font-size: $font-size-base * 0.75;
-    font-weight: 600;
-  }
+    .type-badge {
+      display: inline-flex;
+      align-items: center;
+      padding-inline: $spacing-unit * 2;
+      padding-block: $spacing-unit * 2;
+      background: $primary-neutral-palette-100;
+      border-radius: 8px;
+      color: $primary-neutral-palette-700;
+      font-size: $font-size-base * 0.65;
+      font-weight: 500;
+      line-height: 1;
+      white-space: nowrap;
+    }
 
-  .date {
-    color: $secondary-300;
-    font-size: $font-size-base * 0.85;
-  }
-  .price {
-    font-weight: 700;
-    color: $color-black;
-    font-size: $font-size-base * 0.95;
-  }
-}
+    .date {
+      color: $secondary-400;
+      font-size: $font-size-base * 0.75;
+      font-weight: 400;
+    }
 
-
-tr:hover td {
-  background: rgba(144, 163, 191, 0.05);
+    .price {
+      color: $secondary-900;
+      font-size: $font-size-base * 0.75;
+      font-weight: 600;
+    }
+  }
 }
