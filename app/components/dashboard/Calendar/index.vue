@@ -54,23 +54,19 @@ const isStartOfBooking = (carId: string, date: string): boolean => {
 </script>
 
 <template>
-  <div class="calendar-page">
-    <div class="header">
+  <div class="bookingTimeline-content">
+    <div class="bookingTimeline-header">
       <h2>Booking Timeline</h2>
-
       <div class="legend">
         <span class="dot confirmed"></span>
         Confirmed
-
         <span class="dot pending"></span>
         Pending
       </div>
     </div>
-
-    <div class="timeline-container card">
+    <div class="timeline-container">
       <div class="timeline-grid">
         <div class="grid-header sticky-col">Vehicles</div>
-
         <div
           v-for="day in calendarDays"
           :key="day.fullDate"
@@ -79,27 +75,22 @@ const isStartOfBooking = (carId: string, date: string): boolean => {
           <span class="day-name">
             {{ day.dayName }}
           </span>
-
           <span class="day-num">
             {{ day.dayNumber }}
           </span>
         </div>
-
         <template v-for="car in inventoryStore.items" :key="car.id">
           <div class="car-row sticky-col">
             <img :src="car.images[0]" :alt="car.name" class="car-mini" />
-
             <div class="info">
               <span class="name">
                 {{ car.name }}
               </span>
-
               <span class="type">
                 {{ car.type }}
               </span>
             </div>
           </div>
-
           <div v-for="day in calendarDays" :key="day.fullDate" class="day-cell">
             <div
               v-if="getBookingForDay(car.id, day.fullDate)"

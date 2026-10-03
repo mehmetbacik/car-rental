@@ -40,7 +40,7 @@ const topCars = computed(() => cars.value.slice(0, 5));
       <div class="recentTransactions">
         <DashboardTopRentalsTable />
       </div>
-      <div class="calender">
+      <div class="bookingTimeline">
         <DashboardCalendar />
       </div>
     </div>

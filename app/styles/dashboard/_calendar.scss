@@ -1,171 +1,158 @@
-.calendar-page {
-  .header {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: $spacing-unit * 8;
-  }
-  .legend {
-    display: flex;
-    gap: $spacing-unit;
-    font-size: $font-size-base * 0.8;
-    .dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      display: inline-block;
+.bookingTimeline {
+  .bookingTimeline-content {
+    .bookingTimeline-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: $spacing-unit * 4;
+      margin-bottom: $spacing-unit * 5;
+      h2 {
+        font-size: $font-size-base * 1.2;
+        color: $color-black;
+      }
     }
-    .confirmed {
-      background: $information-700;
-    }
-    .pending {
-      background: $information-400;
-      opacity: 0.6;
+    .legend {
+      display: flex;
+      align-items: center;
+      gap: $spacing-unit;
+      font-size: $font-size-base * 0.8;
+      .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        display: inline-block;
+      }
+      .confirmed {
+        background: $information-700;
+      }
+      .pending {
+        background: $information-400;
+        opacity: 0.6;
+      }
     }
   }
 }
+
 .timeline-container {
   width: 100%;
   overflow-x: auto;
-  background: $information-100;
   border-radius: 12px;
+  background: $information-100;
+  padding: $spacing-unit * 2;
   -webkit-overflow-scrolling: touch;
-}
-
-.timeline-grid {
-  display: grid;
-  grid-template-columns: minmax(160px, 200px) repeat(14, minmax(0, 1fr));
-  width: 100%;
-
-  .grid-header {
-    background: $information-100;
-    padding: $spacing-unit;
-    border-bottom: 1px solid $secondary-300;
-    font-weight: 600;
-    font-size: $font-size-base * 0.85;
-    color: $secondary-300;
-    text-align: center;
-  }
-
-  .sticky-col {
-    position: sticky;
-    left: 0;
-    z-index: 10;
-    background: $color-white;
-    border-right: 1px solid $secondary-300;
-    text-align: left;
-  }
-
-  .car-row {
-    display: flex;
-    align-items: center;
-    gap: $spacing-unit * 2;
-    padding: $spacing-unit * 3;
-    border-bottom: 1px solid $secondary-300;
-
-    .car-mini {
-      width: 40px;
-      height: auto;
-      flex-shrink: 0;
+  .timeline-grid {
+    display: grid;
+    grid-template-columns: minmax(160px, 200px) repeat(14, minmax(0, 1fr));
+    width: 100%;
+    @media (max-width: $md-breakpoint) {
+      width: max-content;
+      min-width: 1280px;
+      grid-template-columns: 150px repeat(14, 80px);
     }
-
-    .name {
-      display: block;
-      font-size: $font-size-base * 0.85;
-      font-weight: 700;
-      color: $color-black;
+    @media (max-width: $sm-breakpoint) {
+      min-width: 1100px;
+      grid-template-columns: 120px repeat(14, 70px);
     }
-
-    .type {
-      font-size: $font-size-base * 0.7;
-      color: $secondary-300;
-    }
-  }
-
-  .day-cell {
-    border-bottom: 1px solid $secondary-300;
-    border-right: 1px solid $secondary-300;
-    position: relative;
-    height: 70px;
-    display: flex;
-    align-items: center;
-  }
-
-  .booking-bar {
-    position: absolute;
-    left: 0;
-    right: -1px;
-    height: 35px;
-    background: $information-600;
-    color: $color-white;
-    z-index: 5;
-    display: flex;
-    align-items: center;
-    padding: 0 $spacing-unit;
-    font-size: $font-size-base * 0.75;
-
-    &.pending {
-      background: $information-300;
-      opacity: 0.7;
-    }
-
-    &.is-start {
-      border-top-left-radius: 8px;
-      border-bottom-left-radius: 8px;
-      margin-left: $spacing-unit * 2;
-    }
-
-    .customer {
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+    .grid-header {
+      background: $information-100;
+      padding: $spacing-unit;
+      border-bottom: 1px solid $secondary-200;
       font-weight: 600;
-    }
-  }
-}
-
-@media (max-width: 768px) {
-  .timeline-grid {
-    width: max-content;
-    min-width: 1280px;
-    grid-template-columns: 150px repeat(14, 80px);
-  }
-}
-
-@media (max-width: 480px) {
-  .timeline-grid {
-    min-width: 1100px;
-    grid-template-columns: 120px repeat(14, 70px);
-
-    .car-row {
-      gap: $spacing-unit;
-      padding: $spacing-unit * 1.5;
-
-      .car-mini {
-        width: 28px;
-      }
-
-      .name {
+      font-size: $font-size-base * 0.85;
+      color: $secondary-300;
+      text-align: center;
+      @media (max-width: $sm-breakpoint) {
+        padding: $spacing-unit * 0.5;
         font-size: $font-size-base * 0.75;
       }
-
+    }
+    .sticky-col {
+      position: sticky;
+      left: 0;
+      z-index: 10;
+      background: $color-white;
+      border-right: 1px solid $secondary-200;
+      text-align: left;
+    }
+    .car-row {
+      display: flex;
+      align-items: center;
+      gap: $spacing-unit * 2;
+      padding: $spacing-unit * 3;
+      border-bottom: 1px solid $secondary-200;
+      @media (max-width: $sm-breakpoint) {
+        gap: $spacing-unit * 2;
+        padding: $spacing-unit * 1.5;
+      }
+      .car-mini {
+        width: 40px;
+        height: auto;
+        flex-shrink: 0;
+        @media (max-width: $sm-breakpoint) {
+          width: 28px;
+        }
+      }
+      .name {
+        display: block;
+        font-size: $font-size-base * 0.85;
+        font-weight: 700;
+        color: $color-black;
+        @media (max-width: $sm-breakpoint) {
+          font-size: $font-size-base * 0.65;
+        }
+      }
       .type {
-        font-size: $font-size-base * 0.6;
+        font-size: $font-size-base * 0.7;
+        color: $secondary-300;
+        @media (max-width: $sm-breakpoint) {
+          font-size: $font-size-base * 0.6;
+        }
       }
     }
-
-    .grid-header {
-      padding: $spacing-unit * 0.5;
-      font-size: $font-size-base * 0.7;
-    }
-
     .day-cell {
-      height: 55px;
+      border-bottom: 1px solid $secondary-200;
+      border-right: 1px solid $secondary-200;
+      position: relative;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      @media (max-width: $sm-breakpoint) {
+        height: 55px;
+      }
     }
-
     .booking-bar {
-      height: 26px;
-      font-size: $font-size-base * 0.65;
-      padding: 0 $spacing-unit * 0.5;
+      position: absolute;
+      left: 0;
+      right: -1px;
+      height: 35px;
+      background: $information-600;
+      color: $color-white;
+      z-index: 5;
+      display: flex;
+      align-items: center;
+      padding: 0 $spacing-unit;
+      font-size: $font-size-base * 0.75;
+      @media (max-width: $sm-breakpoint) {
+        height: 26px;
+        font-size: $font-size-base * 0.65;
+        padding: 0 $spacing-unit * 0.5;
+      }
+
+      &.pending {
+        background: $information-300;
+        opacity: 0.7;
+      }
+      &.is-start {
+        border-top-left-radius: 8px;
+        border-bottom-left-radius: 8px;
+        margin-left: $spacing-unit * 2;
+      }
+      .customer {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-weight: 600;
+      }
     }
   }
 }
