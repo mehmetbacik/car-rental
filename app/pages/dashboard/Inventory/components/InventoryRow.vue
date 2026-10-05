@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { Icon } from "@iconify/vue";
+
 interface InventoryCar {
   id: string;
   name: string;
@@ -41,8 +43,12 @@ const getStatusClass = (status: string) => ({
     <td>${{ car.pricePerDay }}.00</td>
     <td>
       <div class="actions">
-        <button class="btn-icon" @click="emit('edit', car)">✏️</button>
-        <button class="btn-icon" @click="emit('delete', car.id)">🗑️</button>
+        <button class="btn-icon" @click="emit('edit', car)">
+          <Icon icon="mdi:pencil-outline" />
+        </button>
+        <button class="btn-icon" @click="emit('delete', car.id)">
+          <Icon icon="mdi:trash-can-outline" />
+        </button>
       </div>
     </td>
   </tr>

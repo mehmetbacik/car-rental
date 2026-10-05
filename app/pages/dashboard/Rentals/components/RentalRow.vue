@@ -1,22 +1,29 @@
 <script setup lang="ts">
+import { Icon } from '@iconify/vue'
+
 const props = defineProps<{
-  rent: any
-  inventory: any[]
-}>()
+  rent: any;
+  inventory: any[];
+}>();
 
 const getCarDetails = (carId: string) => {
-  return props.inventory.find(c => c.id === carId)
-}
+  return props.inventory.find((c) => c.id === carId);
+};
 
 const getStatusColor = (status: string) => {
   switch (status) {
-    case 'Completed': return '#2ecc71'
-    case 'Active': return '#3563E9'
-    case 'Pending': return '#f1c40f'
-    case 'Cancelled': return '#e74c3c'
-    default: return '#90A3BF'
+    case "Completed":
+      return "#2ecc71";
+    case "Active":
+      return "#3563E9";
+    case "Pending":
+      return "#f1c40f";
+    case "Cancelled":
+      return "#e74c3c";
+    default:
+      return "#90A3BF";
   }
-}
+};
 </script>
 
 <template>
@@ -25,10 +32,7 @@ const getStatusColor = (status: string) => {
 
     <td class="car-info">
       <div class="car-flex">
-        <img
-          :src="getCarDetails(rent.carId)?.images[0]"
-          class="car-thumb"
-        />
+        <img :src="getCarDetails(rent.carId)?.images[0]" class="car-thumb" />
         <span>{{ getCarDetails(rent.carId)?.name }}</span>
       </div>
     </td>
@@ -52,7 +56,7 @@ const getStatusColor = (status: string) => {
         class="status-pill"
         :style="{
           backgroundColor: getStatusColor(rent.status) + '15',
-          color: getStatusColor(rent.status)
+          color: getStatusColor(rent.status),
         }"
       >
         {{ rent.status }}
@@ -60,7 +64,7 @@ const getStatusColor = (status: string) => {
     </td>
 
     <td>
-      <button class="btn-more">•••</button>
+      <button class="btn-more"><Icon icon="mdi:dots-vertical" /></button>
     </td>
   </tr>
 </template>
