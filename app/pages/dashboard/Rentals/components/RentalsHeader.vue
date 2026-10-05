@@ -11,7 +11,7 @@ const emit = defineEmits<{
 </script>
 
 <template>
-  <div class="header">
+  <div class="rentals-header">
     <h2>Car Rental Management</h2>
 
     <div class="actions">

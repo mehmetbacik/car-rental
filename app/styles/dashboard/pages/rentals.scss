@@ -1,0 +1,301 @@
+.rent-page {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  .rentals-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: $spacing-unit * 4;
+    margin-bottom: $spacing-unit * 5;
+    padding: $spacing-unit * 5;
+    background: var(--card-bg);
+    border-radius: 8px;
+    @media (max-width: $md-breakpoint) {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: $spacing-unit * 4;
+    }
+    h2 {
+      margin: 0;
+      color: $color-black;
+      font-size: $font-size-base * 1.4;
+      font-weight: 600;
+      line-height: 1.3;
+      @media (max-width: $sm-breakpoint) {
+        font-size: $font-size-base * 1.2;
+      }
+    }
+    .actions {
+      display: flex;
+      align-items: center;
+      gap: $spacing-unit * 3;
+      min-width: 0;
+      @media (max-width: $md-breakpoint) {
+        width: 100%;
+      }
+      @media (max-width: $sm-breakpoint) {
+        align-items: stretch;
+        flex-direction: column;
+        gap: $spacing-unit * 2;
+      }
+      .search-box {
+        position: relative;
+        width: 240px;
+        @media (max-width: $md-breakpoint) {
+          flex: 1;
+          width: auto;
+        }
+        @media (max-width: $sm-breakpoint) {
+          width: 100%;
+        }
+        input {
+          width: 100%;
+          min-width: 0;
+          box-sizing: border-box;
+          padding: $spacing-unit * 3;
+          border: 1px solid $secondary-200;
+          border-radius: 8px;
+          outline: none;
+          background: var(--card-bg);
+          color: $secondary-900;
+          font-family: inherit;
+          font-size: $font-size-base * 0.75;
+          line-height: 1.4;
+          transition: $transition-base;
+          &::placeholder {
+            color: $secondary-400;
+          }
+          &:focus {
+            border-color: $information-500;
+          }
+        }
+      }
+      .filter-select {
+        min-width: 130px;
+        padding: $spacing-unit * 3;
+        border: 1px solid $secondary-200;
+        border-radius: 8px;
+        outline: none;
+        background: var(--card-bg);
+        color: $secondary-700;
+        font-family: inherit;
+        font-size: $font-size-base * 0.75;
+        font-weight: 500;
+        line-height: 1.4;
+        cursor: pointer;
+        transition: $transition-base;
+        @media (max-width: $md-breakpoint) {
+          flex: 0 0 auto;
+        }
+        @media (max-width: $sm-breakpoint) {
+          width: 100%;
+        }
+        &:focus {
+          border-color: $information-500;
+        }
+      }
+    }
+  }
+  .rentals-table.card {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    padding: $spacing-unit * 5;
+    overflow-x: auto;
+    background: var(--card-bg);
+    border-radius: 8px;
+    scrollbar-width: thin;
+    scrollbar-color: $secondary-200 transparent;
+    @media (max-width: $md-breakpoint) {
+      padding: $spacing-unit * 4;
+    }
+    @media (max-width: $sm-breakpoint) {
+      padding: $spacing-unit * 3;
+    }
+    &::-webkit-scrollbar {
+      height: 4px;
+    }
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: $secondary-200;
+      border-radius: 10px;
+    }
+    table {
+      width: 100%;
+      min-width: 900px;
+      border-collapse: collapse;
+      table-layout: auto;
+      @media (max-width: $sm-breakpoint) {
+        min-width: 900px;
+      }
+      thead {
+        tr {
+          border-bottom: 1px solid $secondary-200;
+        }
+        th {
+          padding: 0 $spacing-unit * 3 $spacing-unit * 3;
+          color: $secondary-800;
+          font-size: $font-size-base * 0.75;
+          font-weight: 600;
+          line-height: 1.4;
+          text-align: left;
+          white-space: nowrap;
+          &:first-child {
+            padding-left: 0;
+          }
+          &:last-child {
+            padding-right: 0;
+            text-align: right;
+          }
+        }
+      }
+      tbody {
+        tr {
+          border-bottom: 1px solid $secondary-100;
+          transition: $transition-base;
+          cursor: pointer;
+          &:last-child {
+            border-bottom: none;
+          }
+          &:hover {
+            background: $secondary-100;
+          }
+          td {
+            padding: $spacing-unit * 3;
+            color: $secondary-700;
+            font-size: $font-size-base * 0.75;
+            vertical-align: middle;
+            white-space: nowrap;
+            &:first-child {
+              padding-left: 0;
+            }
+            &:last-child {
+              padding-right: 0;
+              text-align: right;
+            }
+          }
+        }
+      }
+    }
+    .empty {
+      padding: $spacing-unit * 8 0;
+      color: $secondary-400;
+      font-size: $font-size-base * 0.8;
+      text-align: center;
+    }
+  }
+  .rentals-table {
+    .order-id {
+      color: $secondary-700;
+      font-size: $font-size-base * 0.75;
+      font-weight: 600;
+    }
+    .car-info {
+      .car-flex {
+        display: flex;
+        align-items: center;
+        gap: $spacing-unit * 3;
+        min-width: 160px;
+        .car-thumb {
+          width: 50px;
+          height: 35px;
+          flex: 0 0 50px;
+          object-fit: contain;
+          border-radius: 8px;
+          background: $secondary-100;
+        }
+        span {
+          max-width: 150px;
+          overflow: hidden;
+          color: $secondary-900;
+          font-size: $font-size-base * 0.875;
+          font-weight: 600;
+          line-height: 1.3;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+      }
+    }
+    .customer {
+      display: flex;
+      flex-direction: column;
+      gap: $spacing-unit;
+      min-width: 150px;
+      strong {
+        overflow: hidden;
+        color: $secondary-900;
+        font-size: $font-size-base * 0.875;
+        font-weight: 600;
+        line-height: 1.3;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      span {
+        overflow: hidden;
+        color: $secondary-400;
+        font-size: $font-size-base * 0.75;
+        font-weight: 400;
+        line-height: 1.3;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+    .dates {
+      min-width: 130px;
+      color: $secondary-700;
+      font-size: $font-size-base * 0.75;
+      font-weight: 500;
+      line-height: 1.5;
+      small {
+        color: $secondary-400;
+        font-size: $font-size-base * 0.75;
+        font-weight: 400;
+      }
+    }
+    .price {
+      color: $secondary-900;
+      font-size: $font-size-base * 0.75;
+      font-weight: 600;
+    }
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      padding-inline: $spacing-unit * 3;
+      padding-block: $spacing-unit * 2;
+      border-radius: 20px;
+      font-size: $font-size-base * 0.675;
+      font-weight: 600;
+      line-height: 1;
+      text-transform: capitalize;
+      white-space: nowrap;
+    }
+    .btn-more {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      padding: 0;
+      border: none;
+      border-radius: 8px;
+      background: transparent;
+      color: $secondary-400;
+      font-size: $font-size-base;
+      font-weight: 600;
+      line-height: 1;
+      cursor: pointer;
+      transition: $transition-base;
+      &:hover {
+        background: $secondary-100;
+        color: $secondary-700;
+      }
+      &:focus-visible {
+        outline: 2px solid $information-500;
+        outline-offset: 2px;
+      }
+    }
+  }
+}

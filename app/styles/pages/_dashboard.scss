@@ -678,19 +678,6 @@
   }
 }
 
-.rent-page {
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: $spacing-unit * 8;
-    .actions {
-      display: flex;
-      gap: $spacing-unit * 4;
-    }
-  }
-}
-
 .search-box input {
   padding-block: $spacing-unit * 3;
   padding-inline: $spacing-unit * 4;
