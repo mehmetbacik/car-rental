@@ -59,39 +59,6 @@
   margin-bottom: $spacing-unit * 6;
 }
 
-.inventory-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: $spacing-unit * 8;
-}
-
-.inventory-table {
-  overflow-x: auto;
-  background: $information-100;
-  border: 1px solid $information-100;
-
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    text-align: left;
-
-    th {
-      padding: $spacing-unit * 4;
-      color: $secondary-300;
-      font-size: $font-size-base * 0.85;
-      border-bottom: 1px solid $information-100;
-    }
-
-    td {
-      padding-block: $spacing-unit * 6;
-      padding-inline: $spacing-unit * 4;
-      border-bottom: 1px solid $information-100;
-      color: $secondary-300;
-    }
-  }
-}
-
 .car-cell {
   display: flex;
   align-items: center;

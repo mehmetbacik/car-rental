@@ -22,7 +22,7 @@ const emit = defineEmits<{
 </script>
 
 <template>
-  <div class="inventory-table card">
+  <div class="inventory-table">
     <table v-if="inventory.length">
       <thead>
         <tr>

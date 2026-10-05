@@ -8,7 +8,7 @@ defineProps<{
 </script>
 
 <template>
-  <div class="rentals-table card">
+  <div class="rentals-table">
     <table>
       <thead>
         <tr>
