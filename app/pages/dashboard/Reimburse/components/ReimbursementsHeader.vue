@@ -5,13 +5,11 @@ defineProps<{
 </script>
 
 <template>
-  <div class="header">
+  <div class="reimburse-header">
     <div>
       <h2>Reimbursements</h2>
-      <p>Manage and approve fleet expenses</p>
     </div>
-
-    <div class="stats-mini card">
+    <div class="stats-mini">
       <span>Pending Total:</span>
       <strong>${{ totalPending.toFixed(2) }}</strong>
     </div>

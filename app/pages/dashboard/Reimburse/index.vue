@@ -25,7 +25,6 @@ const updateExpenseStatus = (id: string, status: "Approved" | "Rejected") => {
 <template>
   <div class="reimburse-page">
     <ReimbursementsHeader :total-pending="totalPending" />
-
     <ExpenseTable
       :expenses="expenses"
       :cars="inventory"

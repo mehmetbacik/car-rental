@@ -27,7 +27,7 @@ const emit = defineEmits<{
 </script>
 
 <template>
-  <div class="expense-list card">
+  <div class="expense-list">
     <table v-if="expenses.length > 0">
       <thead>
         <tr>
