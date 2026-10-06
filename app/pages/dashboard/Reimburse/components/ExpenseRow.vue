@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { Icon } from "@iconify/vue";
+
 interface Expense {
   id: string;
   carId: string;
@@ -24,24 +26,21 @@ const emit = defineEmits<{
 }>();
 
 const getCarName = (carId: string) => {
-  return (
-    props.cars.find((car) => car.id === carId)?.name ||
-    "Unknown Car"
-  );
+  return props.cars.find((car) => car.id === carId)?.name || "Unknown Car";
 };
 
 const getCategoryIcon = (category: string) => {
   switch (category) {
     case "Fuel":
-      return "⛽";
+      return "mdi:gas-station-outline";
     case "Maintenance":
-      return "🔧";
+      return "mdi:wrench-outline";
     case "Insurance":
-      return "🛡️";
+      return "mdi:shield-check-outline";
     case "Wash":
-      return "🧼";
+      return "mdi:car-wash";
     default:
-      return "📄";
+      return "mdi:file-document-outline";
   }
 };
 </script>
@@ -49,63 +48,45 @@ const getCategoryIcon = (category: string) => {
 <template>
   <tr>
     <td class="id">#{{ expense.id }}</td>
-
     <td class="category-cell">
       <span class="icon">
-        {{ getCategoryIcon(expense.category) }}
+        <Icon :icon="getCategoryIcon(expense.category)" />
       </span>
-
       <div class="info">
         <strong>{{ getCarName(expense.carId) }}</strong>
         <span>{{ expense.category }}</span>
       </div>
     </td>
-
     <td class="desc">
       {{ expense.description }}
     </td>
-
     <td>{{ expense.date }}</td>
-
-    <td class="amount">
-      ${{ expense.amount.toFixed(2) }}
-    </td>
-
+    <td class="amount">${{ expense.amount.toFixed(2) }}</td>
     <td>
-      <span
-        class="status-badge"
-        :class="expense.status.toLowerCase()"
-      >
+      <span class="status-badge" :class="expense.status.toLowerCase()">
         {{ expense.status }}
       </span>
     </td>
-
     <td class="actions">
-      <div
-        v-if="expense.status === 'Pending'"
-        class="btn-group"
-      >
+      <div v-if="expense.status === 'Pending'" class="btn-group">
         <button
           class="btn-check"
+          type="button"
+          aria-label="Approve expense"
           @click="emit('update-status', expense.id, 'Approved')"
         >
-          ✅
+          <Icon icon="mdi:check" />
         </button>
-
         <button
           class="btn-cross"
+          type="button"
+          aria-label="Reject expense"
           @click="emit('update-status', expense.id, 'Rejected')"
         >
-          ❌
+          <Icon icon="mdi:close" />
         </button>
       </div>
-
-      <span
-        v-else
-        class="processed-text"
-      >
-        Processed
-      </span>
+      <span v-else class="processed-text"> Processed </span>
     </td>
   </tr>
 </template>
