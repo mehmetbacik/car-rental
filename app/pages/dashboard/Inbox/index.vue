@@ -33,7 +33,7 @@ const handleInfo = () => {
 
 <template>
   <div class="inbox-page">
-    <div class="inbox-container card">
+    <div class="inbox-container">
       <ChatList
         :chats="inboxStore.chats"
         :active-chat-id="inboxStore.activeChatId"

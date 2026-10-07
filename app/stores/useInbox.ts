@@ -24,7 +24,7 @@ export const useInboxStore = defineStore("inbox", {
       {
         id: "1",
         userName: "John Smith",
-        userAvatar: "/images/avatar-1.png",
+        userAvatar: "/images/avatar/avatar-1.jpg",
         lastMessage: "Where is the vehicle delivery location?",
         status: "online",
         unreadCount: 2,
@@ -55,7 +55,7 @@ export const useInboxStore = defineStore("inbox", {
       {
         id: "2",
         userName: "Emily Johnson",
-        userAvatar: "/images/avatar-2.png",
+        userAvatar: "/images/avatar/avatar-2.jpg",
         lastMessage: "Can we update the billing address?",
         status: "offline",
         unreadCount: 0,

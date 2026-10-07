@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { Icon } from "@iconify/vue";
+
 defineProps<{
   userName: string;
   status: string;
@@ -11,16 +13,32 @@ const emit = defineEmits<{
 </script>
 
 <template>
-  <header class="chat-header">
+  <div class="chat-header">
     <div class="user-meta">
       <strong>{{ userName }}</strong>
       <small>
         {{ status === "online" ? "Active now" : "Away" }}
       </small>
     </div>
+
     <div class="header-actions">
-      <button class="btn-icon" @click="emit('call')">📞</button>
-      <button class="btn-icon" @click="emit('info')">ℹ️</button>
+      <button
+        class="btn-icon"
+        type="button"
+        aria-label="Call"
+        @click="emit('call')"
+      >
+        <Icon icon="mdi:phone-outline" />
+      </button>
+
+      <button
+        class="btn-icon"
+        type="button"
+        aria-label="Information"
+        @click="emit('info')"
+      >
+        <Icon icon="mdi:information-outline" />
+      </button>
     </div>
-  </header>
+  </div>
 </template>
