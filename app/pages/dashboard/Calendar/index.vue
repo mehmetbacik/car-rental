@@ -50,7 +50,7 @@ const handleAddEvent = () => {
 <template>
   <div class="calendar-page">
     <div class="calendar-layout">
-      <main class="calendar-main card">
+      <div class="calendar-main card">
         <CalendarHeader
           title="March 2026"
           :active-view="activeView"
@@ -62,7 +62,7 @@ const handleAddEvent = () => {
           :selected-date="selectedDate"
           @select-date="selectedDate = $event"
         />
-      </main>
+      </div>
       <CalendarDetails
         :selected-date="selectedDate"
         :events="activeEvents"

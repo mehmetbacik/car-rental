@@ -1,21 +1,47 @@
+
+.calendar-page {
+  min-width: 0;
+  width: 100%;
+}
+
 .calendar-layout {
   display: grid;
-  grid-template-columns: 1fr 350px;
+  grid-template-columns: minmax(0, 1fr) 350px;
   gap: $spacing-unit * 6;
-  height: calc(100vh - 150px);
+  min-height: calc(100vh - 150px);
+  height: auto;
+  align-items: stretch;
+
+  > * {
+    min-width: 0;
+  }
 }
 
 .calendar-main {
+  min-width: 0;
   padding: $spacing-unit * 6;
+
   .calendar-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+    gap: $spacing-unit * 3;
     margin-bottom: $spacing-unit * 6;
+
+    h3 {
+      min-width: 0;
+      margin: 0;
+      overflow-wrap: anywhere;
+    }
+
     .view-options {
+      display: flex;
+      flex-shrink: 0;
       background: $secondary-100;
       padding: $spacing-unit;
       border-radius: 8px;
+
       button {
         border: none;
         padding-block: $spacing-unit;
@@ -24,6 +50,7 @@
         cursor: pointer;
         background: transparent;
         font-size: $font-size-base * 0.8;
+
         &.active {
           background: $color-white;
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
@@ -35,12 +62,14 @@
 
 .calendar-grid {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(7, minmax(0, 1fr));
   border: 1px solid $secondary-200;
   border-radius: 8px;
   overflow: hidden;
+  min-width: 0;
 
   .weekday-label {
+    min-width: 0;
     padding: $spacing-unit * 3;
     text-align: center;
     background: $secondary-100;
@@ -48,22 +77,27 @@
     font-size: $font-size-base * 0.8;
     color: $secondary-300;
     border-bottom: 1px solid $secondary-200;
+    overflow: hidden;
   }
 
   .day-cell {
+    min-width: 0;
     height: 100px;
     padding: 10px;
     border-right: 1px solid $secondary-200;
     border-bottom: 1px solid $secondary-200;
     cursor: pointer;
-    transition: 0.2s;
+    transition: background-color 0.2s;
     position: relative;
+
     &:hover {
       background: $secondary-100;
     }
+
     &.selected {
       background: rgba(53, 99, 233, 0.05);
     }
+
     &.blank {
       background: $secondary-100;
       opacity: 0.3;
@@ -74,11 +108,15 @@
       font-weight: 600;
       font-size: $font-size-base * 0.9;
     }
+
     .event-dots {
       display: flex;
+      flex-wrap: wrap;
       gap: $spacing-unit;
       margin-top: $spacing-unit * 2;
+
       .dot {
+        flex: 0 0 6px;
         width: 6px;
         height: 6px;
         border-radius: 50%;
@@ -88,39 +126,54 @@
 }
 
 .calendar-details {
+  min-width: 0;
+  min-height: 0;
   padding: $spacing-unit * 6;
   display: flex;
   flex-direction: column;
+
   h4 {
     margin-bottom: $spacing-unit * 5;
     color: $color-black;
+    overflow-wrap: anywhere;
   }
 
   .event-list {
     flex: 1;
+    min-width: 0;
     display: flex;
     flex-direction: column;
     gap: $spacing-unit * 3;
+
     .event-item {
+      min-width: 0;
       display: flex;
       gap: $spacing-unit * 3;
       padding: $spacing-unit * 3;
       border-radius: 8px;
       background: $secondary-100;
+
       .type-indicator {
+        flex: 0 0 4px;
         width: 4px;
         border-radius: 2px;
       }
+
       .event-info {
+        min-width: 0;
         display: flex;
         flex-direction: column;
+        overflow-wrap: anywhere;
+
         .event-title {
           font-weight: 700;
           font-size: $font-size-base * 0.85;
         }
+
         .event-subtitle {
           font-size: $font-size-base * 0.75;
           color: $secondary-400;
+          overflow-wrap: anywhere;
         }
       }
     }
@@ -128,14 +181,17 @@
 
   .empty-state {
     flex: 1;
+    min-width: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     color: $secondary-200;
     font-size: $font-size-base * 0.85;
+    text-align: center;
   }
 
   .add-event-btn {
+    flex-shrink: 0;
     margin-top: $spacing-unit * 5;
     width: 100%;
     padding: $spacing-unit * 3;
@@ -145,5 +201,133 @@
     border-radius: 8px;
     font-weight: 600;
     cursor: pointer;
+  }
+}
+
+@media (max-width: $lg-breakpoint) {
+  .calendar-layout {
+    grid-template-columns: minmax(0, 1fr);
+    min-height: auto;
+    gap: $spacing-unit * 5;
+  }
+
+  .calendar-details {
+    min-height: 280px;
+  }
+}
+
+@media (max-width: $md-breakpoint) {
+  .calendar-main {
+    padding: $spacing-unit * 3;
+
+    .calendar-header {
+      align-items: stretch;
+      gap: $spacing-unit * 3;
+      margin-bottom: $spacing-unit * 4;
+
+      h3 {
+        width: 100%;
+        font-size: $font-size-base * 1.1;
+      }
+
+      .view-options {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+
+        button {
+          min-width: 0;
+          padding-inline: $spacing-unit * 2;
+          font-size: $font-size-base * 0.8;
+        }
+      }
+    }
+  }
+
+  .calendar-grid {
+    border-radius: 6px;
+
+    .weekday-label {
+      padding: $spacing-unit 0;
+      font-size: $font-size-base * 0.7;
+    }
+
+    .day-cell {
+      height: clamp(52px, 12vw, 76px);
+      padding: $spacing-unit;
+
+      .day-num {
+        font-size: $font-size-base * 0.8;
+      }
+
+      .event-dots {
+        gap: 3px;
+        margin-top: $spacing-unit;
+
+        .dot {
+          flex-basis: 5px;
+          width: 5px;
+          height: 5px;
+        }
+      }
+    }
+  }
+
+  .calendar-details {
+    padding: $spacing-unit * 4;
+    min-height: 240px;
+
+    h4 {
+      margin-bottom: $spacing-unit * 4;
+      font-size: $font-size-base;
+    }
+
+    .event-list {
+      gap: $spacing-unit * 2;
+
+      .event-item {
+        padding: $spacing-unit * 3;
+      }
+    }
+  }
+}
+
+@media (max-width: $sm-breakpoint) {
+  .calendar-main {
+    padding: $spacing-unit * 2;
+
+    .calendar-header {
+      .view-options {
+        button {
+          padding-inline: $spacing-unit;
+          font-size: $font-size-base * 0.7;
+        }
+      }
+    }
+  }
+
+  .calendar-grid {
+    .weekday-label {
+      font-size: $font-size-base * 0.6;
+    }
+
+    .day-cell {
+      height: 48px;
+      padding: 4px;
+
+      .day-num {
+        font-size: $font-size-base * 0.75;
+      }
+
+      .event-dots {
+        gap: 2px;
+
+        .dot {
+          flex-basis: 4px;
+          width: 4px;
+          height: 4px;
+        }
+      }
+    }
   }
 }

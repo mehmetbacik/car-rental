@@ -10,7 +10,7 @@ const emit = defineEmits<{
 </script>
 
 <template>
-  <header class="calendar-header">
+  <div class="calendar-header">
     <h3>{{ title }}</h3>
 
     <div class="view-options">
@@ -23,5 +23,5 @@ const emit = defineEmits<{
         {{ view.charAt(0).toUpperCase() + view.slice(1) }}
       </button>
     </div>
-  </header>
+  </div>
 </template>
