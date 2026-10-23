@@ -1,11 +1,18 @@
 .help-page {
+  min-width: 0;
+  width: 100%;
   padding-bottom: 40px;
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
 }
 
 .help-hero {
   background: $information-600;
-  padding-block: $spacing-unit * 14;
-  padding-inline: $spacing-unit * 6;
+  padding: ($spacing-unit * 14) ($spacing-unit * 6);
   text-align: center;
   border-radius: 16px;
   margin-bottom: $spacing-unit * 7;
@@ -13,33 +20,41 @@
 
   h1 {
     color: $color-white;
-    margin-bottom: 24$spacing-unit * 6;
+    margin-bottom: $spacing-unit * 6;
     font-size: $font-size-base * 2;
+    overflow-wrap: anywhere;
   }
 
   .search-wrapper {
     display: flex;
+    width: 100%;
     max-width: 600px;
     margin: 0 auto;
     gap: $spacing-unit * 3;
+
     input {
       flex: 1;
+      min-width: 0;
       padding: $spacing-unit * 4;
       border-radius: 10px;
       border: none;
-      font-size: $font-size-base * 1;
+      font-size: $font-size-base;
+
       &:focus {
         outline: 2px solid $information-300;
       }
     }
+
     .btn-search {
-      padding: 0 $spacing-unit * 7;
+      flex-shrink: 0;
+      padding: 0 ($spacing-unit * 7);
       background: $color-white;
       color: $information-600;
       border: none;
       border-radius: 10px;
       font-weight: 700;
       cursor: pointer;
+
       &:hover {
         background: $secondary-100;
       }
@@ -49,30 +64,36 @@
 
 .help-categories {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
   gap: $spacing-unit * 5;
   margin-bottom: $spacing-unit * 12;
 
   .category-card {
+    min-width: 0;
     text-align: center;
     padding: $spacing-unit * 7;
     transition: $transition-base;
     cursor: pointer;
     background: var(--card-bg);
+
     &:hover {
       transform: translateY(-5px);
       border-color: $information-600;
     }
+
     .icon {
-      font-size: $font-size-base * 2.5;
       display: block;
+      font-size: $font-size-base * 2.5;
       margin-bottom: $spacing-unit * 4;
     }
+
     h3 {
       font-size: $font-size-base * 1.1;
       margin-bottom: $spacing-unit * 2;
       color: var(--text-main);
+      overflow-wrap: anywhere;
     }
+
     p {
       color: var(--text-muted);
       font-size: $font-size-base * 0.85;
@@ -82,46 +103,70 @@
 
 .help-content-grid {
   display: grid;
-  grid-template-columns: 1fr 350px;
+  grid-template-columns: minmax(0, 1fr) 350px;
+  align-items: start;
   gap: $spacing-unit * 7;
+
+  > * {
+    min-width: 0;
+  }
 }
 
 .faq-section {
+  min-width: 0;
   padding: $spacing-unit * 7;
   background: var(--card-bg);
+
   h3 {
     margin-bottom: $spacing-unit * 6;
     color: var(--text-main);
+    overflow-wrap: anywhere;
   }
+
   .faq-list {
     .faq-item {
       border-bottom: 1px solid var(--border-color);
+
       .faq-question {
         padding: $spacing-unit * 6 0;
         display: flex;
+        align-items: flex-start;
         justify-content: space-between;
+        gap: $spacing-unit * 4;
         cursor: pointer;
         font-weight: 600;
         color: var(--text-main);
         transition: $transition-base;
+
         &:hover {
           color: $information-600;
         }
+
+        span:first-child {
+          min-width: 0;
+          overflow-wrap: anywhere;
+        }
+
         .arrow {
+          flex-shrink: 0;
           font-size: $font-size-base * 1.2;
           color: $secondary-300;
         }
       }
+
       .faq-answer {
         padding-bottom: $spacing-unit * 6;
         color: var(--text-muted);
         font-size: $font-size-base * 0.95;
         line-height: 1.6;
+        overflow-wrap: anywhere;
       }
+
       &.active .faq-question {
         color: $information-600;
       }
     }
+
     .no-results {
       padding: $spacing-unit * 6;
       text-align: center;
@@ -131,13 +176,16 @@
 }
 
 .contact-support {
+  min-width: 0;
   padding: $spacing-unit * 7;
   height: fit-content;
   background: var(--card-bg);
+
   h3 {
     margin-bottom: $spacing-unit * 3;
     color: var(--text-main);
   }
+
   p {
     font-size: $font-size-base * 0.85;
     color: var(--text-muted);
@@ -148,23 +196,33 @@
     display: flex;
     flex-direction: column;
     gap: $spacing-unit * 5;
-    margin-bottom: 30px;
+    margin-bottom: $spacing-unit * 7;
+
     .method {
       display: flex;
-      gap: $spacing-unit * 4;
       align-items: center;
+      gap: $spacing-unit * 4;
+      min-width: 0;
+
       .m-icon {
+        flex-shrink: 0;
         font-size: $font-size-base * 1.5;
       }
+
       .m-text {
+        min-width: 0;
+        overflow-wrap: anywhere;
+
         strong {
           display: block;
           font-size: $font-size-base * 0.9;
           color: var(--text-main);
         }
+
         span {
           font-size: $font-size-base * 0.8;
           color: var(--text-muted);
+          overflow-wrap: anywhere;
         }
       }
     }
@@ -180,6 +238,7 @@
     font-weight: 600;
     cursor: pointer;
     transition: 0.3s;
+
     &:hover {
       background: $information-800;
       box-shadow: 0 4px 12px rgba(53, 99, 233, 0.2);
@@ -187,8 +246,142 @@
   }
 }
 
- @media (max-width: $lg-breakpoint) {
+@media (max-width: $lg-breakpoint) {
   .help-content-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+    gap: $spacing-unit * 5;
+  }
+
+  .contact-support {
+    width: 100%;
+  }
+}
+
+@media (max-width: $md-breakpoint) {
+  .help-page {
+    padding-bottom: $spacing-unit * 6;
+  }
+
+  .help-hero {
+    padding: ($spacing-unit * 8) ($spacing-unit * 4);
+    border-radius: 12px;
+    margin-bottom: $spacing-unit * 6;
+
+    h1 {
+      font-size: $font-size-base * 1.5;
+    }
+
+    .search-wrapper {
+      flex-direction: column;
+      gap: $spacing-unit * 3;
+
+      input,
+      .btn-search {
+        width: 100%;
+        min-height: 44px;
+      }
+
+      .btn-search {
+        padding: $spacing-unit * 3;
+      }
+    }
+  }
+
+  .help-categories {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: $spacing-unit * 3;
+    margin-bottom: $spacing-unit * 7;
+
+    .category-card {
+      padding: $spacing-unit * 4;
+
+      &:hover {
+        transform: none;
+      }
+
+      .icon {
+        font-size: $font-size-base * 2;
+        margin-bottom: $spacing-unit * 3;
+      }
+
+      h3 {
+        font-size: $font-size-base;
+      }
+    }
+  }
+
+  .help-content-grid {
+    gap: $spacing-unit * 4;
+  }
+
+  .faq-section,
+  .contact-support {
+    padding: $spacing-unit * 4;
+  }
+
+  .faq-section {
+    h3 {
+      font-size: $font-size-base * 1.1;
+      margin-bottom: $spacing-unit * 3;
+    }
+
+    .faq-list {
+      .faq-item {
+        .faq-question {
+          padding: $spacing-unit * 4 0;
+          gap: $spacing-unit * 3;
+        }
+
+        .faq-answer {
+          padding-bottom: $spacing-unit * 4;
+        }
+      }
+
+      .no-results {
+        padding: $spacing-unit * 4;
+      }
+    }
+  }
+
+  .contact-support {
+    .contact-methods {
+      gap: $spacing-unit * 4;
+      margin-bottom: $spacing-unit * 5;
+    }
+  }
+}
+
+@media (max-width: $sm-breakpoint) {
+  .help-hero {
+    padding: $spacing-unit * 5 $spacing-unit * 3;
+
+    h1 {
+      font-size: $font-size-base * 1.3;
+    }
+  }
+
+  .help-categories {
+    gap: $spacing-unit * 2;
+
+    .category-card {
+      padding: $spacing-unit * 3;
+
+      .icon {
+        font-size: $font-size-base * 1.8;
+      }
+
+      h3 {
+        font-size: $font-size-base * 0.9;
+      }
+
+      p {
+        font-size: $font-size-base * 0.75;
+      }
+    }
+  }
+
+  .faq-section,
+  .contact-support {
+    padding: $spacing-unit * 3;
   }
 }
