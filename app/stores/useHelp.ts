@@ -3,10 +3,10 @@ import { defineStore } from "pinia";
 export const useHelpStore = defineStore("help", {
   state: () => ({
     categories: [
-      { id: "1", title: "Booking Guide", icon: "🚗", count: 12 },
-      { id: "2", title: "Payments & Refund", icon: "💳", count: 8 },
-      { id: "3", title: "Technical Support", icon: "🛠️", count: 5 },
-      { id: "4", title: "Security", icon: "🛡️", count: 4 },
+      { id: "1", title: "Booking Guide", icon: "mdi:car-outline", count: 12 },
+      { id: "2", title: "Payments & Refund", icon: "mdi:credit-card-outline", count: 8 },
+      { id: "3", title: "Technical Support", icon: "mdi:tools", count: 5 },
+      { id: "4", title: "Security", icon: "mdi:shield-check-outline", count: 4 },
     ],
     faqs: [
       {

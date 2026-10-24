@@ -82,7 +82,9 @@
     }
 
     .icon {
-      display: block;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       font-size: $font-size-base * 2.5;
       margin-bottom: $spacing-unit * 4;
     }
