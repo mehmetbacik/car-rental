@@ -1,31 +1,134 @@
 :root {
-  // Light Mode (Default)
-  --bg-color: #F6F7F9;
-  --card-bg: #FFFFFF;
-  --text-main: #1A202C;
-  --text-muted: #90A3BF;
-  --border-color: rgba(195, 212, 248, 0.4);
-  --primary-color: #3563E9;
+  color-scheme: light;
 
-  --header-bg: #FFFFFF;
+  // Backgrounds
+  --bg-color: #F6F7F9;
+  --card-bg: #{$color-white};
+  --header-bg: #{$color-white};
+  --input-bg: #{$color-white};
+
+  // Text
+  --text-main: #{$secondary-500};
+  --text-muted: #{$secondary-400};
+  --text-inverse: #{$color-white};
+
+  // Borders
+  --border-color: #{$secondary-200};
+  --border-subtle: #{$secondary-100};
+
+  // Brand
+  --primary-color: #{$primary-neutral-palette-500};
+  --primary-hover: #{$primary-neutral-palette-600};
+  --primary-light: #{$primary-neutral-palette-100};
+
+  // Status
+  --success-color: #{$success-600};
+  --success-bg: #{$success-100};
+
+  --error-color: #{$error-600};
+  --error-bg: #{$error-100};
+
+  --warning-color: #{$warning-700};
+  --warning-bg: #{$warning-100};
+
+  --information-color: #{$information-700};
+  --information-bg: #{$information-100};
+
+  // Effects
+  --shadow-color: rgba(4, 8, 21, 0.08);
 }
+
+// ========================================
+// Dark Mode
+// ========================================
 
 .dark-mode {
-  // Dark Mode
-  --bg-color: #040815;
-  --card-bg: #131313;
-  --text-main: #FFFFFF;
-  --text-muted: #7C7C7C;
-  --border-color: #2D2D2D;
+  color-scheme: dark;
 
-  --header-bg: #040815;
+  // Backgrounds
+  --bg-color: #{$secondary-900};
+  --card-bg: #{$secondary-800};
+  --header-bg: #{$secondary-900};
+  --input-bg: #{$secondary-700};
+
+  // Text
+  --text-main: #{$secondary-100};
+  --text-muted: #{$secondary-300};
+  --text-inverse: #{$secondary-900};
+
+  // Borders
+  --border-color: #{$secondary-600};
+  --border-subtle: #{$secondary-700};
+
+  // Brand
+  --primary-color: #{$primary-neutral-palette-400};
+  --primary-hover: #{$primary-neutral-palette-300};
+  --primary-light: #{$primary-neutral-palette-900};
+
+  // Status
+  --success-color: #{$success-400};
+  --success-bg: #{$success-900};
+
+  --error-color: #{$error-400};
+  --error-bg: #{$error-900};
+
+  --warning-color: #{$warning-400};
+  --warning-bg: #{$warning-900};
+
+  --information-color: #{$information-400};
+  --information-bg: #{$information-900};
+
+  // Effects
+  --shadow-color: rgba(0, 0, 0, 0.25);
 }
+
+// ========================================
+// Global Styles
+// ========================================
 
 body {
   background-color: var(--bg-color);
   color: var(--text-main);
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+
   .header {
-    background: var(--header-bg);
+    background-color: var(--header-bg);
+    border-bottom: 1px solid var(--border-color);
   }
+}
+
+.card {
+  background-color: var(--card-bg);
+  color: var(--text-main);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 2px 8px var(--shadow-color);
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+input,
+select,
+textarea {
+  background-color: var(--input-bg);
+  color: var(--text-main);
+  border: 1px solid var(--border-color);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--text-muted);
+}
+
+a {
+  color: var(--primary-color);
+}
+
+button {
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
