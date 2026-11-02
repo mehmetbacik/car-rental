@@ -58,7 +58,7 @@ defineExpose({ searchInputContainer });
               class="dropdown-item"
               @click="selectCar(car.id)"
             >
-              <img :src="car.image" class="car-thumb" alt="Car" />
+              <img :src="car.images[0]" class="car-thumb" alt="Car" />
               <div class="car-meta">
                 <span class="car-name">{{ car.name }}</span>
                 <span class="car-type">{{ car.type }}</span>

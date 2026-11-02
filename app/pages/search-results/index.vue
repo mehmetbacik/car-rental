@@ -100,7 +100,7 @@ const clearAllFilters = () => {
             </div>
 
             <div class="image-wrapper">
-              <img :src="car.image" :alt="car.name" class="car-image" />
+              <img :src="car.images[0]" :alt="car.name" class="car-image" />
             </div>
 
             <div class="card-footer">
