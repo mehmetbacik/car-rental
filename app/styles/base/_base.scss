@@ -2,15 +2,17 @@
   color-scheme: light;
 
   // Backgrounds
-  --bg-color: #F6F7F9;
+  --bg-color: #{$color-bg};
   --card-bg: #{$color-white};
   --header-bg: #{$color-white};
+  --footer-bg: #{$color-white};
   --input-bg: #{$color-white};
 
   // Text
   --text-main: #{$secondary-500};
   --text-muted: #{$secondary-400};
   --text-inverse: #{$color-white};
+  --text-card: #{$secondary-500};
 
   // Borders
   --border-color: #{$secondary-200};
@@ -46,15 +48,17 @@
   color-scheme: dark;
 
   // Backgrounds
-  --bg-color: #{$secondary-900};
-  --card-bg: #{$secondary-800};
-  --header-bg: #{$secondary-900};
+  --bg-color: #{$secondary-500};
+  --card-bg: #{$secondary-600};
+  --header-bg: #{$secondary-500};
+  --footer-bg: #{$secondary-500};
   --input-bg: #{$secondary-700};
 
   // Text
   --text-main: #{$secondary-100};
   --text-muted: #{$secondary-300};
   --text-inverse: #{$secondary-900};
+  --text-card: #{$secondary-300};
 
   // Borders
   --border-color: #{$secondary-600};

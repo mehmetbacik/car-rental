@@ -1,5 +1,5 @@
 .footer {
-  background-color: $color-white;
+  background: var(--footert-bg);
   padding-top: $spacing-unit * 20;
   padding-bottom: $spacing-unit * 8;
   border-top: 1px solid rgba(19, 19, 19, 0.05);
@@ -39,7 +39,7 @@
       &__title {
         font-size: $font-size-base * 1.2;
         font-weight: 600;
-        color: $secondary-500;
+        color: var(--text-card);
         margin-bottom: $spacing-unit * 6;
       }
       &__list {
@@ -75,7 +75,7 @@
     .copyright {
       font-size: $font-size-base * 1;
       font-weight: 600;
-      color: $secondary-500;
+      color: var(--text-card);
     }
     .legal-links {
       display: flex;
@@ -87,7 +87,7 @@
         text-decoration: none;
         font-size: $font-size-base * 1;
         font-weight: 600;
-        color: $secondary-500;
+        color: var(--text-card);
         transition: $transition-base;
         &:hover {
           color: $primary-neutral-palette-500;

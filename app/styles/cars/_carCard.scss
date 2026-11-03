@@ -1,5 +1,5 @@
 .car-card {
-  background: $color-white;
+  background: var(--card-bg);
   padding: $spacing-unit * 6;
   border-radius: 10px;
   display: flex;
@@ -19,7 +19,7 @@
     .name {
       font-size: $font-size-base * 1.25;
       font-weight: 700;
-      color: $secondary-500;
+      color: var(--text-card);
       margin: 0;
       @media (max-width: $sm-breakpoint) {
         font-size: $font-size-base * 0.875;
@@ -126,7 +126,7 @@
         .value {
           font-size: $font-size-base * 1.25;
           font-weight: 700;
-          color: $secondary-500;
+          color: var(--text-card);
           @media (max-width: $sm-breakpoint) {
             font-size: $font-size-base * 1;
           }
