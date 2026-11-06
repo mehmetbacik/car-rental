@@ -10,6 +10,7 @@
   overflow-y: auto;
   scrollbar-width: thin;
   scrollbar-color: rgba(0, 0, 0, 0.3) transparent;
+  border-radius: 10px;
   &::-webkit-scrollbar {
     width: 8px;
   }
