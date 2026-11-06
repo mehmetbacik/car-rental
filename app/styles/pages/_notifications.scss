@@ -25,7 +25,7 @@
     }
   }
   .notificationsWrapper {
-    background: $color-white;
+    background: var(--card-bg);
     border-radius: 12px;
     padding: $spacing-unit * 7;
     margin-bottom: $spacing-unit * 8;
