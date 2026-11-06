@@ -10,7 +10,7 @@
     gap: $spacing-unit * 8;
     width: 100%;
     max-width: 400px;
-    background: $color-white;
+    background: var(--card-bg);
     padding: $spacing-unit * 10;
     border-radius: 15px;
     border: 1px solid $secondary-100;
@@ -27,7 +27,7 @@
         margin-bottom: $spacing-unit * 2;
       }
       .loginTitle {
-        color: $secondary-500;
+        color: var(--text-theme);
         font-weight: bold;
         font-size: $font-size-base * 1.5;
         @media (max-width: $sm-breakpoint) {
@@ -79,7 +79,7 @@
         flex-direction: column;
         flex: 1;
         label {
-          color: $secondary-500;
+          color: var(--text-theme);
           font-size: $font-size-base * 1.1;
           font-weight: 600;
           margin-bottom: $spacing-unit * 4;
@@ -185,7 +185,7 @@
     width: 240px;
     padding: $spacing-unit * 4;
     border-radius: 12px;
-    background: $color-white;
+    background: var(--card-bg);
     border: 1px solid $secondary-100;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
     opacity: 0;
@@ -207,7 +207,7 @@
     h4 {
       margin-bottom: $spacing-unit * 3;
       font-size: $font-size-base * 0.875;
-      color: $secondary-500;
+      color: var(--text-theme);
     }
     .loginTooltip-account + .loginTooltip-account {
       margin-top: $spacing-unit * 3;
@@ -228,7 +228,7 @@
       margin-top: $spacing-unit * 2;
       span {
         font-size: $font-size-base * 0.875;
-        color: $secondary-500;
+        color: var(--text-theme);
       }
     }
     .loginTooltip-copyBtn {
@@ -240,6 +240,7 @@
       border: none;
       border-radius: 6px;
       background: $secondary-100;
+      color: var(--text-theme);
       cursor: pointer;
       transition: $transition-base;
       &:hover {

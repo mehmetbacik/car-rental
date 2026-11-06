@@ -313,7 +313,7 @@
             padding-inline: $spacing-unit * 3;
             .title {
               font-weight: 700;
-              color: $secondary-500;
+              color: var(--text-theme);
             }
             .subtitle {
               font-size: $font-size-base * 0.675;
