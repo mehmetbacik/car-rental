@@ -12,7 +12,7 @@
     display: flex;
     flex-direction: column;
     gap: $spacing-unit * 8;
-    background: $color-white;
+    background: var(--card-bg);
     padding: $spacing-unit * 10;
     border-radius: 15px;
     border: 1px solid $secondary-100;
@@ -25,7 +25,7 @@
       align-items: center;
       flex-direction: column;
       .registerTitle {
-        color: $secondary-500;
+        color: var(--text-theme);
         font-weight: bold;
         font-size: $font-size-base * 1.5;
         @media (max-width: $sm-breakpoint) {
@@ -122,7 +122,7 @@
           width: 100%;
         }
         label {
-          color: $secondary-500;
+          color: var(--text-theme);
           font-size: $font-size-base * 1.1;
           font-weight: 600;
           margin-bottom: $spacing-unit * 4;
@@ -136,6 +136,7 @@
           background: $secondary-100;
           border: none;
           border-radius: 10px;
+          color: var(--text-theme);
           @media (max-width: $md-breakpoint) {
             width: 100%;
           }

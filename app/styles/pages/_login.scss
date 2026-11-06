@@ -93,6 +93,7 @@
           background: $secondary-100;
           border: none;
           border-radius: 10px;
+          color: var(--text-theme);
           @media (max-width: $sm-breakpoint) {
             padding: $spacing-unit * 2.75 $spacing-unit * 6;
             font-size: $font-size-base * 0.75;

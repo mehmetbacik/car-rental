@@ -23,14 +23,14 @@
       gap: $spacing-unit * 4;
     }
     .settingsContent {
-      background: $color-white;
+      background: var(--card-bg);
       padding: $spacing-unit * 8;
       border-radius: 10px;
       .settingsSection {
         margin-bottom: $spacing-unit * 9;
         h3 {
           font-size: $font-size-base * 1.2;
-          color: $secondary-500;
+          color: var(--text-theme);
           margin-bottom: $spacing-unit * 7;
           border-bottom: 1px solid $secondary-100;
           padding-bottom: $spacing-unit * 3;
@@ -50,7 +50,7 @@
           label {
             display: block;
             font-weight: 700;
-            color: $secondary-500;
+            color: var(--text-theme);
           }
           p {
             font-size: $font-size-base;
@@ -87,6 +87,7 @@
           border-radius: 6px;
           border: 1px solid $secondary-100;
           background: $secondary-200;
+          color: var(--text-theme);
           width: 150px;
           @media (max-width: $sm-breakpoint) {
             width: 100%;
