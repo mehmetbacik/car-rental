@@ -8,7 +8,7 @@
       margin-bottom: $spacing-unit * 5;
       h2 {
         font-size: $font-size-base * 1.2;
-        color: $color-black;
+        color: var(--text-theme);
       }
     }
     .legend {
@@ -37,7 +37,7 @@
   width: 100%;
   overflow-x: auto;
   border-radius: 12px;
-  background: $information-100;
+  background: var(--timeline-bg);
   padding: $spacing-unit * 2;
   -webkit-overflow-scrolling: touch;
   .timeline-grid {
@@ -54,7 +54,7 @@
       grid-template-columns: 120px repeat(14, 70px);
     }
     .grid-header {
-      background: $information-100;
+      background: var(--timeline-bg);
       padding: $spacing-unit;
       border-bottom: 1px solid $secondary-200;
       font-weight: 600;
@@ -70,7 +70,7 @@
       position: sticky;
       left: 0;
       z-index: 10;
-      background: $color-white;
+      background: var(--bg-color);
       border-right: 1px solid $secondary-200;
       text-align: left;
     }
@@ -96,7 +96,7 @@
         display: block;
         font-size: $font-size-base * 0.85;
         font-weight: 700;
-        color: $color-black;
+        color: var(--text-theme);
         @media (max-width: $sm-breakpoint) {
           font-size: $font-size-base * 0.65;
         }

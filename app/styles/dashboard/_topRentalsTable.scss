@@ -47,7 +47,7 @@
           }
           th {
             padding: 0 $spacing-unit * 3 $spacing-unit * 3;
-            color: $secondary-800;
+            color: var(--text-theme);
             font-size: $font-size-base * 0.75;
             font-weight: 600;
             line-height: 1.4;
@@ -114,7 +114,7 @@
       .name {
         max-width: 140px;
         overflow: hidden;
-        color: $secondary-900;
+        color: var(--text-theme);
         font-size: $font-size-base * 0.875;
         font-weight: 600;
         line-height: 1.3;
@@ -150,7 +150,7 @@
     }
 
     .price {
-      color: $secondary-900;
+      color: var(--text-theme);
       font-size: $font-size-base * 0.75;
       font-weight: 600;
     }

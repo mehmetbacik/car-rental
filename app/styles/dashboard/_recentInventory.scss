@@ -63,7 +63,7 @@
             gap: $spacing-unit;
             .name {
               overflow: hidden;
-              color: $secondary-900;
+              color: var(--text-theme);
               font-size: $font-size-base * 0.875;
               font-weight: 600;
               line-height: 1.3;
