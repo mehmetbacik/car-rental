@@ -3,7 +3,7 @@
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: $spacing-unit * 5;
   .statBox {
-    background: $information-100;
+    background: var(--quick-bg);
     padding: $spacing-unit * 5;
     border-radius: 12px;
     display: flex;

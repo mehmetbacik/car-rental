@@ -12,7 +12,7 @@
       margin-bottom: $spacing-unit * 5;
       h3 {
         font-size: $font-size-base * 1.2;
-        color: $color-black;
+        color: var(--text-theme);
       }
       .view-all {
         font-size: $font-size-base * 0.8;

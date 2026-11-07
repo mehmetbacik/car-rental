@@ -3,27 +3,27 @@
   flex-direction: column;
   gap: $spacing-unit * 4;
   .quickStats {
-    background: $color-white;
+    background: var(--card-bg);
     padding: $spacing-unit * 6;
     border-radius: 10px;
   }
   .rentalMap {
-    background: $color-white;
+    background: var(--card-bg);
     padding: $spacing-unit * 6;
     border-radius: 10px;
   }
   .recentInventory {
-    background: $color-white;
+    background: var(--card-bg);
     padding: $spacing-unit * 6;
     border-radius: 10px;
   }
   .recentTransactions {
-    background: $color-white;
+    background: var(--card-bg);
     padding: $spacing-unit * 6;
     border-radius: 10px;
   }
   .bookingTimeline {
-    background: $color-white;
+    background: var(--card-bg);
     padding: $spacing-unit * 6;
     border-radius: 10px;
   }
