@@ -52,7 +52,7 @@
       .total {
         font-size: $font-size-base * 2;
         font-weight: 800;
-        color: $color-black;
+        color: var(--text-theme);
         margin: $spacing-unit 0;
       }
       .chart-container {
@@ -71,11 +71,11 @@
         strong {
           font-size: $font-size-base * 1.5;
           display: block;
-          color: $color-black;
+          color: var(--text-theme);
         }
         span {
           font-size: $font-size-base * 0.75;
-          color: $color-black;
+          color: var(--text-theme);
         }
       }
       .trend {
@@ -86,7 +86,7 @@
         }
         small {
           font-weight: 400;
-          color: $color-black;
+          color: var(--text-theme);
         }
       }
       .top-cars-list {
@@ -111,7 +111,7 @@
             }
             .rentals {
               font-size: $font-size-base * 0.75;
-              color: $color-black;
+              color: var(--text-theme);
             }
           }
           .earning {
