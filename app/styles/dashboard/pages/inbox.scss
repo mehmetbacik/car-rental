@@ -8,7 +8,7 @@
     height: 100%;
     overflow: hidden;
     padding: 0;
-    background-color: $color-white;
+    background: var(--card-bg);
     border-radius: 10px;
     @media (max-width: $lg-breakpoint) {
       flex-direction: column-reverse;
@@ -116,7 +116,7 @@
             }
             .last-msg {
               font-size: $font-size-base * 0.8;
-              color: $secondary-500;
+              color: var(--text-theme);
               white-space: nowrap;
               overflow: hidden;
               text-overflow: ellipsis;
@@ -130,8 +130,9 @@
       flex: 1;
       display: flex;
       flex-direction: column;
-      background: $color-white;
+      background: var(--card-bg);
       .chat-header {
+        background: var(--card-bg);
         padding: $spacing-unit * 5;
         border-bottom: 1px solid $secondary-300;
         display: flex;
@@ -160,7 +161,7 @@
         display: flex;
         flex-direction: column;
         gap: $spacing-unit * 4;
-        background: $secondary-200;
+        background: var(--bg-color);
         .message-wrapper {
           display: flex;
           &.me {
@@ -181,6 +182,7 @@
             background: $color-white;
             border: 1px solid $secondary-300;
             border-radius: 15px 15px 15px 2px;
+            color: var(--text-theme);
             .time {
               font-size: $font-size-base * 0.65;
               display: block;
@@ -207,6 +209,7 @@
           border-radius: 10px;
           border: 1px solid $secondary-400;
           background: $color-white;
+          color: $color-black;
           @media (max-width: $sm-breakpoint) {
             width: 100%;
             padding: $spacing-unit * 2;
