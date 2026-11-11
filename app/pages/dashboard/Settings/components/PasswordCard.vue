@@ -19,14 +19,6 @@ const emit = defineEmits<{
     <PasswordHeader />
 
     <form @submit.prevent="emit('update-password')" class="password-form">
-      <div class="input-group">
-        <label>Current Password</label>
-        <input
-          v-model="passwordForm.current"
-          type="password"
-          placeholder="••••••••"
-        />
-      </div>
 
       <div class="input-group">
         <label>New Password</label>
@@ -46,7 +38,7 @@ const emit = defineEmits<{
         />
       </div>
 
-      <button type="submit" class="btn btn--secondary">Update Password</button>
+      <button type="submit" class="btn btn--primary">Update Password</button>
     </form>
   </div>
 </template>

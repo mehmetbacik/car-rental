@@ -29,7 +29,7 @@ const emit = defineEmits<{
     />
 
     <div class="info">
-      <h3>{{ user.name }}</h3>
+      <h2>{{ user.name }}</h2>
       <p>{{ user.role }}</p>
     </div>
   </div>

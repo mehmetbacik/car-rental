@@ -6,7 +6,7 @@ export const useProfileStore = defineStore("profile", {
       name: "Jane Doe",
       email: "jane.doe@example.com",
       role: "Software Developer",
-      avatar: "/images/avatar-default.png",
+      avatar: "/images/avatar/avatar-1.jpg",
       location: "Istanbul, Turkey",
       bio: "Frontend enthusiast & car lover.",
       phone: "+90 555 000 00 00",

@@ -112,7 +112,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: $spacing-unit * 4;
+  margin-bottom: $spacing-unit * 6;
 
   .view-all {
     color: $primary-neutral-palette-500;
@@ -449,8 +449,8 @@
 
     .avatar-wrapper {
       position: relative;
-      width: 80px;
-      height: 80px;
+      width: 72px;
+      height: 72px;
       border-radius: 50%;
       overflow: hidden;
       cursor: pointer;
@@ -496,8 +496,8 @@
     padding: $spacing-unit * 2;
     border-radius: 8px;
     border: 1px solid $secondary-400;
-    background: $information-300;
-    color: $color-black;
+    background: var(--input-bg);
+    color: var(--text-theme);
     &:focus {
       border-color: $information-700;
       outline: none;
@@ -662,4 +662,22 @@
   font-size: $font-size-base * 0.75;
   color: $secondary-500;
   font-style: italic;
+}
+
+.settings-page {
+  .btn--primary {
+    width: 100%;
+    padding: $spacing-unit * 4;
+    background: $information-600;
+    color: $color-white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    &:hover {
+      background: $information-800;
+      box-shadow: 0 4px 12px rgba(53, 99, 233, 0.2);
+    }
+  }
 }

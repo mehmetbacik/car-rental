@@ -11,7 +11,7 @@
 }
 
 .help-hero {
-  background: $information-600;
+  background: var(--help-bg);
   padding: ($spacing-unit * 14) ($spacing-unit * 6);
   text-align: center;
   border-radius: 16px;
